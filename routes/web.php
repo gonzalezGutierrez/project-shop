@@ -16,3 +16,20 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(['namespace'=>'Admin','prefix'=>'administracion'],function(){
+
+    Route::resource('categorias','CategoryController');
+    Route::resource('marcas','BrandController');
+    Route::resource('proveedores','ProviderController');
+
+    Route::resource('productos','ProductController');
+    Route::get('productos-resultados','ProductController@resultProducts');
+    Route::get('productos-proximos-terminar','ProductController@productOutStock');
+
+    Route::resource('historial-precios','PriceHistoryController');
+
+    Route::resource('compras','BuyController');
+
+
+});

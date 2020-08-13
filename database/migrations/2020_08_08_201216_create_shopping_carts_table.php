@@ -1,0 +1,39 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateShoppingCartsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('shopping_carts', function (Blueprint $table) {
+
+            $table->increments('id');
+
+            $table->integer('usuario_id')->nullable()->unsigned();
+            $table->foreign('usuario_id')->references('id')->on('users');
+
+            $table->enum('estatus',['activo','inactivo','olvidado']);
+
+            $table->timestamps();
+
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('shopping_carts');
+    }
+}
