@@ -29,10 +29,10 @@
             </div>
         </header>
 
-        <form class="" action="{{asset('administracion/categorias/'.$category->id)}}" method="POST">
+        <form class="" action="{{asset('administracion/categorias/'.$category->id)}}" enctype="multipart/form-data" method="POST">
             @csrf
             @method('PUT')
-            @include('admin.categories.form')
+            @include('admin.categories.form',['edit'=>true])
         </form>
 
 

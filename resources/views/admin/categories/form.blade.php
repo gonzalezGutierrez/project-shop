@@ -16,6 +16,18 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label class="col-md-3 control-label">Imagen</label>
+                        <div class="col-md-6">
+                            {!! Form::file('file',['class'=>'form-control']) !!}
+                            @error('file')
+                                <span class="text-danger">{{$message}}</span>
+                            @enderror
+
+                            <img src="{{asset('/'.$category->url_imagen)}}" class="category-image"  alt="">
+
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label class="col-md-3 control-label">Descripción</label>
                         <div class="col-md-6">
                             {!! Form::textarea('descripcion',$category->descripcion == null ? old('descripcion') : $category->descripcion ,['class'=>'form-control']) !!}
@@ -24,6 +36,7 @@
                             @enderror
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>

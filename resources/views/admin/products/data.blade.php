@@ -14,6 +14,7 @@
                 <th class="text-center">Precio</th>
                 <th class="text-center">Marca</th>
                 <th class="text-center">Categoria</th>
+                <th class="text-center">Estatus</th>
                 <th class="text-center">Acciones</th>
             </tr>
             </thead>
@@ -27,6 +28,9 @@
                     <td style="line-height: 40px;" class="text-center" style="line-height: 30px;">${{number_format($product->precio_venta,2,',','.')}}</td>
                     <td style="line-height: 40px;" class="text-center" style="line-height: 30px;">{{$product->brand->nombre}}</td>
                     <td style="line-height: 40px;" class="text-center" style="line-height: 30px;">{{$product->category->nombre}}</td>
+                    <td style="line-height: 40px;" class="text-center" style="line-height: 30px;">
+                        <span class="{{$product->estatus}} label">{{$product->estatus}}</span>
+                    </td>
                     <td style="line-height: 40px;" class="text-center" style="line-height: 30px;">
                         <a href="{{asset('/administracion/productos/'.$product->id.'/edit')}}" class="btn btn-info btn-sm">
                             <i class="fa fa-edit"></i>

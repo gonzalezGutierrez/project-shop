@@ -24,7 +24,7 @@
             </div>
         </header>
 
-        <form class="" action="{{asset('administracion/categorias')}}" method="POST">
+        <form class="" action="{{asset('administracion/categorias')}}" enctype="multipart/form-data" method="POST">
             @csrf
             @include('admin.categories.form',['edit'=>false])
         </form>

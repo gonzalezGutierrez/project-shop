@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\ProductRequestStore;
+use App\Http\Requests\Admin\ProductRequestUpdate;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\HistorialPrecio;
@@ -25,7 +26,7 @@ class ProductController extends Controller
             'precio_venta',
             'existencia',
             'url_imagen_principal',
-            'caractetisticas',
+            'caracteristicas',
             'descripcion',
             'especificaciones',
             'uso',
@@ -48,9 +49,17 @@ class ProductController extends Controller
 
     }
 
+    public function deleteImage($urlImagen) {
+        try {
+            \File::delete(public_path($urlImagen));
+        }catch (\Exception $e) {
+            dd($e);
+        }
+    }
+
     public function index()
     {
-        $products = $this->product->getProducts('activo');
+        $products = $this->product->products()->get();
         return view('admin.products.index',compact('products'));
     }
     public function resultProducts(Request $request) {
@@ -89,7 +98,7 @@ class ProductController extends Controller
 
             DB::commit();
 
-            return redirect('administracion/productos');
+            return redirect('administracion/productos/'.$product->id);
 
         }catch (\Exception $e) {
             DB::rollBack();
@@ -114,10 +123,17 @@ class ProductController extends Controller
         return view('admin.products.edit',compact('providers','brands','product','categories'));
     }
 
-    public function update(Request $request, $id)
+    public function update(ProductRequestUpdate $request, $id)
     {
         try {
+
             $product = Product::findOrFail($id);
+
+            if ($request->hasFile('file')) {
+                $this->saveImage($request);
+                $this->deleteImage($product->url_imagen_principal);
+            }
+
             $updated = $product->edit($request->all());
 
             if ($updated) {
@@ -125,6 +141,7 @@ class ProductController extends Controller
             }
             return back();
         }catch (\Exception $e) {
+            dd($e);
             return back();
         }
     }

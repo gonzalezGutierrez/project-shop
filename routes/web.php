@@ -23,6 +23,7 @@ Route::post('login','AuthController@login');
 Route::group(['namespace'=>'Admin','prefix'=>'administracion'],function(){
 
     Route::resource('categorias','CategoryController');
+    Route::delete('eliminar-imagen','CategoryController@deleteImage');
     Route::resource('marcas','BrandController');
     Route::resource('proveedores','ProviderController');
 
@@ -33,6 +34,7 @@ Route::group(['namespace'=>'Admin','prefix'=>'administracion'],function(){
     Route::resource('historial-precios','PriceHistoryController');
 
     Route::resource('compras','BuyController');
+
 
 });
 

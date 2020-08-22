@@ -20,7 +20,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{asset('administracion/productos')}}">
+                        <a href="{{asset('administracion/productos/'.$product->id)}}">
                             {{$product->nombre}}
                         </a>
                     </li>
@@ -30,7 +30,7 @@
                 <a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
             </div>
         </header>
-        <form class="" action="{{asset('administracion/productos/'.$product->id)}}" method="POST">
+        <form class="" action="{{asset('administracion/productos/'.$product->id)}}" enctype="multipart/form-data" method="POST">
             @csrf
             @method('put')
             @include('admin.products.form',['edit'=>true])

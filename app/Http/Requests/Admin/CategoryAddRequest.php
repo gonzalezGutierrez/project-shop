@@ -24,7 +24,8 @@ class CategoryAddRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre'=>['required']
+            'nombre'=>['required'],
+            'file'=>['required']
         ];
     }
 }

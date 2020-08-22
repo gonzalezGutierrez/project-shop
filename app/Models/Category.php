@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     protected  $table = 'categories';
-    protected  $guarded = [];
+    protected  $fillable = ['nombre','url_imagen'];
 
     public function getAll($like,$status) {
         return $this->getWithLike($like)->getWithStatus($status)->orderByWith('id','desc')->get();

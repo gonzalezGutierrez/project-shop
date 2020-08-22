@@ -1,5 +1,10 @@
 <div class="row">
     <div class="col-xs-12">
+        @if($edit)
+            <div class="alert info">
+                Actualmente hay {{$product->existencia}}  en existencia.
+            </div>
+        @endif
         <section class="panel">
             <header class="panel-heading">
                 <h2 class="panel-title">Información</h2>
@@ -40,28 +45,6 @@
         </section>
     </div>
 </div>
-@if($edit)
-<div class="row">
-    <div class="col-md-12">
-        <div class="panel">
-            <header class="panel-heading">
-                <h2 class="panel-title">Fotografia principal</h2>
-            </header>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-md-3">
-                        <img  style="width: 100%;" src="{{asset($product->url_imagen_principal)}}" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="panel-footer">
-                <a href="">Agregar imagenes</a>
-            </div>
-        </div>
-    </div>
-</div>
-@endif
-@if (!$edit)
 <div class="row">
     <div class="col-md-12">
         <div class="panel">
@@ -81,6 +64,29 @@
         </div>
     </div>
 </div>
+@if($edit)
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel">
+            <header class="panel-heading">
+                <h2 class="panel-title">Previsualización de imagenes</h2>
+            </header>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <img  style="width: 100%;" src="{{asset($product->url_imagen_principal)}}" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <a href="">Agregar imagenes</a>
+            </div>
+        </div>
+    </div>
+</div>
+@endif
+@if (!$edit)
+
 <div class="row">
     <div class="col-xs-12">
         <section class="panel">
