@@ -20,7 +20,7 @@ class CreateShoppingCartsTable extends Migration
             $table->integer('usuario_id')->nullable()->unsigned();
             $table->foreign('usuario_id')->references('id')->on('users');
 
-            $table->enum('estatus',['activo','inactivo','olvidado']);
+            $table->enum('estatus',['activo','inactivo','olvidado'])->default('activo');
 
             $table->timestamps();
 

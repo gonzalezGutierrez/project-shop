@@ -11,6 +11,8 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        //
+        \App\Role::create(['nombre'=>'administrador']);
+        \App\Role::create(['nombre'=>'gerente']);
+        \App\Role::create(['nombre'=>'cliente']);
     }
 }

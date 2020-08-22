@@ -13,9 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+
+Route::get('acceso','AuthController@access');
+
+Route::post('login','AuthController@login');
 
 Route::group(['namespace'=>'Admin','prefix'=>'administracion'],function(){
 
@@ -30,6 +33,18 @@ Route::group(['namespace'=>'Admin','prefix'=>'administracion'],function(){
     Route::resource('historial-precios','PriceHistoryController');
 
     Route::resource('compras','BuyController');
+
+});
+
+Route::group(['namespace'=>'Shop'],function(){
+
+    Route::get('/','HomeController@home');
+
+    Route::post('auth/register','UserController@store');
+    Route::get('register-completed','UserController@registerCompleted');
+    Route::get('activate-account','UserController@activateAccount');
+
+    Route::get('profile','UserController@show');
 
 
 });

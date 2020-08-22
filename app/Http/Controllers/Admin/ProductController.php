@@ -50,7 +50,7 @@ class ProductController extends Controller
 
     public function index()
     {
-        $products = $this->product->getProducts('inactivo');
+        $products = $this->product->getProducts('activo');
         return view('admin.products.index',compact('products'));
     }
     public function resultProducts(Request $request) {

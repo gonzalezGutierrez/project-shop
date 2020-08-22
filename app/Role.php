@@ -9,8 +9,8 @@ class Role extends Model
 
 
 
-    public function getNameRoleCustomer() {
-        return Role::where('nombre','cliente')->first()->nombre;
+    public function getRoleByName($name) {
+        return Role::where('nombre',$name)->first();
     }
 
 }

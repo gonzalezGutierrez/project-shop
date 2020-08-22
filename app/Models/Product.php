@@ -46,6 +46,12 @@ class Product extends Model
     public function getProductsLike($like) {
         return $this->products()->getLike($like);
     }
+    public function scopeGetLastProducts($query,$numberProducts){
+        return $query->getWithStatus('activo')->orderBy('id','DESC')->limitWith($numberProducts);
+    }
+    public function scopeLimitWith($query,$numberProducts) {
+        return $query->take($numberProducts);
+    }
     public function edit($data) {
         return $this->fill($data)->save();
     }

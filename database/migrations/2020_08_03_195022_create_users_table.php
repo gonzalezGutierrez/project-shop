@@ -20,11 +20,11 @@ class CreateUsersTable extends Migration
             $table->string('apellido_materno',40);
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('telefono',10);
+            $table->string('telefono',10)->nullable();
             $table->enum('estatus',['inactivo','eliminado','activo','baneado'])->default('inactivo');
-            $table->integer('rol_id')->unsigned()->default(1);
+            $table->integer('rol_id')->unsigned();
             $table->foreign('rol_id')->references('id')->on('roles');
-            $table->integer('ubication_id')->unsigned();
+            $table->integer('ubication_id')->unsigned()->nullable();
             $table->foreign('ubication_id')->references('id')->on('ubicaciones');
             $table->rememberToken();
             $table->timestamps();

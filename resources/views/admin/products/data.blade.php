@@ -34,9 +34,7 @@
                         <a href="{{asset('/administracion/productos/'.$product->id)}}" class="btn btn-info btn-sm">
                             <i class="fa fa-chevron-right"></i>
                         </a>
-                        <a href="" class="btn btn-danger btn-sm">
-                            <i class="fa fa-trash-o"></i>
-                        </a>
+
                     </td>
                 </tr>
             @endforeach

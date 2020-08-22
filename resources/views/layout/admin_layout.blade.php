@@ -183,18 +183,18 @@
                 <li>
                     <a href="#" class="dropdown-toggle notification-icon" data-toggle="dropdown">
                         <i class="fa fa-bell"></i>
-                        <span class="badge">{{$productsMin->count()}}</span>
+                        <span class="badge">0</span>
                     </a>
 
                     <div class="dropdown-menu notification-menu">
                         <div class="notification-title">
-                            <span class="pull-right label label-default">{{$productsMin->count()}}</span>
+                            <span class="pull-right label label-default">0</span>
                             Proximos a terminarse
                         </div>
 
                         <div class="content">
                             <ul>
-                                @foreach($productsMin as $productMin)
+                                {{--@foreach($productsMin as $productMin)
                                 <li>
                                     <a href="{{asset('administracion/productos/'.$productMin->id)}}" class="clearfix text-center">
                                         <figure class="image text-center">
@@ -204,7 +204,7 @@
                                         <span class="message text-danger">Existencia: {{$productMin->existencia}}</span>
                                     </a>
                                 </li>
-                                @endforeach
+                                @endforeach--}}
                             </ul>
 
                             <hr />

@@ -48,7 +48,11 @@
                 <h2 class="panel-title">Fotografia principal</h2>
             </header>
             <div class="panel-body">
-                <img src="{{asset('/'.$product->url_imagen_principal)}}" alt="">
+                <div class="row">
+                    <div class="col-md-3">
+                        <img  style="width: 100%;" src="{{asset($product->url_imagen_principal)}}" alt="">
+                    </div>
+                </div>
             </div>
             <div class="panel-footer">
                 <a href="">Agregar imagenes</a>
