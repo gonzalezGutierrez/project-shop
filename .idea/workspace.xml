@@ -20,7 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5bf3e63e-931a-4235-838a-c7045d367fdb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/views/layout/admin_layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/admin_layout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layout/shared/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/shared/sidebar.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,7 +202,7 @@
       <workItem from="1598511085195" duration="46000" />
       <workItem from="1598577596449" duration="6656000" />
       <workItem from="1598625725533" duration="7246000" />
-      <workItem from="1598666019242" duration="7701000" />
+      <workItem from="1598666019242" duration="7759000" />
     </task>
     <servers />
   </component>

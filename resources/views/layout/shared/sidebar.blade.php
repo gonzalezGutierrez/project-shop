@@ -11,7 +11,7 @@
             <nav id="menu" class="nav-main" role="navigation">
                 <ul class="nav nav-main">
                     <li class="nav-active">
-                        <a href="{{asset('/resumen')}}">
+                        <a href="{{asset('/')}}">
                             <i class="fa fa-home" aria-hidden="true"></i>
                             <span>MI RESUMEN</span>
                         </a>
