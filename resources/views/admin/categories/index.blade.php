@@ -10,8 +10,8 @@
             <div class="right-wrapper pull-right">
                 <ol class="breadcrumbs">
                     <li>
-                        <a href="index.html">
-                            Dashboard
+                        <a href="/">
+                            Mi Resumen
                         </a>
                     </li>
                     <li><span>Categorias</span></li>
