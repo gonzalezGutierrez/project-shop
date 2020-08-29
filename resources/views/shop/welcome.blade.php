@@ -1,1 +1,1 @@
-@extends('layout.shop_layout')
+@extends('layout.admin_layout')
