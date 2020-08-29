@@ -23,7 +23,7 @@
     <!-- start: header -->
     <header class="header">
         <div class="logo-container">
-            <a href="{{asset('/resumen')}}" class="logo  text-no-decoration text-bold ">
+            <a href="{{asset('/')}}" class="logo  text-no-decoration text-bold ">
                 <img src="https://cdn1.iconfinder.com/data/icons/shop-blue/64/pharmacy-512.png" height="35" alt="LOGO-MYDIBU" />
                 MYDIBU | ADMIN
             </a>
