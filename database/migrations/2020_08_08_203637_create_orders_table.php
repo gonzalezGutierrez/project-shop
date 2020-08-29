@@ -19,7 +19,7 @@ class CreateOrdersTable extends Migration
             $table->foreign('carrito_id')->references('id')->on('shopping_carts');
             $table->double('total');
             $table->boolean('facturar')->default(false);
-            $table->enum('estatus',['pagada','enviada','entregada'])->default('proceso');
+            $table->enum('estatus',['pagada','enviada','entregada'])->default('pagada');
             $table->integer('transaccion_id')->unsigned();
             $table->foreign('transaccion_id')->references('id')->on('transactions');
             $table->timestamps();
