@@ -23,8 +23,9 @@
 
         <!-- start: page -->
         <section class="panel">
-            <header class="panel-heading">
-                <h2 class="panel-title">Marcas</h2>
+            <header class="panel-heading" style="display: flex;  justify-content: space-between; align-items: center;">
+                <h2 class="panel-title">Categorias</h2>
+                <a href="{{asset('administracion/marcas/create')}}" class="btn btn-sm btn-success">Agregar nuevo</a>
             </header>
             <div class="panel-body">
                 <table class="table table-bordered table-striped mb-none" id="datatable-default">
