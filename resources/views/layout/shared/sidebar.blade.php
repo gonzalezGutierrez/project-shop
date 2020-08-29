@@ -53,13 +53,13 @@
                         </a>
                     </li>
                     <li>
-                        <a href="mailbox-folder.html">
+                        <a href="/">
                             <i class="fa fa-clock-o" aria-hidden="true"></i>
                             <span>ORDENES</span>
                         </a>
                     </li>
                     <li>
-                        <a href="mailbox-folder.html">
+                        <a href="/">
                             <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
                             <span>REPORTES</span>
                         </a>

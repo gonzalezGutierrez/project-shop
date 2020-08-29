@@ -11,7 +11,7 @@
                 <ol class="breadcrumbs">
                     <li>
                         <a href="/">
-                            Dashboard
+                            Mi resumen
                         </a>
                     </li>
                     <li><span>Productos</span></li>
