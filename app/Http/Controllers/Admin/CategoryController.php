@@ -50,6 +50,8 @@ class CategoryController extends Controller
     {
         try{
 
+            $request['slug'] = Category::setSlug($request->nombre);
+
             $this->saveImage($request);
             $category = $this->category->add($request->all());
 

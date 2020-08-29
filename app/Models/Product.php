@@ -36,27 +36,45 @@ class Product extends Model
     public function buys() {
         return $this->hasMany(Buy::class,'producto_id');
     }
+
+    //CLASS'S METHODS
     public function totalBuys(){
         return $this->buys()->sum('gasto');
     }
-
     public function getProducts($status) {
         return $this->products()->getWithStatus($status)->get();
     }
     public function getProductsLike($like) {
         return $this->products()->getLike($like);
     }
-    public function scopeGetLastProducts($query,$numberProducts){
-        return $query->getWithStatus('activo')->orderBy('id','DESC')->limitWith($numberProducts);
-    }
-    public function scopeLimitWith($query,$numberProducts) {
-        return $query->take($numberProducts);
-    }
     public function edit($data) {
         return $this->fill($data)->save();
     }
     public function setStock($amount) {
         return  $this->fill(['existencia'=>$amount])->save();
+    }
+    public function add($data) {
+        return Product::create($data);
+    }
+
+    //SCOPE METHODS
+    public function scopeGetProductsSimilar($query,$brandId,$productId,$limit) {
+        return $query->products()->getProductsLessProductId($productId)->getProductsWithBrandId($brandId)->limitWith($limit);
+    }
+    public function scopeGetProductsWithCategoryId($query,$categoryId) {
+        return $query->products()->where('categoria_id',$categoryId);
+    }
+    public function scopeGetProductsWithBrandId($query,$brandId){
+        return $query->where('marca_id',$brandId);
+    }
+    public function scopeGetLastProducts($query,$numberProducts){
+        return $query->getWithStatus('activo')->orderBy('id','DESC')->limitWith($numberProducts);
+    }
+    public function scopeGetProductsLessProductId($query,$productId) {
+        return $query->where('id','<>',$productId);
+    }
+    public function scopeLimitWith($query,$numberProducts) {
+        return $query->take($numberProducts);
     }
     public function scopeProducts($query) {
         return $query->orderBy('id','desc');
@@ -67,13 +85,13 @@ class Product extends Model
     public function scopeGetWithStatus( $query , $status ) {
         return $query->where('estatus',$status);
     }
-    public function add($data) {
-        return Product::create($data);
-    }
 
     //statis methods
     public static function setSlug($nameProduct) {
         return strtolower(Str::slug($nameProduct, '-'));
+    }
+    public static function findWithSlug($slug) {
+        return Product::where('slug',$slug)->firstOrFail();
     }
     public static function getProductsWithMinStock($minStock) {
         return Product::where('existencia','<',$minStock);

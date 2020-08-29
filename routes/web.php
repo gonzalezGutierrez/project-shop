@@ -48,5 +48,7 @@ Route::group(['namespace'=>'Shop'],function(){
 
     Route::get('profile','UserController@show');
 
+    Route::get('producto/{slug}','ProductsController@show');
+
 
 });

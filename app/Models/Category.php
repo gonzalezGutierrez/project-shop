@@ -3,11 +3,19 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Category extends Model
 {
     protected  $table = 'categories';
-    protected  $fillable = ['nombre','url_imagen'];
+    protected  $fillable = ['nombre','url_imagen','slug'];
+
+    public function products() {
+        return $this->hasMany(Product::class,'categoria_id');
+    }
+    public function productsCount() {
+        return $this->products()->count();
+    }
 
     public function getAll($like,$status) {
         return $this->getWithLike($like)->getWithStatus($status)->orderByWith('id','desc')->get();
@@ -30,5 +38,14 @@ class Category extends Model
     }
     public function getCategoryWithId($id) {
         return $this->findOrFail($id);
+    }
+
+
+    //statis functions
+    public static function setSlug($categoryName) {
+        return strtolower(Str::slug($categoryName, '-'));
+    }
+    public static function findWithSlug($slug) {
+        return Category::where('slug',$slug)->first();
     }
 }

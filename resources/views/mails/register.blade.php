@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <a href="{{asset('activate-account?token='.$token.'&userEmail='.$user->email)}}">Activar cuenta</a>
+    <a href="http://localhost:4200/account-activate/{{$token}}/{{$user->email}}">Activar cuenta</a>
 
 </body>
 </html>
