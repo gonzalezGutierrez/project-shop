@@ -38,8 +38,14 @@ class ShoppingCart extends Model
     public function productsCount(){
         return $this->products()->count();
     }
-
     public function amount(){
         return $this->products()->sum("subtotal");
+    }
+    public function isShippingFree() {
+        $total = $this->amount();
+        if ($total > 2000) {
+            return true;
+        }
+        return false;
     }
 }

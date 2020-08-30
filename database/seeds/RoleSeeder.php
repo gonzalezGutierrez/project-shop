@@ -14,5 +14,10 @@ class RoleSeeder extends Seeder
         \App\Role::create(['nombre'=>'administrador']);
         \App\Role::create(['nombre'=>'gerente']);
         \App\Role::create(['nombre'=>'cliente']);
+
+        \App\Models\PaymentMethod::create([
+            'nombre'=>'paypal',
+            'estatus'=>'activo'
+        ]);
     }
 }

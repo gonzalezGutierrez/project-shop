@@ -38,4 +38,10 @@ Route::group(['namespace'=>'Api\V1','prefix'=>'v1'],function() {
 
     Route::post('auth/login','AuthController@login');
 
+    Route::post('payments/pay','PayController@store');
+    Route::post ('payments/pay/approval','PayController@approval');
+    Route::get ('payments/pay/cancelled','PayController@cancelled');
+
+    Route::resource('orders','OrderController');
+
 });
