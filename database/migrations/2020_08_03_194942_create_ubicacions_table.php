@@ -18,8 +18,6 @@ class CreateUbicacionsTable extends Migration
             $table->double('latitud')->nullable();
             $table->double('longitud')->nullable();
             $table->boolean('gps')->default(false);
-            $table->text('direccion')->nullable();
-            $table->string('pais');
             $table->string('estado');
             $table->string('municipio');
             $table->string('calle_numero');

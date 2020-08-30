@@ -5,10 +5,11 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Passport\HasApiTokens;
 use App\Role;
 class User extends Authenticatable
 {
-    use Notifiable;
+    use HasApiTokens, Notifiable;
 
     protected $table = 'users';
     protected $primaryKey = 'id';
@@ -31,6 +32,14 @@ class User extends Authenticatable
 
     public function getUserWithEmail($email) {
         return User::where('email',$email)->first();
+    }
+    public function getAccessToken()
+    {
+        return $this->generateToken()->accessToken;
+    }
+    public function generateToken()
+    {
+        return $this->createToken('user_token_data');
     }
 
 

@@ -34,6 +34,7 @@ Route::group(['namespace'=>'Api\V1','prefix'=>'v1'],function() {
 
     Route::resource('users','UserController');
     Route::post('users/activate-account','UserController@activateAccount');
+    Route::get('profile','UserController@show');
 
     Route::post('auth/login','AuthController@login');
 

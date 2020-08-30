@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ShoppingCart extends Model
 {
+    protected $fillable = ['usuario_id'];
 
     public static function findOrCreateById($shopping_cart_id){
 
@@ -14,6 +15,12 @@ class ShoppingCart extends Model
         }else{
             return ShoppingCart::create();
         }
+    }
+    public  function getShoppingCartWithUserId($userId,$shoppingCartId) {
+        return ShoppingCart::where([['usuario_id',$userId],['id',$shoppingCartId]])->first();
+    }
+    public function setUserToShoppingCart($userId,$shoppingCartId) {
+        return $this->findOrFail($shoppingCartId)->fill(['usuario_id'=>$userId])->save();
     }
     public function products(){
         return $this->belongsToMany(Product::class,'product_in_shopping_carts','carrito_id','producto_id')

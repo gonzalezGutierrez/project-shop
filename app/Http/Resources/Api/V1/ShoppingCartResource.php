@@ -18,7 +18,10 @@ class ShoppingCartResource extends JsonResource
             'shopping_cart_id'=>$this->id,
             'total_products'=>$this->productsCount(),
             'total_humans'=>'$'.number_format($this->amount(),2,'.',','),
-            'basket'=>  ProductInShoppingCartResource::collection($this->products)
+            'basket'=>  ProductInShoppingCartResource::collection($this->products),
+            'checkout'=>$this->when($this->amount() > 0 ,true,false),
+            'shipping' => $this->when($this->amount() >= 2000 , 'free','$'.number_format(100,2,'.',',')),
+            'total_with_shipping'=>$this->when($this->amount() >= 2000 , '0'  ,'$'.number_format($this->amount()+100,2,'.',','))
         ];
     }
 }

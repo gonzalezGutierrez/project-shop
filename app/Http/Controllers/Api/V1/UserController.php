@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\V1\RegisterAuthRequest;
 use App\Http\Requests\Shop\RegisterCompletedRequest;
+use App\Http\Resources\Api\V1\UserResource;
 use App\Mail\MailRegister;
 use App\Role;
 use App\Token;
@@ -18,14 +20,15 @@ class UserController extends Controller
         $this->user = new User();
         $this->rol  = new Role();
         $this->token = new Token();
+        $this->middleware('auth:api')->only(['show','update']);
     }
 
-    public function store(Request $request)
+    public function store(RegisterAuthRequest $request)
     {
         DB::beginTransaction();
         try {
 
-            $data = $request->all()['user'];
+            $data = $request->all();
 
             $customerRole = $this->rol->getRoleByName('cliente');
 
@@ -72,9 +75,12 @@ class UserController extends Controller
         }
         return response()->json(['msg'=>'Hubo un error al activar tu cuenta , el token de activación es incorrecto o ha caducado']);
     }
-    public function show($id)
+
+    public function show(Request  $request)
     {
-        //
+        $user = $request->user();
+        UserResource::wrap('user_profile');
+        return new UserResource($user);
     }
     public function update(Request $request, $id)
     {
