@@ -69,7 +69,19 @@
                         <li class="nav-item"><button><i class="ti-search"></i></button></li>
                         <li class="nav-item"><button><i class="ti-shopping-cart"></i><span
                                     class="nav-shop__circle">3</span></button> </li>
-                        <li class="nav-item"><a class="button button-header" href="#">Acceder</a></li>
+                        @guest
+                            <li class="nav-item">
+                                <a class="button button-header" href="{{asset('/login')}}">Acceder</a>
+                            </li>
+                        @endguest
+                        <li class="nav-item submenu dropdown">
+                            @auth()
+                                <a class="button button-header" href="{{asset('/profile')}}">
+                                    <i class="ti-user"></i>
+                                    {{Auth::user()->nombre}}
+                                </a>
+                            @endauth
+                        </li>
                     </ul>
                 </div>
             </div>

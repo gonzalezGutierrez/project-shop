@@ -2,27 +2,36 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\Shop\LoginRequest;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-
-    public function access(Request $request) {
-        return view('shop.auth.login');
+    public function loginForm() {
+        return view('auth.login');
     }
     public function login(Request  $request) {
 
         $credentials = $request->only(['email','password']);
+        if (Auth::attempt($credentials)) {
 
-        if ( Auth::attempt($credentials) ) {
+            $user = Auth::user();
+            if ($user->userIsAdmin()) {
+                return redirect('/administracion/productos');
+            }
 
-            return redirect('/');
+            if ($user->estatus == 'activo') {
+                return redirect('/');
+            }
+
+            Auth::logout();
+
+            return back();
+
+        }else{
+            return back();
         }
-        return back()->withErrors(['email'=>trans('auth.failed')])->withInput();
 
     }
-
-
 }

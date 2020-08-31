@@ -1,111 +1,44 @@
-<!doctype html>
-<html class="fixed">
-<head>
-
-    <!-- Basic -->
-    <meta charset="UTF-8">
-
-    <meta name="keywords" content="HTML5 Admin Template" />
-    <meta name="description" content="Porto Admin - Responsive HTML5 Template">
-    <meta name="author" content="okler.net">
-
-    <!-- Mobile Metas -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-
-    <!-- Web Fonts  -->
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
-
-    <!-- Vendor CSS -->
-    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.css" />
-    <link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.css" />
-    <link rel="stylesheet" href="assets/vendor/magnific-popup/magnific-popup.css" />
-    <link rel="stylesheet" href="assets/vendor/bootstrap-datepicker/css/datepicker3.css" />
-
-    <!-- Theme CSS -->
-    <link rel="stylesheet" href="assets/stylesheets/theme.css" />
-
-    <!-- Skin CSS -->
-    <link rel="stylesheet" href="assets/stylesheets/skins/default.css" />
-
-    <!-- Theme Custom CSS -->
-    <link rel="stylesheet" href="assets/stylesheets/theme-custom.css">
-
-    <!-- Head Libs -->
-    <script src="assets/vendor/modernizr/modernizr.js"></script>
-
-</head>
-<body>
-<!-- start: page -->
-<section class="body-sign">
-    <div class="center-sign">
-        <div class="panel panel-sign">
-            <div class="panel-body">
-                <img src="{{asset('logo.jpg')}}" style="width: 170px; height: 170px; margin: auto; border-radius: 50%;" class="text-center" alt="MiDibu Medical" />
-                <form action="{{asset('login')}}" method="post">
-                    @csrf
-                    <div class="form-group mb-lg">
-                        <label>Dirección de correo</label>
-                        <div class="input-group input-group-icon">
-                            <input name="email" type="email" class="form-control input-lg" />
-                            <span class="input-group-addon">
-                                <span class="icon icon-lg">
-                                    <i class="fa fa-envelope"></i>
-                                </span>
-                            </span>
+@extends('layout.shop_layout')
+@section('content')
+    <section class="login_box_area section-margin">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="login_box_img">
+                        <div class="hover">
+                            <img src="{{asset('logo.jpg')}}" class="mb-2" style="width: 220px; border-radius: 50%; height: 220px;" alt="">
+                            <h3 class="text-white">MyDibu Medical</h3>
+                            <p>Aportando Valor a la Salud</p>
+                            <a class="button button-account" href="{{asset('register')}}">Crear una cuenta</a>
+                            <a class="button button-account" href="{{asset('register/pyme')}}">Se un miembro PYME</a>
                         </div>
                     </div>
-
-                    <div class="form-group mb-lg">
-                        <div class="clearfix">
-                            <label class="pull-left">Contraseña</label>
-                            <a href="" class="pull-right">¿Olvidaste tu contraseña?</a>
-                        </div>
-                        <div class="input-group input-group-icon">
-                            <input name="password" type="password" class="form-control input-lg" />
-                            <span class="input-group-addon">
-                                <span class="icon icon-lg">
-                                    <i class="fa fa-lock"></i>
-                                </span>
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-sm-8">
-                            <div class="checkbox-custom checkbox-default">
-                                <input id="RememberMe" name="rememberme" type="checkbox"/>
-                                <label for="RememberMe">Recuerdame</label>
+                </div>
+                <div class="col-lg-6">
+                    <div class="login_form_inner">
+                        <h3>Accede con tus credenciales</h3>
+                        <form action="{{{asset('login')}}}" method="POST" class="row login_form" id="contactForm">
+                            @csrf
+                            <div class="col-md-12 form-group">
+                                <input type="email" class="form-control" id="name" name="email" placeholder="Dirección de correo electronico">
                             </div>
-                        </div>
-                        <div class="col-sm-4 text-right">
-                            <button type="submit" class="btn btn-primary hidden-xs">Acceder</button>
-                        </div>
+                            <div class="col-md-12 form-group">
+                                <input type="password" class="form-control" id="name" name="password" placeholder="Contraseña">
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <div class="creat_account">
+                                    <input type="checkbox" id="f-option2" name="selector">
+                                    <label for="f-option2">Manterme logeado</label>
+                                </div>
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <button type="submit" value="submit" class="button button-login w-100">Acceder</button>
+                                <a href="#">¿Olvidaste tu contraaseña?</a>
+                            </div>
+                        </form>
                     </div>
-
-                </form>
+                </div>
             </div>
         </div>
-    </div>
-</section>
-<!-- end: page -->
-
-<!-- Vendor -->
-<script src="assets/vendor/jquery/jquery.js"></script>
-<script src="assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
-<script src="assets/vendor/bootstrap/js/bootstrap.js"></script>
-<script src="assets/vendor/nanoscroller/nanoscroller.js"></script>
-<script src="assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-<script src="assets/vendor/magnific-popup/magnific-popup.js"></script>
-<script src="assets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
-
-<!-- Theme Base, Components and Settings -->
-<script src="assets/javascripts/theme.js"></script>
-
-<!-- Theme Custom -->
-<script src="assets/javascripts/theme.custom.js"></script>
-
-<!-- Theme Initialization Files -->
-<script src="assets/javascripts/theme.init.js"></script>
-
-</body><img src="http://www.ten28.com/fref.jpg">
-</html>
+    </section>
+@stop

@@ -14,10 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::group(['namespace'=>'Admin'],function (){
-    Route::get('login','AuthController@loginForm');
-    Route::post('login','AuthController@login');
-});
+Route::get('login','AuthController@loginForm');
+Route::post('login','AuthController@login');
 
 
 Route::group(['namespace'=>'Admin','prefix'=>'administracion'],function(){
