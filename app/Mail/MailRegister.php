@@ -32,7 +32,7 @@ class MailRegister extends Mailable
     public function build()
     {
         return $this->view('mails.register')
-            ->from('163174@ids.upchiapas.edu.mx')
+            ->from('jesuper251297@gmail.com')
             ->subject('Activación de cuenta Myibu');
     }
 }
