@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('login','AuthController@loginForm')->name('login');
 Route::post('login','AuthController@login');
+Route::post('logout','AuthController@logout');
 
 
 Route::group(['namespace'=>'Admin','prefix'=>'administracion','middleware'=>['auth','isUserAdmin']],function(){

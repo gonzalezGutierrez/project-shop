@@ -76,10 +76,17 @@
                         @endguest
                         <li class="nav-item submenu dropdown">
                             @auth()
-                                <a class="button button-header" href="{{asset('/profile')}}">
+                                @if (Auth::user()->userIsAdmin())
+                                <a class="button button-header" href="{{asset('/administracion/productos')}}">
                                     <i class="ti-user"></i>
                                     {{Auth::user()->nombre}}
                                 </a>
+                                @else
+                                    <a class="button button-header" href="{{asset('/profile')}}">
+                                        <i class="ti-user"></i>
+                                        {{Auth::user()->nombre}}
+                                    </a>
+                                @endif
                             @endauth
                         </li>
                     </ul>

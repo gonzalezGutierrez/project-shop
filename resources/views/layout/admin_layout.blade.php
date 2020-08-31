@@ -148,10 +148,16 @@
                     <ul class="list-unstyled">
                         <li class="divider"></li>
                         <li>
-                            <a role="menuitem" tabindex="-1" href="/"><i class="fa fa-user"></i> Mi perfil</a>
+                            <a role="menuitem" tabindex="-1" href="{{asset('/')}}"><i class="fa fa-home"></i> Mi tienda</a>
                         </li>
                         <li>
-                            <a role="menuitem" tabindex="-1" href="/"><i class="fa fa-power-off"></i> Salir</a>
+                            <a role="menuitem" tabindex="-1" href="{{asset('/administracion/account')}}"><i class="fa fa-user"></i> Mi cuenta</a>
+                        </li>
+                        <li>
+                            <form action="{{asset('logout')}}" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-xs btn-default"><i class="fa fa-power-off"></i> Salir</button>
+                            </form>
                         </li>
                     </ul>
                 </div>
