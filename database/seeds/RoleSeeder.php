@@ -19,5 +19,14 @@ class RoleSeeder extends Seeder
             'nombre'=>'paypal',
             'estatus'=>'activo'
         ]);
+
+        \App\User::create([
+            'nombre'=>'Guillermo',
+            'apellido'=>'Puente',
+            'telefono'=>'5560111766',
+            'rol_id'=>1,
+            'email'=>'',
+            'password'=>'mydibumedical-administracion',
+        ]);
     }
 }
