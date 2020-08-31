@@ -19,6 +19,12 @@ class User extends Authenticatable
     public function rol() {
         return $this->belongsTo(Role::class);
     }
+    public function userIsAdmin() {
+        if ($this->rol()->nombre == 'administrador') {
+            return true;
+        }
+        return false;
+    }
 
     //hocks when there is a record these methods will be executed
 
