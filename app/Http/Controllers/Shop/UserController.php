@@ -77,6 +77,7 @@ class UserController extends Controller
         $tokenUser = $this->token->getTokenWithTokenAndUser($user,$token);
 
         if ($user && $tokenUser) {
+            $tokenUser->delete();
             Auth::loginUsingId($user->id);
             return view('auth.user-activate-successfuly',compact('user'));
         }
