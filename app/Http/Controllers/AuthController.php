@@ -19,7 +19,29 @@ class AuthController extends Controller
     public function loginForm() {
         return view('auth.login');
     }
-    public function registerForm() {
-        return view('auth.register');
+    public function login (Request $request) {
+
+        $credentials = $request->only(['email','password']);
+
+        if (Auth::attempt($credentials)) {
+
+            $user = Auth::user();
+
+            if ($user->userIsAdmin()) {
+
+                return redirect('/administracion/productos');
+
+            }
+
+            if ($user->estatus == 'activo') {
+                return redirect('/');
+            }
+
+            return redirect('/login')->with('status_login','Tu cuenta esta inactiva');
+
+        }
+
+        return back();
+
     }
 }

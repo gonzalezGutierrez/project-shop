@@ -25,7 +25,7 @@ class RoleSeeder extends Seeder
             'apellido'=>'Puente',
             'telefono'=>'5560111766',
             'rol_id'=>1,
-            'email'=>'',
+            'email'=>'mydibumedical@gmail.com',
             'password'=>'mydibumedical-administracion',
         ]);
     }
