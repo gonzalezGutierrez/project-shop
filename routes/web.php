@@ -15,13 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('login','AuthController@loginForm');
-Route::get('register','AuthController@registerForm');
-
 Route::post('login','AuthController@login');
-Route::post('register','AuthController@register');
 
 
-Route::group(['namespace'=>'Admin','prefix'=>'administracion'],function(){
+Route::group(['namespace'=>'Admin','prefix'=>'administracion','middleware'=>['auth','isUserAdmin']],function(){
 
     Route::resource('categorias','CategoryController');
     Route::delete('eliminar-imagen','CategoryController@deleteImage');
@@ -39,6 +36,11 @@ Route::group(['namespace'=>'Admin','prefix'=>'administracion'],function(){
 
 
 Route::group(['namespace'=>'Shop'],function(){
+
+    Route::resource('users','UserController');
+    Route::get('user-registered-successfuly/{token}/{email}','UserController@registeredOk');
+    Route::get('activate-account/{token}/{email}','UserController@activateUser');
+
     Route::get('/','HomeController@home');
     Route::resource('products','ProductsController');
     Route::resource('categories','CategoriesController');

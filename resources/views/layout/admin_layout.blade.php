@@ -137,8 +137,8 @@
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSBotusTEkYaDlTR8Y6LPyZZml8mPDq2JZEjg&usqp=CAU" alt="Joseph Doe" class="img-circle" data-lock-picture="assets/images/!logged-user.jpg" />
                     </figure>
                     <div class="profile-info" data-lock-name="John Doe" data-lock-email="johndoe@JSOFT.com">
-                        <span class="name">Jesús Gonzalez</span>
-                        <span class="role">administrador</span>
+                        <span class="name">{{Auth::user()->nombre}} {{Auth::user()->apellido}}</span>
+                        <span class="role">{{Auth::user()->rol->nombre}}</span>
                     </div>
 
                     <i class="fa custom-caret"></i>

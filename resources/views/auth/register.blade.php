@@ -18,7 +18,7 @@
                 <div class="col-lg-6">
                     <div class="login_form_inner register_form_inner">
                         <h3>Crear una cuenta MyDibu Medical</h3>
-                        <form action="{{asset('register')}}" method="POST" class="row login_form" id="register_form">
+                        <form action="{{asset('users')}}" method="POST" class="row login_form" id="register_form">
                             @csrf
                             <div class="col-md-12 form-group">
                                 <input type="text" class="form-control" id="name" name="nombre" value="{{old('nombre')}}" placeholder="Nombre">

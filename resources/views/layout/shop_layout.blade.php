@@ -62,7 +62,7 @@
                                 <li class="nav-item"><a class="nav-link" href="tracking-order.html">Tracking</a></li>
                             </ul>-->
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="#">Miembre PYME</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Miembro PYME</a></li>
                     </ul>
 
                     <ul class="nav-shop">
@@ -92,6 +92,7 @@
 
 <main class="site-main">
     @yield('content')
+
     <section class="subscribe-position">
         <div class="container">
             <div class="subscribe text-center">

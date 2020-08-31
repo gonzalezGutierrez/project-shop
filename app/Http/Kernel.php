@@ -66,6 +66,7 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        'set_shopping_cart' => \App\Http\Middleware\SetShoppingCart::class
+        'set_shopping_cart' => \App\Http\Middleware\SetShoppingCart::class,
+        'isUserAdmin'=>\App\Http\Middleware\IsUserAdmin::class
     ];
 }

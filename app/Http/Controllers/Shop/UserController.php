@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Shop;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Shop\RegisterCompletedRequest;
 use App\Http\Requests\Shop\UserAddRequest;
 use App\Mail\MailRegister;
 use App\Role;
@@ -17,26 +16,29 @@ class UserController extends Controller
 {
 
     public function __construct() {
+        $this->rol = new Role();
         $this->user = new User();
-        $this->rol  = new Role();
         $this->token = new Token();
     }
 
     public function create()
     {
-        //
+        return view('auth.register');
     }
 
-    public function store(UserAddRequest $request)
-    {
+    public function store(UserAddRequest $request) {
+
         DB::beginTransaction();
+
         try {
+
+            $data = $request->all();
 
             $customerRole = $this->rol->getRoleByName('cliente');
 
-            $request['rol_id'] = $customerRole->id;
+            $data['rol_id'] = $customerRole->id;
 
-            $user = $this->user->add($request->all());
+            $user = $this->user->add($data);
 
             $token = $this->token->getToken($user);
 
@@ -50,59 +52,36 @@ class UserController extends Controller
 
             DB::commit();
 
-            return redirect('register-completed?token='.$token->token.'&userEmail='.$user->email);
+            return redirect('/user-registered-successfuly/'.$token->token.'/'.$user->email);
+
 
         }catch (\Exception $e) {
             DB::rollBack();
             dd($e);
         }
+
     }
 
-    public function registerCompleted(RegisterCompletedRequest  $request) {
-        $token = $request->token;
-        $userEmail = $request->userEmail;
+    public function registeredOk($token,$email) {
+        $user = $this->user->getUserWithEmail($email);
+        $tokenUser = $this->token->getTokenWithTokenAndUser($user,$token);
 
-        $user = $this->user->getUserWithEmail($userEmail);
-
-        $tokenAuthorizate = $this->token->getTokenWithTokenAndUser($user,$token);
-
-        if ($user && $tokenAuthorizate) {
-            return view('shop.auth.register-completed',compact('user'));
+        if ($user && $tokenUser) {
+            return view('auth.user-create-successfuly',compact('user'));
         }
 
-        return redirect('/');
-
+        return back()->with('session-toke-caducate','El token no es correcto o ha caducado');
     }
+    public function activateUser ($token,$email) {
+        $user = $this->user->getUserWithEmail($email);
+        $tokenUser = $this->token->getTokenWithTokenAndUser($user,$token);
 
-    public function activateAccount(RegisterCompletedRequest $request) {
-
-        $token = $request->token;
-        $userEmail = $request->userEmail;
-
-        $user = $this->user->getUserWithEmail($userEmail);
-
-
-        $tokenAuthorizate = $this->token->getTokenWithTokenAndUser($user,$token);
-
-        if ($user && $tokenAuthorizate) {
-
-            $user->estatus = 'activo';
-            $user->save();
-
-            $tokenAuthorizate->delete();
-
-            Auth::login($user);
-
-            return view('shop.users.user-active-successfuly',compact('user'));
-
+        if ($user && $tokenUser) {
+            Auth::loginUsingId($user->id);
+            return view('auth.user-activate-successfuly',compact('user'));
         }
-        return redirect('/');
-    }
 
-    public function show($id)
-    {
-        $user = Auth::user();
-        return view('shop.users.profile',compact('user'));
+        return back()->with('session-toke-caducate','El token no es correcto o ha caducado');
     }
 
     public function edit($id)
