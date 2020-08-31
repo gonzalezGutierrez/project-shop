@@ -15,7 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('login','AuthController@loginForm');
+Route::get('register','AuthController@registerForm');
+
 Route::post('login','AuthController@login');
+Route::post('register','AuthController@register');
 
 
 Route::group(['namespace'=>'Admin','prefix'=>'administracion'],function(){

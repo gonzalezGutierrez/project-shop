@@ -27,8 +27,8 @@ class UserAddRequest extends FormRequest
     {
         return [
             'nombre'=>['required'],
-            'apellido_paterno'=>['required'],
-            'apellido_materno'=>['required'],
+            'apellido'=>['required'],
+            'telefono'=>['required','min:10'],
             'email'=>['required','unique:users,email'],
             'password'=>['required','min:8'],
             'password_confirmation' => 'required_with:password|same:password|min:8'

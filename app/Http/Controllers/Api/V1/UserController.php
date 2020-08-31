@@ -30,6 +30,7 @@ class UserController extends Controller
 
             $data = $request->all();
 
+
             $customerRole = $this->rol->getRoleByName('cliente');
 
             $data['rol_id'] = $customerRole->id;
