@@ -1,4 +1,5 @@
 @extends('layout.shop_layout')
+@section('title','Bienvenido')
 @section('content')
     <!--================ Hero banner start =================-->
     <section class="hero-banner">

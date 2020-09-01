@@ -148,7 +148,7 @@
                     <ul class="list-unstyled">
                         <li class="divider"></li>
                         <li>
-                            <a role="menuitem" tabindex="-1" href="{{asset('/')}}"><i class="fa fa-home"></i> Mi tienda</a>
+                            <a target="_blank" role="menuitem" tabindex="-1" href="{{asset('/')}}"><i class="fa fa-home"></i> Mi tienda</a>
                         </li>
                         <li>
                             <a role="menuitem" tabindex="-1" href="{{asset('/administracion/account')}}"><i class="fa fa-user"></i> Mi cuenta</a>
