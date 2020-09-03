@@ -127,7 +127,7 @@
                         <div class="mb-3 title pt-2">
                             <h1>Se parte de MyDibu Medical</h1>
                         </div>
-                        <div class="align-items-center d-flex justify-content-center flex-wrap">
+                        <div class="align-items-center d-flex justify-content-center padding flex-wrap">
                             <a href="#" class="btn btn-info">Registrate</a>
                             <a href="#" class="btn btn-outline-info ml-2">Se un miembro PYMES</a>
                         </div>

@@ -5,4 +5,8 @@
     .pymes-member .title h1 {
         font-size: 20px !important;
     }
+    .padding {
+        width: 100%;
+        padding:10px;
+    }
 }
