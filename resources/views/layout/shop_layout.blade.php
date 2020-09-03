@@ -124,7 +124,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12">
                     <div class="box-shadow border--radius bg-white p-30 pymes-member text-center">
-                        <div class="mb-3 pt-2">
+                        <div class="mb-3 title pt-2">
                             <h1>Se parte de MyDibu Medical</h1>
                         </div>
                         <a href="#" class="btn btn-info">Registrate</a>
