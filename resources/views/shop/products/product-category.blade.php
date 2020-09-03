@@ -31,9 +31,9 @@
                             </a>
 
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" href="#">Latest Items</a>
-                                <a class="dropdown-item" href="#">Recent Items</a>
-                                <a class="dropdown-item" href="#">Most Selling</a>
+                                @foreach($categories as $category)
+                                    <a class="dropdown-item" href="{{asset('products-category/'.$category->slug)}}">{{$category->nombre}}</a>
+                                @endforeach
                             </div>
                         </div>
                     </div>

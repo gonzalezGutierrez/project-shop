@@ -29,6 +29,9 @@ class Category extends Model
     public function scopeOrderByWith($query,$property,$descOrAsc) {
         return $query->orderBy($property,$descOrAsc);
     }
+    public function scopeGetCategoriesLess($query,$categoryId) {
+        return $query->where('id','<>',$categoryId);
+    }
 
     public function  add($data) {
         return Category::create($data);

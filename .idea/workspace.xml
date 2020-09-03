@@ -23,12 +23,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Shop/ProductsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Shop/ProductsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layout/shop_layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/shop_layout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/shop/components/product/product_item.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/shop/components/product/product_item.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/shop/products/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/shop/products/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/shop/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/shop/welcome.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/shop/products/product-category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/shop/products/product-category.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,7 +226,7 @@
       <workItem from="1598851862885" duration="33000" />
       <workItem from="1598885851658" duration="16397000" />
       <workItem from="1598935791387" duration="4623000" />
-      <workItem from="1599014754365" duration="12108000" />
+      <workItem from="1599014754365" duration="12351000" />
     </task>
     <servers />
   </component>

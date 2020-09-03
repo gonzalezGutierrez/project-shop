@@ -22,8 +22,9 @@ class ProductsController extends Controller
 
     public function productsByCategory($categorySlug) {
         $category = Category::findWithSlug($categorySlug);
+        $categories = $this->category->getCategoriesLess($category->id)->get();
         $products = $this->products->getProductsWithCategoryId($category->id)->paginate(9);
-        return view('shop.products.product-category',compact('products','category'));
+        return view('shop.products.product-category',compact('products','category','categories'));
     }
 
     public function show($slug) {
