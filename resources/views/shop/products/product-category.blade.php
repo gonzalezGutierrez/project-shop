@@ -22,7 +22,7 @@
                 <div class="col-md-5 col-sm-12 align-self-center">
                     <h4 class="theme-cl">Productos</h4>
                 </div>
-                <div class="col-md-7 col-sm-12 text-right">
+                <div class="col-md-7 col-sm-12 text-center">
 
                     <div class="btn-group mr-lg-2">
                         <div class="dropdown show">
