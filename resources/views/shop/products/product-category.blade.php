@@ -19,12 +19,10 @@
         <div class="container">
             <!-- Title & Breadcrumbs-->
             <div class="row mb-4">
-                <div class="col-md-5 col-sm-12">
-                    <h4 class="theme-cl">Productos</h4>
-                </div>
-                <div class="col-md-7 text-right">
+                <div class="col-md-12">
 
-                    <div class="btn-group mr-lg-2">
+                    <div class="btn-group mr-lg-2 d-flex justify-content-between align-items-center flex-wrap">
+                        <h4>Productos disponibles</h4>
                         <div class="dropdown show">
                             <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 {{$category->nombre}}
