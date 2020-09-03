@@ -91,7 +91,7 @@
                                     </li>
                                     @if(Auth::user()->userIsAdmin())
                                         <li>
-                                            <a href="{{asset('administracion/productos')}}">Administración</a>
+                                            <a target="_blank" href="{{asset('administracion/productos')}}">Administración</a>
                                         </li>
                                     @endif
                                     <li>
