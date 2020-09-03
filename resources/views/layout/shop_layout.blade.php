@@ -124,7 +124,6 @@
                     <div class="box-shadow border--radius bg-white p5-4 pt-2 pb-5 text-center">
                         <div class="mb-3 pt-2">
                             <h1>Se parte de MyDibu Medical</h1>
-                            <p class="mb-4">For startups and growing businesses check Unico plan and package.</p>
                         </div>
                         <a href="#" class="btn btn-info">Registrate</a>
                         <a href="#" class="btn btn-outline-info ml-2">Se un miembro PYMES</a>
