@@ -74,9 +74,29 @@
                     </ul>
 
                     <ul class="nav-menu nav-menu-social align-to-right">
-                        <li class="add-listing theme-bg">
-                            <a href="#" href="#" data-toggle="modal" data-target="#getstarted">Acceso</a>
-                        </li>
+                        @guest
+                            <li class="add-listing theme-bg">
+                                <a href="#" href="#" data-toggle="modal" data-target="#getstarted">Acceso</a>
+                            </li>
+                        @endguest
+                        @auth
+                            <li>
+                                <a href="#"> <i class="fa fa-user-md"></i> {{Auth::user()->nombre}}</a>
+                                <ul class="nav-dropdown nav-submenu" style="right: auto; display: none;">
+                                    <li>
+                                        <a href="{{asset('/account')}}">Mi cuenta</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Ordenes</a>
+                                    </li>
+                                    @if(Auth::user()->userIsAdmin())
+                                        <li>
+                                            <a href="{{asset('administracion/productos')}}">Administración</a>
+                                        </li>
+                                    @endif
+                                </ul>
+                            </li>
+                        @endauth
                     </ul>
                 </div>
             </nav>
