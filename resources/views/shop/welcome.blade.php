@@ -3,9 +3,9 @@
 @section('content')
     <!-- ============================ Hero Slider Banner  Start================================== -->
     <div class="ct-header ct-header--slider ct-slick-custom-dots text-center" id="home">
-        <div class="ct-slick-homepage" data-arrows="true" data-autoplay="true">
+        <div class="ct-slick-homepage" data-autoplay="true">
 
-            <div class="ct-header slick-slide-animate tablex item" data-background="{{asset('shop/sliders/slider-1.png')}}">
+            <div class="ct-header slick-slide-animate tablex item" style=" height: 50vh; background:url({{asset('shop/sliders/slider-1.png')}}); background-repeat: no-repeat; background-size: cover; background-position: center;" >
                 <div class="ct-u-display-tablex">
                     <div class="inner">
                         <div class="container">
@@ -19,7 +19,7 @@
                 </div>
             </div>
 
-            <div class="ct-header slick-slide-animate tablex item" data-background="{{asset('shop/sliders/slider-2.png')}}">
+            <div class="ct-header slick-slide-animate tablex item" style=" height: 50vh; background:url({{asset('shop/sliders/slider-2.png')}}); background-repeat: no-repeat; background-size: cover; background-position: center;" >
                 <div class="ct-u-display-tablex">
                     <div class="inner">
                         <div class="container">
@@ -33,20 +33,7 @@
                 </div>
             </div>
 
-            <div class="ct-header tablex item" data-background="{{asset('shop/sliders/slider-3.png')}}">
-                <div class="ct-u-display-tablex">
-                    <div class="inner">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12 col-lg-12 slider-inner">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="ct-header tablex item" data-background="{{asset('shop/sliders/slider-4.png')}}">
+            <div class="ct-header slick-slide-animate tablex item" style=" height: 50vh; background:url({{asset('shop/sliders/slider-3.png')}}); background-repeat: no-repeat; background-size: cover; background-position: center;" >
                 <div class="ct-u-display-tablex">
                     <div class="inner">
                         <div class="container">
@@ -60,6 +47,19 @@
                 </div>
             </div>
 
+            <div class="ct-header slick-slide-animate tablex item" style=" height: 50vh; background:url({{asset('shop/sliders/slider-4.png')}}); background-repeat: no-repeat; background-size: cover; background-position: center;" >
+                <div class="ct-u-display-tablex">
+                    <div class="inner">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12 col-lg-12 slider-inner">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div><!-- .ct-slick-homepage -->
     </div>
     <div class="clearfix"></div>
