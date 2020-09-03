@@ -1,8 +1,8 @@
 @extends('layout.shop_layout')
 @section('title','Bienvenido')
 @section('content')
-    <!-- ============================ Hero Slider Banner  Start================================== -->
-    <div class="ct-header ct-header--slider ct-slick-custom-dots text-center" id="home">
+
+    <!--<div class="ct-header ct-header--slider ct-slick-custom-dots text-center" id="home">
         <div class="ct-slick-homepage" data-arrows="true" data-autoplay="true">
 
             <div class="ct-header slick-slide-animate tablex item" data-background="{{asset('shop/sliders/slider-1.png')}}">
@@ -60,10 +60,9 @@
                 </div>
             </div>
 
-        </div><!-- .ct-slick-homepage -->
+        </div>
     </div>
-    <div class="clearfix"></div>
-    <!-- ============================ Hero Slider Banner End ================================== -->
+    <div class="clearfix"></div>-->
 
 
     <!-- ============================ What We Do Start ================================== -->
