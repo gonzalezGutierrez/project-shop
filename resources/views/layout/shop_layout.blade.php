@@ -121,12 +121,14 @@
 
             <div class="row justify-content-center">
                 <div class="col-lg-10 col-md-10">
-                    <div class="box-shadow border--radius bg-white p5-4 pt-2 pb-5 text-center">
+                    <div class="box-shadow border--radius bg-white p-30 text-center">
                         <div class="mb-3 pt-2">
                             <h1>Se parte de MyDibu Medical</h1>
                         </div>
-                        <a href="#" class="btn btn-info">Registrate</a>
-                        <a href="#" class="btn btn-outline-info ml-2">Se un miembro PYMES</a>
+                        <div class="btns d-flex justify-content-around align-items-center flex-wrap">
+                            <a href="#" class="btn btn-info">Registrate</a>
+                            <a href="#" class="btn btn-outline-info ml-2">Se un miembro PYMES</a>
+                        </div>
                     </div>
                 </div>
             </div>
