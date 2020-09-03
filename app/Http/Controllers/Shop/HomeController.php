@@ -20,4 +20,8 @@ class HomeController extends Controller
        return view('shop.welcome',compact('categories','products'));
     }
 
+    public function pymes() {
+        return view('shop.pymes');
+    }
+
 }

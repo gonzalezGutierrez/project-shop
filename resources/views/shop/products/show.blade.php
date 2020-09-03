@@ -1,106 +1,194 @@
 @extends('layout.shop_layout')
 @section('content')
-    <!--================Single Product Area =================-->
-    <div class="product_image_area">
+    <div class="container-fluid breadcrumbs">
         <div class="container">
-            <div class="row s_product_inner">
-                <div class="col-lg-6">
-                    <div class="owl-carousel owl-theme s_Product_carousel">
-                        <div class="single-prd-item">
-                            <img class="img-fluid" src="{{asset('/'.$product->url_imagen_principal)}}" alt="">
-                        </div>
-                        <!-- <div class="single-prd-item">
-                            <img class="img-fluid" src="img/category/s-p1.jpg" alt="">
-                        </div>
-                        <div class="single-prd-item">
-                            <img class="img-fluid" src="img/category/s-p1.jpg" alt="">
-                        </div> -->
-                    </div>
-                </div>
-                <div class="col-lg-5 offset-lg-1">
-                    <div class="s_product_text">
-                        <h3>{{$product->nombre}}</h3>
-                        <h2>${{number_format($product->precio_venta,2,'.',',')}} </h2>
-                        <ul class="list">
-                            <li><a class="" href="#">Categoria {{$product->category->nombre}}</a></li>
-                            <li><a class="" href="#">Marca {{$product->brand->nombre}}</a></li>
-                            <li><span class="badge @if($product->existencia > 0) badge-primary @else badge-danger @endif">{{$available}}</span></li>
-                        </ul>
-                        <p>
-                            {{$product->descripcion}}
-                        </p>
-                        <div class="product_count">
-                            <label for="qty">Cantidad:</label>
-                            <input type="text" name="qty" id="sst" size="2" maxlength="12" value="1" title="Quantity:" class="input-text qty">
-
-                            <a class="btn  btn-primary" href="#">Agregar al carrito</a>
-                        </div>
-                        <div class="card_area d-flex align-items-center">
-                            <a class="btn  btn-primary mr-2" href="#">Descargar ficha tecnica</a>
-                            <a class="btn  btn-success ml-2" href="#">Agregar a lista de deseos</a>
-                        </div>
-                    </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <a href="{{asset('/')}}">
+                        Inicio
+                    </a>
+                    <a href="{{asset('/tienda')}}">
+                        Tienda
+                    </a>
+                    <a href="javascript:void(0)">
+                        <span>
+                            <i class="ti-arrow-right"></i>
+                        </span>
+                        {{$product->nombre}}
+                    </a>
                 </div>
             </div>
         </div>
     </div>
-    <!--================End Single Product Area =================-->
+    <div class="clearfix"></div>
+    <!-- ============================ Page Title End ================================== -->
 
-    <!--================Product Description Area =================-->
-    <section class="product_description_area">
+    <!-- ============================ Product Info Start ================================== -->
+    <section>
         <div class="container">
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Descripción</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
-                       aria-selected="false">Ficha tecnica</a>
-                </li>
-            </ul>
-            <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    <p>
-                        {{$product->descripcion}}
-                    </p>
+
+            <div class="row mb-5">
+
+                <div class="col-lg-5 col-md-5">
+                    <div class="product-thumb">
+                        <img src="{{asset('/'.$product->url_imagen_principal)}}" class="img-fluid mx-auto" alt="">
+                    </div>
                 </div>
-                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                    <p>
-                        {{$product->caracteristicas}}
-                    </p>
+
+                <div class="col-lg-7 col-md-7">
+                    <div class="product-detail">
+
+                        <h4 class="vr-single-product-title">{{$product->nombre}}</h4>
+                        <div class="woocommerce woocommerce-product-rating">
+                            <div class="star-rating">
+                                <i class="fa fa-star black-text"></i>
+                                <i class="fa fa-star black-text"></i>
+                                <i class="fa fa-star black-text"></i>
+                                <i class="fa fa-star black-text"></i>
+                                <i class="fa fa-star-o"></i>
+                                <span class="ml-3 rating-text text-uppercase">5 Reviews</span>
+                            </div>
+                        </div>
+
+                        <div class="short-desc mt-2">
+                            <p>{{$product->descripcion}}</p>
+                        </div>
+                        <span class="price title-small">${{number_format($product->precio_venta,2,'.',',')}}</span>
+
+                        <div class="vr-add-form mt-3 mb-3">
+                            <input type="number" class="form-control b-all" value="1"/>
+                            <button type="button" class="btn btn-primary">Agregar al carrito</button>
+                        </div>
+
+                        <div class="product_meta">
+                            <span class="sku_wrapper">SKU: <span class="sku">{{$product->SKU}}</span></span>
+                            <span class="posted_in">Categoria:
+                                <a href="#" rel="tag">{{$product->category->nombre}}</a>
+							</span>
+                            <span class="tagged_as">Modelo:
+                                <a href="#" rel="tag">{{$product->brand->nombre}}</a>
+                            </span>
+                        </div>
+                        <a href="{{asset('')}}" class="btn btn-info-gradiant"><i class="fa fa-download"></i> Descargar ficha tecnica</a>
+
+                        <a href="{{asset('')}}" class="btn btn-primary-gradiant"><i class="fa fa-heart"></i> Agregar a la lista de deseos</a>
+                    </div>
                 </div>
+
             </div>
-        </div>
-    </section>
-    <!--================End Product Description Area =================-->
 
-    <!--================ Start related Product area =================-->
-    <section class="related-product-area section-margin--small mt-0">
-        <div class="container">
-            <div class="section-intro pb-60px">
-                <p></p>
-                <h2>Productos <span class="section-intro__style">Similares</span></h2>
-            </div>
-            <div class="row mt-30">
-
-                @foreach($products as $product)
-
-                    <div class="col-sm-6 col-xl-3 mb-4 mb-xl-0">
-                        <div class="single-search-product-wrapper">
-                            <div class="single-search-product d-flex">
-                                <a href="#"><img src="{{asset('/'.$product->url_imagen_principal)}}" alt=""></a>
-                                <div class="desc">
-                                    <a href="#" class="title">{{$product->nombre}}</a>
-                                    <div class="price">${{number_format($product->precio_venta,2,'.',',')}}</div>
-                                </div>
+            <!-- Product Detail -->
+            <div class="row mb-5">
+                <div class="col-lg-12 col-md-12">
+                    <div class="custom-tab style-1">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="true">Descripción</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="information-tab" data-toggle="tab" href="#information" role="tab" aria-controls="information" aria-selected="false">Caracteristicas</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+                                <p>{{$product->descripcion}}</p>
+                            </div>
+                            <div class="tab-pane fade" id="information" role="tabpanel" aria-labelledby="information-tab">
+                                <p>{{$product->caracteristicas}}</p>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
 
-                @endforeach
+            <!-- Related Product -->
+            <div class="row">
+
+                <div class="col-lg-12 col-md-12 col-sm-12 mb-4">
+                    <h3 class="small-sec-title">Related Products</h3>
+                </div>
+                <!-- Single Product -->
+                <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
+                    <div class="product-wrap">
+                        <div class="product-caption">
+                            <div class="product-caption-info">
+
+                                <div class="product-caption-thumb">
+                                    <div class="product-caption-content">
+                                        <img src="https://via.placeholder.com/800x800" class="img-fluid mx-auto" alt=""></div>
+                                </div>
+
+                                <div class="uc_product_details">
+                                    <span>Soft Product Box</span>
+                                    <span class="uc_price">$950</span>
+
+                                    <div class="uc_view_cart">
+                                        <a href="#">Add To Cart</a>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Product -->
+                <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
+                    <div class="product-wrap">
+                        <div class="product-caption">
+                            <div class="product-caption-info">
+
+                                <div class="product-caption-thumb">
+                                    <div class="product-caption-content">
+                                        <img src="https://via.placeholder.com/800x800" class="img-fluid mx-auto" alt=""></div>
+                                </div>
+
+                                <div class="uc_product_details">
+                                    <span>Soft Product Box</span>
+                                    <span class="uc_price">$950</span>
+
+                                    <div class="uc_view_cart">
+                                        <a href="#">Add To Cart</a>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Product -->
+                <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
+                    <div class="product-wrap">
+                        <div class="product-caption">
+                            <div class="product-caption-info">
+
+                                <div class="product-caption-thumb">
+                                    <div class="product-caption-content">
+                                        <img src="https://via.placeholder.com/800x800" class="img-fluid mx-auto" alt=""></div>
+                                </div>
+
+                                <div class="uc_product_details">
+                                    <span>Soft Product Box</span>
+                                    <span class="uc_price">$950</span>
+
+                                    <div class="uc_view_cart">
+                                        <a href="#">Add To Cart</a>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
             </div>
+            <!-- All Product List End -->
+
         </div>
     </section>
-    <!--================ end related Product area =================-->
+    <div class="clearfix"></div>
 @stop

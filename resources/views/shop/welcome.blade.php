@@ -1,81 +1,398 @@
 @extends('layout.shop_layout')
 @section('title','Bienvenido')
 @section('content')
-    <!--================ Hero banner start =================-->
-    <section class="hero-banner">
-        <div class="container">
-            <div class="row no-gutters align-items-center pt-60px">
-                <div class="col-5 d-none d-sm-block">
-                    <div class="hero-banner__img">
-                        <img class="img-fluid" src="{{asset('shop/img/home/hero-banner.png')}}" alt="">
-                    </div>
-                </div>
-                <div class="col-sm-7 col-lg-6 offset-lg-1 pl-4 pl-md-5 pl-lg-0">
-                    <div class="hero-banner__content">
-                        <h4>Aportando Valor a la Salud</h4>
-                        <h1>MyDibu Medical</h1>
-                        <p>Empresa orgullosamente mexicana preocupada en tu salud y la de tus seres queridos,
-                            estamos comprometidos con el desarrollo y la salud en nuestro país.</p>
-                        <a class="button button-hero text-uppercase" href="#">Seguir orden</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- ============================ Hero Slider Banner  Start================================== -->
+    <div class="ct-header ct-header--slider ct-slick-custom-dots text-center" id="home">
+        <div class="ct-slick-homepage" data-arrows="true" data-autoplay="true">
 
-    <section class="section-margin calc-60px">
-        <div class="container">
-            <div class="section-intro pb-60px">
-                <p></p>
-                <h2>Nuestras <span class="section-intro__style">Categorias</span></h2>
+            <div class="ct-header slick-slide-animate tablex item" data-background="{{asset('shop/sliders/slider-1.png')}}">
+                <div class="ct-u-display-tablex">
+                    <div class="inner">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12 col-lg-12 slider-inner">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="owl-carousel owl-theme" id="bestSellerCarousel">
+
+            <div class="ct-header slick-slide-animate tablex item" data-background="{{asset('shop/sliders/slider-2.png')}}">
+                <div class="ct-u-display-tablex">
+                    <div class="inner">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12 col-lg-12 slider-inner">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ct-header tablex item" data-background="{{asset('shop/sliders/slider-3.png')}}">
+                <div class="ct-u-display-tablex">
+                    <div class="inner">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12 col-lg-12 slider-inner">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ct-header tablex item" data-background="{{asset('shop/sliders/slider-4.png')}}">
+                <div class="ct-u-display-tablex">
+                    <div class="inner">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12 col-lg-12 slider-inner">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- .ct-slick-homepage -->
+    </div>
+    <div class="clearfix"></div>
+    <!-- ============================ Hero Slider Banner End ================================== -->
+
+
+    <!-- ============================ What We Do Start ================================== -->
+    <section>
+        <div class="container">
+            <div class="row">
                 @foreach($categories as $category)
-                    <div class="card text-center card-product">
-                    <div class="card-product__img">
-                        <img class="img-fluid" style="border-radius: 3px;" src="{{asset('/'.$category->url_imagen)}}" alt="">
+                    <div class="col-lg-3 col-md-3 mb-4">
+                        <div class="features-thumb-box">
+                            <img src="{{asset($category->url_imagen)}}" style="width: 100%; height: 200px;" class="img-responsive" alt="">
+                            <div class="large-features-box-content">
+                                <div class="features-content">
+                                    <h6>{{$category->nombre}}</h6>
+                                    <p>{{$category->productsCount()}} Producto(s)</p>
+                                </div>
+                                <a href="#" class="tw-readmore">
+                                    <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <h4 class="card-product__title"><a href="{{asset('categories/'.$category->slug)}}">{{$category->nombre}}</a></h4>
-                        <p class="card-product__price">{{$category->productsCount()}} Producto(s)</p>
-                    </div>
-                </div>
                 @endforeach
+
             </div>
+
         </div>
     </section>
+    <div class="clearfix"></div>
 
-    <section class="section-margin calc-60px">
-        <div class="container">
-            <div class="section-intro pb-60px">
-                <p>Productos nuevos</p>
-                <h2>Lo mas nuevo en  <span class="section-intro__style">MyDibu Medical</span></h2>
+    <section class="p-0">
+        <div class="container-fluid p-0">
+            <div class="row">
+
+                <div class="col-lg-6 col-md-6 col-sm-12 p-0">
+                    <div class="image-block-content bg-theme inverse-color">
+                        <h2>MyDibu Medical Supplies Distribution Business</h2>
+                        <p>
+                            Empresa orgullosamente mexicana preocupada en tu salud y la de tus seres queridos.
+                            Estamos comprometidos con el desarrollo y la salud en nuestro país.
+                        </p>
+                        <ul class="simple-list">
+                            <li>Asesoría</li>
+                            <li>Almacén</li>
+                            <li>Distribución</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-12 p-0 image-block">
+                    <div class="image-block-holder">
+                        <div class="image-block-holder-img" style="background: url({{asset('shop/about/about-1.jfif')}});opacity: 1;">
+                            <img src="{{asset('shop/about/about.jpg')}}" class="img-responsive img-holder" alt=""/>
+                        </div>
+                    </div>
+                </div>
+
             </div>
             <div class="row">
+
+                <div class="col-lg-6 col-md-6 col-sm-12 p-0 image-block">
+                    <div class="image-block-holder">
+                        <div class="image-block-holder-img" style="background: url({{asset('shop/about/about-2.jfif')}});opacity: 1;">
+                            <img src="{{asset('shop/about/about-2.jfif')}}" class="img-responsive img-holder" alt=""/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-12 p-0">
+                    <div class="image-block-content bg-dark-blue inverse-color">
+                        <h2>MyDibu Medical</h2>
+                        <p>
+                            Ofrecemos profesionalidad y adaptabilidad en la distribución de productos de seguridad médica hospitalaria y personal.
+                            Contamos con experiencia en el sector y personal especializado.
+                            Capacitación y adiestramiento del personal que realiza las labores de limpieza y sanitización.
+                        </p>
+                        <ul class="simple-list">
+                            <li>Venta y asesoría de artículos de seguridad medico hospitalaria y personal.</li>
+                            <li>Ventas y asesoría:  55 6011 1766</li>
+                            <li>Correo:  mydibumedical@gmail.com</li>
+                            <li>Our Support is very dedicated for our customers</li>
+                            <li>We provide 24x7 support with extended offer</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <div class="clearfix"></div>
+
+    <!-- ============================ What We Do End ================================== -->
+
+    <!-- ============================ Counter Start ================================== -->
+    <section class="image-bg" style="background:#003b77 url(assets/img/banner-55.png) no-repeat;">
+        <div class="container">
+            <div class="ht-40"></div>
+            <div class="row">
+                <div class="col text-center">
+                    <div class="sec-heading light mx-auto">
+                        <h2>Almacén</h2>
+                        <p>Contamos con una variedad de sanitizantes y detergentes sanitizantes bactericidas,
+                            fungicidas, viricidas, alguicidas y esporicidas amigables con el medio ambiente que
+                            se adecuaran a sus necesidades medico hospitalarias,  negocio o empresa
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="count-box text-center">
+
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="count-box text-center">
+                        <h2 class="count">24</h2>
+                        <h5>Productos disponibles</h5>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-6">
+
+                </div>
+            </div>
+
+        </div>
+        <div class="ht-40"></div>
+    </section>
+    <div class="clearfix"></div>
+    <!-- ============================ Counter End ================================== -->
+
+    <section>
+        <div class="container">
+            <!-- Related Product -->
+            <div class="row">
+
+                <div class="col-lg-12 col-md-12 col-sm-12 mb-4">
+                    <h3 class="small-sec-title">Lo mas nuevo en MyDibu Medical</h3>
+                </div>
                 @foreach($products as $product)
-                    @include('shop.components.product.product_item')
+                    <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
+                        <div class="product-wrap">
+                            <div class="product-caption">
+                                <div class="product-caption-info">
+
+                                    <div class="product-caption-thumb">
+                                        <div class="product-caption-content">
+                                            <img src="{{asset('/'.$product->url_imagen_principal)}}" class="img-fluid mx-auto" alt="">
+                                        </div>
+                                    </div>
+
+                                    <div class="uc_product_details">
+                                        <a href="{{asset('/products/'.$product->slug)}}">
+                                            <span>{{$product->nombre}}</span>
+                                        </a>
+                                        <span class="uc_price">${{number_format($product->precio_venta,2,'.',',')}}</span>
+
+                                        <div class="">
+                                            <a href="#" class="btn btn-outline-info"><i class="fa fa-shopping"></i> Agregar al carrito</a>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 @endforeach
             </div>
+            <!-- All Product List End -->
+
         </div>
     </section>
+    <div class="clearfix"></div>
 
-    <section class="offer" id="parallax-1" data-anchor-target="#parallax-1"
-             data-300-top="background-position: 20px 30px" data-top-bottom="background-position: 0 20px">
+
+    <!-- ============================ Testimonial Start ================================== -->
+    <section class="gray">
         <div class="container">
+
             <div class="row">
-                <div class="col-xl-5">
-                    <div class="offer__content text-center">
-                        <h3>Unete a MyDibu Medical</h3>
-                        <h4>Rergistrate como PYME</h4>
-                        <p>Obten descuentos en productos</p>
-                        <a class="button button--active mt-3 mt-xl-4" href="#">Solicítalo ya</a>
+                <div class="col text-center">
+                    <div class="sec-heading mx-auto">
+                        <h2>¿Que dicen nuestros clientes ?</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
             </div>
+
+            <div class="row">
+
+                <div class="owl-carousel" id="testimonials-two">
+
+                    <!-- Single Testimonials -->
+                    <div class="item">
+                        <div class="testimonial-wrap style-2">
+                            <div class="client-thumb-box">
+                                <div class="client-thumb-content">
+                                    <div class="client-thumb">
+                                        <img src="https://via.placeholder.com/400x400" class="img-responsive img-circle" alt="">
+                                    </div>
+                                    <h5 class="mb-0">Adam Gillworm</h5>
+                                    <span>Envato Market</span>
+                                    <div class="rating">
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi dignissimos ducimus qui blanditiis praesentium voluptatum deleniti.</p>
+
+                        </div>
+                    </div>
+
+                    <!-- Single Testimonials -->
+                    <div class="item">
+                        <div class="testimonial-wrap style-2">
+                            <div class="client-thumb-box">
+                                <div class="client-thumb-content">
+                                    <div class="client-thumb">
+                                        <img src="https://via.placeholder.com/400x400" class="img-responsive img-circle" alt="">
+                                    </div>
+                                    <h5 class="mb-0">Jully Jiliven</h5>
+                                    <span>Envato Manager</span>
+                                    <div class="rating">
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi dignissimos ducimus qui blanditiis praesentium voluptatum deleniti.</p>
+
+                        </div>
+                    </div>
+
+                    <!-- Single Testimonials -->
+                    <div class="item">
+                        <div class="testimonial-wrap style-2">
+                            <div class="client-thumb-box">
+                                <div class="client-thumb-content">
+                                    <div class="client-thumb">
+                                        <img src="https://via.placeholder.com/400x400" class="img-responsive img-circle" alt="">
+                                    </div>
+                                    <h5 class="mb-0">Gill Wormdom</h5>
+                                    <span>SEO Mind LTD CEO</span>
+                                    <div class="rating">
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi dignissimos ducimus qui blanditiis praesentium voluptatum deleniti.</p>
+
+                        </div>
+                    </div>
+
+                    <!-- Single Testimonials -->
+                    <div class="item">
+                        <div class="testimonial-wrap style-2">
+                            <div class="client-thumb-box">
+                                <div class="client-thumb-content">
+                                    <div class="client-thumb">
+                                        <img src="https://via.placeholder.com/400x400" class="img-responsive img-circle" alt="">
+                                    </div>
+                                    <h5 class="mb-0">Adam Gillworm</h5>
+                                    <span>Envato Market</span>
+                                    <div class="rating">
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi dignissimos ducimus qui blanditiis praesentium voluptatum deleniti.</p>
+
+                        </div>
+                    </div>
+
+                    <!-- Single Testimonials -->
+                    <div class="item">
+                        <div class="testimonial-wrap style-2">
+                            <div class="client-thumb-box">
+                                <div class="client-thumb-content">
+                                    <div class="client-thumb">
+                                        <img src="https://via.placeholder.com/400x400" class="img-responsive img-circle" alt="">
+                                    </div>
+                                    <h5 class="mb-0">Jully Jiliven</h5>
+                                    <span>Envato Manager</span>
+                                    <div class="rating">
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi dignissimos ducimus qui blanditiis praesentium voluptatum deleniti.</p>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
     </section>
-
-
+    <div class="clearfix"></div>
+    <!-- ============================ Testimonial End ================================== -->
 
 
 @stop

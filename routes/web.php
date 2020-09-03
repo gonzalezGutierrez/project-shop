@@ -43,6 +43,7 @@ Route::group(['namespace'=>'Shop'],function(){
     Route::get('activate-account/{token}/{email}','UserController@activateUser');
 
     Route::get('/','HomeController@home');
+    Route::get('member-pymes','HomeController@pymes');
     Route::resource('products','ProductsController');
     Route::resource('categories','CategoriesController');
 });
