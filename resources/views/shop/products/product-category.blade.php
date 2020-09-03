@@ -19,10 +19,10 @@
         <div class="container">
             <!-- Title & Breadcrumbs-->
             <div class="row mb-4">
-                <div class="col-md-5 col-sm-12 align-self-center">
+                <div class="col-md-5 col-sm-12">
                     <h4 class="theme-cl">Productos</h4>
                 </div>
-                <div class="col-md-7 col-sm-12 text-center">
+                <div class="col-md-7 text-right">
 
                     <div class="btn-group mr-lg-2">
                         <div class="dropdown show">
