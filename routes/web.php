@@ -45,5 +45,6 @@ Route::group(['namespace'=>'Shop'],function(){
     Route::get('/','HomeController@home');
     Route::get('member-pymes','HomeController@pymes');
     Route::resource('products','ProductsController');
+    Route::get('products-category/{category_slug}','ProductsController@productsByCategory');
     Route::resource('categories','CategoriesController');
 });

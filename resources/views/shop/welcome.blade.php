@@ -73,7 +73,9 @@
                 @foreach($categories as $category)
                     <div class="col-lg-3 col-md-3 mb-4">
                         <div class="features-thumb-box">
-                            <img src="{{asset($category->url_imagen)}}" style="width: 100%; height: 200px;" class="img-responsive" alt="">
+                            <a href="{{asset('products-category/'.$category->slug)}}">
+                                <img src="{{asset($category->url_imagen)}}" style="width: 100%; height: 200px;" class="img-responsive" alt="">
+                            </a>
                             <div class="large-features-box-content">
                                 <div class="features-content">
                                     <h6>{{$category->nombre}}</h6>
@@ -207,33 +209,7 @@
                     <h3 class="small-sec-title">Lo mas nuevo en MyDibu Medical</h3>
                 </div>
                 @foreach($products as $product)
-                    <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
-                        <div class="product-wrap">
-                            <div class="product-caption">
-                                <div class="product-caption-info">
-
-                                    <div class="product-caption-thumb">
-                                        <div class="product-caption-content">
-                                            <img src="{{asset('/'.$product->url_imagen_principal)}}" class="img-fluid mx-auto" alt="">
-                                        </div>
-                                    </div>
-
-                                    <div class="uc_product_details">
-                                        <a href="{{asset('/products/'.$product->slug)}}">
-                                            <span>{{$product->nombre}}</span>
-                                        </a>
-                                        <span class="uc_price">${{number_format($product->precio_venta,2,'.',',')}}</span>
-
-                                        <div class="">
-                                            <a href="#" class="btn btn-outline-info"><i class="fa fa-shopping"></i> Agregar al carrito</a>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @include('shop.components.product.product_item')
                 @endforeach
             </div>
             <!-- All Product List End -->
@@ -241,158 +217,6 @@
         </div>
     </section>
     <div class="clearfix"></div>
-
-
-    <!-- ============================ Testimonial Start ================================== -->
-    <section class="gray">
-        <div class="container">
-
-            <div class="row">
-                <div class="col text-center">
-                    <div class="sec-heading mx-auto">
-                        <h2>¿Que dicen nuestros clientes ?</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-
-                <div class="owl-carousel" id="testimonials-two">
-
-                    <!-- Single Testimonials -->
-                    <div class="item">
-                        <div class="testimonial-wrap style-2">
-                            <div class="client-thumb-box">
-                                <div class="client-thumb-content">
-                                    <div class="client-thumb">
-                                        <img src="https://via.placeholder.com/400x400" class="img-responsive img-circle" alt="">
-                                    </div>
-                                    <h5 class="mb-0">Adam Gillworm</h5>
-                                    <span>Envato Market</span>
-                                    <div class="rating">
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi dignissimos ducimus qui blanditiis praesentium voluptatum deleniti.</p>
-
-                        </div>
-                    </div>
-
-                    <!-- Single Testimonials -->
-                    <div class="item">
-                        <div class="testimonial-wrap style-2">
-                            <div class="client-thumb-box">
-                                <div class="client-thumb-content">
-                                    <div class="client-thumb">
-                                        <img src="https://via.placeholder.com/400x400" class="img-responsive img-circle" alt="">
-                                    </div>
-                                    <h5 class="mb-0">Jully Jiliven</h5>
-                                    <span>Envato Manager</span>
-                                    <div class="rating">
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi dignissimos ducimus qui blanditiis praesentium voluptatum deleniti.</p>
-
-                        </div>
-                    </div>
-
-                    <!-- Single Testimonials -->
-                    <div class="item">
-                        <div class="testimonial-wrap style-2">
-                            <div class="client-thumb-box">
-                                <div class="client-thumb-content">
-                                    <div class="client-thumb">
-                                        <img src="https://via.placeholder.com/400x400" class="img-responsive img-circle" alt="">
-                                    </div>
-                                    <h5 class="mb-0">Gill Wormdom</h5>
-                                    <span>SEO Mind LTD CEO</span>
-                                    <div class="rating">
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi dignissimos ducimus qui blanditiis praesentium voluptatum deleniti.</p>
-
-                        </div>
-                    </div>
-
-                    <!-- Single Testimonials -->
-                    <div class="item">
-                        <div class="testimonial-wrap style-2">
-                            <div class="client-thumb-box">
-                                <div class="client-thumb-content">
-                                    <div class="client-thumb">
-                                        <img src="https://via.placeholder.com/400x400" class="img-responsive img-circle" alt="">
-                                    </div>
-                                    <h5 class="mb-0">Adam Gillworm</h5>
-                                    <span>Envato Market</span>
-                                    <div class="rating">
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi dignissimos ducimus qui blanditiis praesentium voluptatum deleniti.</p>
-
-                        </div>
-                    </div>
-
-                    <!-- Single Testimonials -->
-                    <div class="item">
-                        <div class="testimonial-wrap style-2">
-                            <div class="client-thumb-box">
-                                <div class="client-thumb-content">
-                                    <div class="client-thumb">
-                                        <img src="https://via.placeholder.com/400x400" class="img-responsive img-circle" alt="">
-                                    </div>
-                                    <h5 class="mb-0">Jully Jiliven</h5>
-                                    <span>Envato Manager</span>
-                                    <div class="rating">
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi dignissimos ducimus qui blanditiis praesentium voluptatum deleniti.</p>
-
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-    <div class="clearfix"></div>
-    <!-- ============================ Testimonial End ================================== -->
 
 
 @stop

@@ -58,7 +58,7 @@ class Product extends Model
     }
 
     //SCOPE METHODS
-    public function scopeGetProductsSimilar($query,$brandId,$productId,$limit) {
+    public function scopeGetProductsSimilar($query,$productId,$brandId,$limit) {
         return $query->products()->getProductsLessProductId($productId)->getProductsWithBrandId($brandId)->limitWith($limit);
     }
     public function scopeGetProductsWithCategoryId($query,$categoryId) {

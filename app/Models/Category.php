@@ -37,7 +37,7 @@ class Category extends Model
         return $this->fill($data)->save();
     }
     public function getCategoryWithId($id) {
-        return $this->findOrFail($id);
+        return $this->find($id);
     }
 
 

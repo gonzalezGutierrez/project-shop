@@ -39,16 +39,6 @@
                     <div class="product-detail">
 
                         <h4 class="vr-single-product-title">{{$product->nombre}}</h4>
-                        <div class="woocommerce woocommerce-product-rating">
-                            <div class="star-rating">
-                                <i class="fa fa-star black-text"></i>
-                                <i class="fa fa-star black-text"></i>
-                                <i class="fa fa-star black-text"></i>
-                                <i class="fa fa-star black-text"></i>
-                                <i class="fa fa-star-o"></i>
-                                <span class="ml-3 rating-text text-uppercase">5 Reviews</span>
-                            </div>
-                        </div>
 
                         <div class="short-desc mt-2">
                             <p>{{$product->descripcion}}</p>
@@ -69,9 +59,16 @@
                                 <a href="#" rel="tag">{{$product->brand->nombre}}</a>
                             </span>
                         </div>
-                        <a href="{{asset('')}}" class="btn btn-info-gradiant"><i class="fa fa-download"></i> Descargar ficha tecnica</a>
 
-                        <a href="{{asset('')}}" class="btn btn-primary-gradiant"><i class="fa fa-heart"></i> Agregar a la lista de deseos</a>
+                        <div class="row">
+                            <div class="col-md-6 col-xs-12 px-sm-2 col-sm-12">
+                                <a href="{{asset('')}}" class="btn btn-info-gradiant"><i class="fa fa-download"></i> Descargar ficha tecnica</a>
+                            </div>
+                            <div class="col-md-6 col-xs-12 px-sm-2 col-sm-12">
+                                <a href="{{asset('')}}" class="btn btn-primary-gradiant"><i class="fa fa-heart"></i> Agregar a la lista de deseos</a>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
@@ -105,85 +102,12 @@
             <div class="row">
 
                 <div class="col-lg-12 col-md-12 col-sm-12 mb-4">
-                    <h3 class="small-sec-title">Related Products</h3>
-                </div>
-                <!-- Single Product -->
-                <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
-                    <div class="product-wrap">
-                        <div class="product-caption">
-                            <div class="product-caption-info">
-
-                                <div class="product-caption-thumb">
-                                    <div class="product-caption-content">
-                                        <img src="https://via.placeholder.com/800x800" class="img-fluid mx-auto" alt=""></div>
-                                </div>
-
-                                <div class="uc_product_details">
-                                    <span>Soft Product Box</span>
-                                    <span class="uc_price">$950</span>
-
-                                    <div class="uc_view_cart">
-                                        <a href="#">Add To Cart</a>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
+                    <h3 class="small-sec-title">Productos relacionados</h3>
                 </div>
 
-                <!-- Single Product -->
-                <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
-                    <div class="product-wrap">
-                        <div class="product-caption">
-                            <div class="product-caption-info">
-
-                                <div class="product-caption-thumb">
-                                    <div class="product-caption-content">
-                                        <img src="https://via.placeholder.com/800x800" class="img-fluid mx-auto" alt=""></div>
-                                </div>
-
-                                <div class="uc_product_details">
-                                    <span>Soft Product Box</span>
-                                    <span class="uc_price">$950</span>
-
-                                    <div class="uc_view_cart">
-                                        <a href="#">Add To Cart</a>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Product -->
-                <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
-                    <div class="product-wrap">
-                        <div class="product-caption">
-                            <div class="product-caption-info">
-
-                                <div class="product-caption-thumb">
-                                    <div class="product-caption-content">
-                                        <img src="https://via.placeholder.com/800x800" class="img-fluid mx-auto" alt=""></div>
-                                </div>
-
-                                <div class="uc_product_details">
-                                    <span>Soft Product Box</span>
-                                    <span class="uc_price">$950</span>
-
-                                    <div class="uc_view_cart">
-                                        <a href="#">Add To Cart</a>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @foreach($products as $product)
+                    @include('shop.components.product.product_item')
+                @endforeach
 
             </div>
             <!-- All Product List End -->

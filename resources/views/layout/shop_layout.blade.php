@@ -94,6 +94,12 @@
                                             <a href="{{asset('administracion/productos')}}">Administración</a>
                                         </li>
                                     @endif
+                                    <li>
+                                        <form action="{{asset('logout')}}" method="POST">
+                                            @csrf
+                                            <button type="submit" class="btn text-dark btn-lg btn-sm btn-default">Salir</button>
+                                        </form>
+                                    </li>
                                 </ul>
                             </li>
                         @endauth
