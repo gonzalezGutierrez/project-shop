@@ -2,70 +2,6 @@
 @section('title','Bienvenido')
 @section('content')
 
-    <!--<div class="ct-header ct-header--slider ct-slick-custom-dots text-center" id="home">
-        <div class="ct-slick-homepage" data-arrows="true" data-autoplay="true">
-
-            <div class="ct-header slick-slide-animate tablex item" data-background="{{asset('shop/sliders/slider-1.png')}}">
-                <div class="ct-u-display-tablex">
-                    <div class="inner">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12 col-lg-12 slider-inner">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ct-header slick-slide-animate tablex item" data-background="{{asset('shop/sliders/slider-2.png')}}">
-                <div class="ct-u-display-tablex">
-                    <div class="inner">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12 col-lg-12 slider-inner">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ct-header tablex item" data-background="{{asset('shop/sliders/slider-3.png')}}">
-                <div class="ct-u-display-tablex">
-                    <div class="inner">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12 col-lg-12 slider-inner">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="ct-header tablex item" data-background="{{asset('shop/sliders/slider-4.png')}}">
-                <div class="ct-u-display-tablex">
-                    <div class="inner">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12 col-lg-12 slider-inner">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-    <div class="clearfix"></div>-->
-
-
-    <!-- ============================ What We Do Start ================================== -->
     <section>
         <div class="container">
             <div class="row">
@@ -144,8 +80,6 @@
                             <li>Venta y asesoría de artículos de seguridad medico hospitalaria y personal.</li>
                             <li>Ventas y asesoría:  55 6011 1766</li>
                             <li>Correo:  mydibumedical@gmail.com</li>
-                            <li>Our Support is very dedicated for our customers</li>
-                            <li>We provide 24x7 support with extended offer</li>
                         </ul>
                     </div>
                 </div>
