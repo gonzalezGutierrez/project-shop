@@ -35,7 +35,7 @@
             <div class="row">
 
                 <!-- Sidebar -->
-                <div class="col-lg-4 col-md-12 col-sm-12 mb-4 hidden-sm">
+                <div class="col-lg-4 col-md-12 col-sm-12 mb-4">
 
                     <div class="side-widget">
                         <div class="side-widget-header border-0">
