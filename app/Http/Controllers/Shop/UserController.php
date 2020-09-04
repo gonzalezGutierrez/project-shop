@@ -21,10 +21,22 @@ class UserController extends Controller
         $this->token = new Token();
     }
 
-    public function create()
-    {
+
+
+    public function create(){
         return view('auth.register');
     }
+    public function show() {
+        $user = Auth::user();
+        return view('shop.users.show',compact('user'));
+    }
+    public function edit($id)
+    {
+        //
+    }
+
+
+
 
     public function store(UserAddRequest $request) {
 
@@ -61,7 +73,6 @@ class UserController extends Controller
         }
 
     }
-
     public function registeredOk($token,$email) {
         $user = $this->user->getUserWithEmail($email);
         $tokenUser = $this->token->getTokenWithTokenAndUser($user,$token);
@@ -84,17 +95,10 @@ class UserController extends Controller
 
         return back()->with('session-toke-caducate','El token no es correcto o ha caducado');
     }
-
-    public function edit($id)
-    {
-        //
-    }
-
     public function update(Request $request, $id)
     {
         //
     }
-
     public function destroy($id)
     {
         //
