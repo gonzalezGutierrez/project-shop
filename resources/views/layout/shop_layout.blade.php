@@ -49,7 +49,7 @@
                         <li class="active"><a href="{{asset('/')}}">Inicio</a>
                         </li>
 
-                        <li><a href="#">Tienda</a></li>
+                        <li><a href="{{asset('/shop-general')}}">Tienda</a></li>
 
                         <li><a href="{{asset('/categories')}}">Categorias</a></li>
 
