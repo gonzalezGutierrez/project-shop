@@ -17,7 +17,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="login_form_inner register_form_inner">
-                        <h3>Crear una cuenta MyDibu Medical</h3>
+                        <h3 class="mb-3">Crear una cuenta MyDibu Medical</h3>
                         <form action="{{asset('users')}}" method="POST" class="row login_form" id="register_form">
                             @csrf
                             <div class="col-md-12 form-group">
@@ -58,7 +58,7 @@
                             </div>
                             <div class="col-md-12 form-group">
                                 <button type="submit" value="submit"
-                                        class="button button-register w-100">Registrate</button>
+                                        class="btn btn-info  w-100">Registrate</button>
                             </div>
                         </form>
                     </div>
