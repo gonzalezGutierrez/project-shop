@@ -146,7 +146,7 @@
                                 <li><a href="#">Tienda</a></li>
                                 <li><a href="{{asset('/categories')}}">Categorias</a></li>
                                 <li><a href="#">Marcas</a></li>
-                                <li><a href="#">Mi cuenta</a></li>
+                                <li><a href="{{asset('/account')}}">Mi cuenta</a></li>
                             </ul>
                         </div>
                     </div>
