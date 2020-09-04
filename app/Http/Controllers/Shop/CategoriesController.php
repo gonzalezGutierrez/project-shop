@@ -12,7 +12,8 @@ class CategoriesController extends Controller
 
     public function index()
     {
-        //
+        $categories = Category::getWithStatus('activo')->get();
+        return view('shop.categories.index',compact('categories'));
     }
     public function show($slug)
     {

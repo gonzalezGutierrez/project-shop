@@ -51,7 +51,7 @@
 
                         <li><a href="#">Tienda</a></li>
 
-                        <li><a href="#">Categorias</a></li>
+                        <li><a href="{{asset('/categories')}}">Categorias</a></li>
 
                         <li>
                             <a href="#">Modelos</a>
@@ -144,7 +144,7 @@
                             <ul class="footer-menu">
                                 <li><a href="#">Inicio</a></li>
                                 <li><a href="#">Tienda</a></li>
-                                <li><a href="#">Categorias</a></li>
+                                <li><a href="{{asset('/categories')}}">Categorias</a></li>
                                 <li><a href="#">Marcas</a></li>
                                 <li><a href="#">Mi cuenta</a></li>
                             </ul>
