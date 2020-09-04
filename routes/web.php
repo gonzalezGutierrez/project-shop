@@ -41,7 +41,7 @@ Route::group(['namespace'=>'Shop'],function(){
     Route::resource('users','UserController');
     Route::get('user-registered-successfuly/{token}/{email}','UserController@registeredOk');
     Route::get('activate-account/{token}/{email}','UserController@activateUser');
-    Route::get('account','UserController@show');
+    Route::get('account','UserController@show')->middleware('auth');
 
     Route::get('/','HomeController@home');
     Route::get('member-pymes','HomeController@pymes');

@@ -58,10 +58,6 @@
                         </li>
 
                         <li>
-                            <a href="#">Nosotros</a>
-                        </li>
-
-                        <li>
                             <a href="#">Miembro PYME</a>
                             <ul class="nav-dropdown nav-submenu" style="right: auto; display: none;">
                                 <li>
@@ -72,6 +68,11 @@
                                 </li>
                             </ul>
                         </li>
+                        @guest()
+                            <li>
+                                <a href="{{asset('/users/create')}}">Crear cuenta</a>
+                            </li>
+                        @endguest
 
                     </ul>
 
