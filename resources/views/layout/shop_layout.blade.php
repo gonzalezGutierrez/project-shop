@@ -118,27 +118,6 @@
 
     @yield('content')
 
-    <section class="p-0 overlay-bottom">
-        <div class="container">
-
-            <div class="row justify-content-center">
-                <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12">
-                    <div class="box-shadow border--radius bg-white p-30 pymes-member text-center">
-                        <div class="mb-3 title pt-2">
-                            <h1>Se parte de MyDibu Medical</h1>
-                        </div>
-                        <div class="align-items-center d-flex justify-content-center padding flex-wrap">
-                            <a href="#" class="btn btn-info">Registrate</a>
-                            <a href="#" class="btn btn-outline-info ml-2">Se un miembro PYMES</a>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-    <div class="clearfix"></div>
 
     <footer class="bg-cover skin-dark-footer" style="background:#072544 url({{asset('shop/assets/img/footer.png')}}) no-repeat">
         <div class="ht-80"></div>
