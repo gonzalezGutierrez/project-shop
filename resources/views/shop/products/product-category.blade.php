@@ -1,5 +1,5 @@
 @extends('layout.shop_layout')
-
+@section('title',$category->nombre)
 @section('content')
     <div class="page-title-wrap pt-img-wrap" style="background:url({{asset('/'.$category->url_imagen)}}) no-repeat; background-position: center center; background-size: cover;">
         <div class="container">

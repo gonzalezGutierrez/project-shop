@@ -1,4 +1,5 @@
 @extends('layout.shop_layout')
+@section('title',$product->nombre)
 @section('content')
     <div class="container-fluid breadcrumbs">
         <div class="container">
@@ -7,7 +8,7 @@
                     <a href="{{asset('/')}}">
                         Inicio
                     </a>
-                    <a href="{{asset('/tienda')}}">
+                    <a href="{{asset('/shop-general')}}">
                         Tienda
                     </a>
                     <a href="javascript:void(0)">
