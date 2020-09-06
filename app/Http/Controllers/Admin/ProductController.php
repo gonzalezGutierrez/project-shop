@@ -146,6 +146,28 @@ class ProductController extends Controller
         }
     }
 
+    public function changeStatus(Request $request, $productId) {
+
+        try{
+
+            $product = Product::findOrFail($productId);
+
+            if ($product->estatus == 'activo') {
+                $product->estatus = 'inactivo';
+            }else{
+                $product->estatus = 'activo';
+            }
+
+            $product->save();
+
+            return redirect('/administracion/productos/'.$product->id);
+
+        }catch(\Exception $e) {
+            dd($e);
+            return back();
+        }
+    }
+
     public function destroy($id)
     {
         //

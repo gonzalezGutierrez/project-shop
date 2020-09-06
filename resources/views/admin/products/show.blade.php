@@ -120,6 +120,15 @@
                                             </p>
                                         </div>
                                     </li>
+                                    <form action="{{asset('administracion/productos-estatus/'.$product->id)}}" method="post">
+                                        @csrf
+                                        @method('put')
+                                        @if ($product->estatus == 'activo')
+                                            <button type="submit" class="btn btn-danger">Inactivar producto</button>
+                                        @else
+                                            <button type="submit" class="btn btn-primary">Activar producto</button>
+                                        @endif
+                                    </form>
                                 </ol>
                             </div>
                         </div>

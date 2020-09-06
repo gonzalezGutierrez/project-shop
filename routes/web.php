@@ -29,10 +29,12 @@ Route::group(['namespace'=>'Admin','prefix'=>'administracion','middleware'=>['au
     Route::resource('productos','ProductController');
     Route::get('productos-resultados','ProductController@resultProducts');
     Route::get('productos-proximos-terminar','ProductController@productOutStock');
+    Route::put('productos-estatus/{product_id}','ProductController@changeStatus');
 
     Route::resource('historial-precios','PriceHistoryController');
 
     Route::resource('compras','BuyController');
+
 });
 
 
