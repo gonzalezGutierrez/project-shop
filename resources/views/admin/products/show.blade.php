@@ -80,7 +80,7 @@
 
                         <h4 class="mb-xlg">Información</h4>
 
-                        <a target="_blank" href="{{asset('producto/'.$product->slug)}}">Ver en mi tienda</a>
+                        <a target="_blank" href="{{asset('products/'.$product->slug)}}">Ver en mi tienda</a>
 
                         <div class="timeline timeline-simple mt-xlg mb-md">
                             <div class="tm-body">

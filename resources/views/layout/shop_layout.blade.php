@@ -6,6 +6,8 @@
 
     <title>@yield('title') - MyDibu Medical</title>
 
+    <link rel="icon" type="image/png" href="{{asset('fav.jpg')}}">
+
     <!-- All Plugins Css -->
     <link href="{{asset('shop/assets/css/plugins.css')}}" rel="stylesheet">
 
@@ -38,27 +40,28 @@
         <div class="container">
             <nav id="navigation" class="navigation navigation-landscape">
                 <div class="nav-header">
-                    <a class="nav-brand" href="#">
-                        <span style="margin-top:25px !important;">MyDibu Medical</span>
+                    <a class="nav-brand" href="{{asset('/')}}">
+                        <span style="margin-top:25px !important;">
+                            MyDibu Medical
+                        </span>
                     </a>
                     <div class="nav-toggle"></div>
                 </div>
                 <div class="nav-menus-wrapper" style="transition-property: none;">
                     <ul class="nav-menu">
 
-                        <li class="active"><a href="{{asset('/')}}">Inicio</a>
-                        </li>
+                        <li class=" @if(Request::is('/')) active @endif"><a href="{{asset('/')}}">Inicio</a></li>
 
-                        <li><a href="{{asset('/shop-general')}}">Tienda</a></li>
+                        <li class="@if(Request::is('shop-general')) active @endif"><a href="{{asset('/shop-general')}}">Tienda</a></li>
 
-                        <li><a href="{{asset('/categories')}}">Categorias</a></li>
+                        <li class="@if(Request::is('categories')) active @endif"><a href="{{asset('/categories')}}">Categorias</a></li>
 
                         <li>
                             <a href="#">Modelos</a>
                         </li>
 
-                        <li>
-                            <a href="#">Miembro PYME</a>
+                        <li class="@if(Request::is('member-pymes')) active @endif">
+                            <a  href="#">Miembro PYME</a>
                             <ul class="nav-dropdown nav-submenu" style="right: auto; display: none;">
                                 <li>
                                     <a href="{{asset('/member-pymes')}}">Acerca de</a>
@@ -69,7 +72,7 @@
                             </ul>
                         </li>
                         @guest()
-                            <li>
+                            <li class="@if(Request::is('users/create')) active @endif">
                                 <a href="{{asset('/users/create')}}">Crear cuenta</a>
                             </li>
                         @endguest
@@ -267,34 +270,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
