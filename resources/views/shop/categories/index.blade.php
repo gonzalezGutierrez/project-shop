@@ -18,7 +18,7 @@
 
                     <div class="row portfolio-gallary">
                         @foreach($categories as $category)
-                            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 port-item design development">
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 port-item design development">
                             <div class="portfolio-wrap portfolio-inner">
                                 <img src="{{asset($category->url_imagen)}}" style="width: 100%; height: 200px;" alt="project">
                                 <div class="label">

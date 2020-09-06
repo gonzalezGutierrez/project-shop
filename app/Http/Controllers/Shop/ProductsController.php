@@ -29,7 +29,7 @@ class ProductsController extends Controller
 
     public function show($slug) {
         $product = Product::findWithSlug($slug);
-        $products  = Product::getProductsSimilar($product->id,$product->marca_id,12)->get();
+        $products  = Product::getProductsSimilar($product->id,$product->marca_id,12)->take(8)->get();
         return view('shop.products.show',compact('product','products'));
     }
 

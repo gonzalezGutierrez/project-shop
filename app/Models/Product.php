@@ -44,6 +44,9 @@ class Product extends Model
     public function getProducts($status) {
         return $this->products()->getWithStatus($status)->get();
     }
+    public function getProductsPaginate($items) {
+        return $this->products()->getWithStatus('activo')->paginate($items);
+    }
     public function getProductsLike($like) {
         return $this->products()->getLike($like);
     }

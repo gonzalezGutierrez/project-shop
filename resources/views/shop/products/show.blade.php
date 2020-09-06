@@ -107,7 +107,7 @@
                 </div>
 
                 @foreach($products as $product)
-                    @include('shop.components.product.product_item')
+                    @include('shop.components.product.product_item' , ['col_md'=>'3','col_lg'=>'3'])
                 @endforeach
 
             </div>

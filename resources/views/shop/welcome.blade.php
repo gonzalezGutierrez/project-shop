@@ -9,7 +9,7 @@
                     <div class="col-lg-3 col-md-3 mb-4">
                         <div class="features-thumb-box">
                             <a href="{{asset('products-category/'.$category->slug)}}">
-                                <img src="{{asset($category->url_imagen)}}" style="width: 100%; height: 200px;" class="img-responsive" alt="">
+                                <img src="{{asset($category->url_imagen)}}" style="width: 100%; height: 200px" class="img-responsive" alt="">
                             </a>
                             <div class="large-features-box-content">
                                 <div class="features-content">
@@ -142,7 +142,7 @@
                     <h3 class="small-sec-title">Lo mas nuevo en MyDibu Medical</h3>
                 </div>
                 @foreach($products as $product)
-                    @include('shop.components.product.product_item')
+                    @include('shop.components.product.product_item' , ['col_md'=>'3','col_lg'=>'3'])
                 @endforeach
             </div>
             <!-- All Product List End -->

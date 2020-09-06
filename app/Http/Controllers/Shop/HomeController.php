@@ -17,7 +17,8 @@ class HomeController extends Controller
     }
 
     public function home() {
-       $categories = Category::getWithStatus('activo')->get();
+        //\Session::put('basket',1);
+       $categories = Category::getWithStatus('activo')->take(9)->get();
        $products   = Product::getLastProducts(8)->get();
        return view('shop.welcome',compact('categories','products'));
     }
@@ -29,7 +30,7 @@ class HomeController extends Controller
     public function shop() {
         $categories = Category::getWithStatus('activo')->get();
         $brands     = $this->brand->getBrands('activo');
-        $products   = $this->products->getProducts('activo');
+        $products   = $this->products->getProductsPaginate(10);
         return view('shop.shop',compact('categories','brands','products'));
     }
 

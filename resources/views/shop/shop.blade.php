@@ -92,35 +92,10 @@
                 <div class="col-lg-8 col-md-12 col-sm-12 mb-4">
                     <div class="row">
                         @foreach($products as $product)
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 mb-4">
-                                <div class="product-wrap">
-                                    <div class="product-caption">
-                                        <div class="product-caption-info">
-
-                                            <div class="product-caption-thumb">
-                                                <div class="">
-                                                    <img src="{{asset('/'.$product->url_imagen_principal)}}" style="width: 100%; height: 280px;" class="img-fluid mx-auto" alt="">
-                                                </div>
-                                            </div>
-
-                                            <div class="uc_product_details">
-                                                <a href="{{asset('/products/'.$product->slug)}}">
-                                                    <span>{{$product->nombre}}</span>
-                                                </a>
-                                                <span class="uc_price">${{number_format($product->precio_venta,2,'.',',')}}</span>
-
-                                                <div class="">
-                                                    <a href="#" class="btn btn-outline-info"><i class="fa fa-shopping"></i> Agregar al carrito</a>
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @include('shop.components.product.product_item' , ['col_md'=>'4','col_lg'=>'4'])
                         @endforeach
                     </div>
+                    {{$products->links()}}
                 </div>
             </div>
             <!-- All Product List End -->
