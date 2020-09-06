@@ -62,7 +62,7 @@ class Product extends Model
         return $query->products()->getProductsLessProductId($productId)->getProductsWithBrandId($brandId)->limitWith($limit);
     }
     public function scopeGetProductsWithCategoryId($query,$categoryId) {
-        return $query->products()->where('categoria_id',$categoryId);
+        return $query->products()->getWithStatus('activo')->where('categoria_id',$categoryId);
     }
     public function scopeGetProductsWithBrandId($query,$brandId){
         return $query->where('marca_id',$brandId);
