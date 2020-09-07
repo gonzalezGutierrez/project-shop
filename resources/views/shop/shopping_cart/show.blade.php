@@ -1,10 +1,10 @@
 @extends('layout.shop_layout')
 @section('title','Mi carrito')
 @section('content')
-    <div class="container">
+    <div class="container mt-4 mb-5">
         <div class="col-lg-12 col-md-12 col-sm-12">
 
-            <div class="box box-body padd-0">
+            <div class="">
                 <div class="panel">
                     <div class="panel-heading bg-light-success text-success p-15">
                         Tu carrito ({{$productsCount}} producto{{$productsCount > 1 ? 's' : ''}})
