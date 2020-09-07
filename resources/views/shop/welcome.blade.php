@@ -17,12 +17,9 @@
                             </a>
                             <div class="large-features-box-content">
                                 <div class="features-content">
-                                    <h6>{{$category->nombre}}</h6>
+                                    <h6>{{$category->nombre}}</a></h6>
                                     <p>{{$category->productsCount()}} Producto(s)</p>
                                 </div>
-                                <a href="#" class="tw-readmore">
-                                    <i class="fa fa-arrow-right"></i>
-                                </a>
                             </div>
                         </div>
                     </div>

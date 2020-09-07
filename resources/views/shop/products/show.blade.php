@@ -65,9 +65,6 @@
                             <div class="col-md-6 col-xs-12 px-sm-2 col-sm-12">
                                 <a href="{{asset('')}}" class="btn btn-info-gradiant"><i class="fa fa-download"></i> Descargar ficha tecnica</a>
                             </div>
-                            <div class="col-md-6 col-xs-12 px-sm-2 col-sm-12">
-                                <a href="{{asset('')}}" class="btn btn-primary-gradiant"><i class="fa fa-heart"></i> Agregar a la lista de deseos</a>
-                            </div>
                         </div>
 
                     </div>
@@ -84,7 +81,7 @@
                                 <a class="nav-link active" id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="true">Descripción</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="information-tab" data-toggle="tab" href="#information" role="tab" aria-controls="information" aria-selected="false">Caracteristicas</a>
+                                <a class="nav-link" id="information-tab" data-toggle="tab" href="#information" role="tab" aria-controls="information" aria-selected="false">Información Tecnica</a>
                             </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
