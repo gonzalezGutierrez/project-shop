@@ -73,7 +73,7 @@
                             </li>
                         @endguest
                         <li class="@if(Request::is('basket')) active @endif">
-                            <a href="{{asset('/shoppig-cart')}}">Mi carrito ({{$productsCount}})</a>
+                            <a href="{{asset('/basket')}}">Mi carrito ({{$productsCount}})</a>
                         </li>
 
                     </ul>
