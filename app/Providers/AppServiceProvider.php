@@ -20,9 +20,13 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        view()->composer('*', function ($view)
-        {
-            
+        View::composer('*',function($view){
+
+            $shopping_cart_id = \Session::get('shopping_cart_id');
+            $shopping_cart   = ShoppingCart::find($shopping_cart_id);
+
+            $view->with('productsCount',$shopping_cart->productsCount());
         });
+
     }
 }

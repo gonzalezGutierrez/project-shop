@@ -14,7 +14,12 @@
                         </a>
                         <span class="uc_price">${{number_format($product->precio_venta,2,'.',',')}}</span>
                         <div class="">
-                            <a href="#" class="btn btn-outline-info"><i class="fa fa-shopping"></i> Agregar al carrito</a>
+                            <form action="{{asset('product_in_shopping_cart')}}" method="POST">
+                                @csrf
+                                <input type="hidden" value="{{$product->id}}" name="producto_id">
+                                <input type="hidden" value="1" name="cantidad">
+                                <button type="submit" class="btn btn-outline-info"><i class="fa fa-shopping"></i> Agregar al carrito</button>
+                            </form>
                         </div>
                     </div>
                 </div>
