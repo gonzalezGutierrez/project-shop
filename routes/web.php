@@ -56,4 +56,6 @@ Route::group(['namespace'=>'Shop','middleware'=>'set_shopping_cart'],function(){
 
     Route::resource('product_in_shopping_cart','ProductInShoppingCartController')
         ->only('store','destroy');
+
+    Route::get('basket','ShoppingCartController@show');
 });

@@ -72,7 +72,7 @@
                                 <a href="{{asset('/users/create')}}">Crear cuenta</a>
                             </li>
                         @endguest
-                        <li class="@if(Request::is('users/create')) active @endif">
+                        <li class="@if(Request::is('basket')) active @endif">
                             <a href="{{asset('/shoppig-cart')}}">Mi carrito ({{$productsCount}})</a>
                         </li>
 
