@@ -1,4 +1,5 @@
 @extends('layout.shop_layout')
+@section('title','Categorias')
 @section('content')
     <section id="portfolio">
         <div class="container">

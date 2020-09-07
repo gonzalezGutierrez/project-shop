@@ -1,6 +1,7 @@
 @extends('layout.shop_layout')
+@section('title','Miembro Pymes')
 @section('content')
-    <div class="page-title-wrap pt-img-wrap" style="background:url(https://via.placeholder.com/1920x900) no-repeat;">
+    <div class="page-title-wrap pt-img-wrap" style="background:url({{asset('shop/images/about/about-2.jfif')}}) no-repeat;">
         <div class="container">
             <div class="col-lg-12 col-md-12">
                 <div class="pt-caption text-center mt-5">
@@ -32,7 +33,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
-                    <img src="{{asset('shop/about/about-1.jfif')}}" class="img-fluid mx-auto" alt="">
+                    <img src="{{asset('shop/about/about-3.webp')}}" class="img-fluid mx-auto" alt="">
                 </div>
 
             </div>
