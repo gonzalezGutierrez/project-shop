@@ -8,7 +8,7 @@
                     <div class="image-block-content bg-dark-blue inverse-color text-center"">
                         <img src="{{asset('logo.jpg')}}" class="mb-2" style="width: 220px; border-radius: 50%; height: 220px;" alt="">
                         <h4>¿Ya tienes una cuenta?</h4>
-                        <a class="btn btn-info" href="{{asset('register/pyme')}}">Se un miembro PYME</a>
+                        <a class="btn btn-info mb-xl-2 mb-sm-2" href="{{asset('register/pyme')}}">Se un miembro PYME</a>
                         <a class="btn btn-outline-info" href="{{asset('/login')}}">Acceder</a>
                     </div>
                 </div>
