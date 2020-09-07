@@ -26,6 +26,7 @@ class ShoppingCart extends Model
         return $this->belongsToMany(Product::class,'product_in_shopping_carts','carrito_id','producto_id')
             ->select(
                 'products.id as product_id',
+                'products.url_imagen_principal as product_image',
                 'products.nombre as product_name',
                 'products.precio_venta as product_price',
                 'products.slug as product_slug',

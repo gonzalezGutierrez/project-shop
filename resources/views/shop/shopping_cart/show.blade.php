@@ -8,7 +8,9 @@
 
                     <div class="box box-body padd-0">
                         <div class="panel">
-                            <div class="panel-heading bg-light-success text-success p-15"> Tu carrito ({{$productsCount}} producto(s))</div>
+                            <div class="panel-heading bg-light-success text-success p-15">
+                                Tu carrito ({{$productsCount}} producto{{$productsCount > 1 ? 's' : ''}})
+                            </div>
                             <div class="panel-wrapper">
                                 <div class="panel-body padd-15">
                                     <div class="table-responsive">
@@ -16,74 +18,37 @@
                                             <thead>
                                             <tr>
                                                 <th>Image</th>
-                                                <th>Product info</th>
-                                                <th>Price</th>
-                                                <th>Quantity</th>
-                                                <th style="text-align:center">Total</th>
-                                                <th style="text-align:center">Action</th>
+                                                <th>Producto</th>
+                                                <th>Precio</th>
+                                                <th>Cantidad</th>
+                                                <th style="text-align:center">Subtotal</th>
+                                                <th style="text-align:center">Acción</th>
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr>
-                                                <td><img src="https://via.placeholder.com/800x800" alt="iMac" width="80"></td>
-                                                <td>
-                                                    <h5 class="font-500">Rounded Chair</h5>
-                                                </td>
-                                                <td>$153</td>
-                                                <td>
-                                                    <input type="number" class="form-control b-all" value="1">
-                                                </td>
-                                                <td>$153</td>
-                                                <td><a href="javascript:void(0)" class="text-inverse" title="" data-toggle="tooltip" data-original-title="Delete"><i class="ti-trash text-dark"></i></a></td>
-                                            </tr>
-
-                                            <tr>
-                                                <td><img src="https://via.placeholder.com/800x800" alt="iMac" width="80"></td>
-                                                <td>
-                                                    <h5 class="font-500">Rounded Chair</h5>
-                                                </td>
-                                                <td>$153</td>
-                                                <td>
-                                                    <input type="number" class="form-control b-all" value="1">
-                                                </td>
-                                                <td>$153</td>
-                                                <td><a href="javascript:void(0)" class="text-inverse" title="" data-toggle="tooltip" data-original-title="Delete"><i class="ti-trash text-dark"></i></a></td>
-                                            </tr>
-
-                                            <tr>
-                                                <td><img src="https://via.placeholder.com/800x800" alt="iMac" width="80"></td>
-                                                <td>
-                                                    <h5 class="font-500">Rounded Chair</h5>
-                                                </td>
-                                                <td>$153</td>
-                                                <td>
-                                                    <input type="number" class="form-control b-all" value="1">
-                                                </td>
-                                                <td>$153</td>
-                                                <td><a href="javascript:void(0)" class="text-inverse" title="" data-toggle="tooltip" data-original-title="Delete"><i class="ti-trash text-dark"></i></a></td>
-                                            </tr>
-
-                                            <tr>
-                                                <td><img src="https://via.placeholder.com/800x800" alt="iMac" width="80"></td>
-                                                <td>
-                                                    <h5 class="font-500">Rounded Chair</h5>
-                                                </td>
-                                                <td>$153</td>
-                                                <td>
-                                                    <input type="number" class="form-control b-all" value="1">
-                                                </td>
-                                                <td>$153</td>
-                                                <td><a href="javascript:void(0)" class="text-inverse" title="" data-toggle="tooltip" data-original-title="Delete"><i class="ti-trash text-dark"></i></a></td>
-                                            </tr>
-
+                                            @foreach($products as $product)
+                                                <tr>
+                                                    <td><img src="{{asset('/'.$product->product_image)}}" alt="{{$product->product_name}}" width="80"></td>
+                                                    <td>
+                                                        <h5 class="font-500">{{$product->product_name}}</h5>
+                                                    </td>
+                                                    <td>${{number_format($product->product_price,2,'.',',')}}</td>
+                                                    <td>
+                                                        <input type="number" class="form-control b-all" value="{{$product->amount}}">
+                                                    </td>
+                                                    <td>${{number_format($product->subtotal,2,'.',',')}}</td>
+                                                    <td>
+                                                        <form action="{{asset('product_in_shopping_cart/'.$product->product_id)}}" method="POST">
+                                                            @csrf
+                                                            @method('delete')
+                                                            <button type="submit" class="btn btn-sm btn-danger text-white"><i class="ti-trash text-white"></i></button>
+                                                        </form>
+                                                </tr>
+                                            @endforeach
                                             </tbody>
                                         </table>
                                         <hr>
-                                        <button class="btn btn-success pull-right woo-btn">Update Cart</button>
-                                        <div class="vr-add-form mt-3 mb-3">
-                                            <input type="text" class="form-control b-all" placeholder="Apply code">
-                                            <button type="button" class="btn btn-primary woo-btn">Apply coupon</button>
-                                        </div>
+                                        <button class="btn btn-success pull-right woo-btn">Actualizar carrito</button>
                                     </div>
                                 </div>
                             </div>
@@ -92,34 +57,31 @@
 
                     <div class="booking-price">
                         <form>
-                            <h4 class="mb-3">Cart totals</h4>
-
-                            <!-- your Dates -->
-                            <div class="booking-price-detail side-list">
-                                <h5>Your Dates</h5>
-                                <ul>
-                                    <li>Appearing<strong class="pull-right">12 Jan 2018</strong></li>
-                                    <li>Disappearing<strong class="pull-right">20 jan 2018</strong></li>
-                                </ul>
-                            </div>
+                            <h4 class="mb-3">Detalle de la orden</h4>
+                            <span class="text-danger">En compras menores a $2000.00 MXN el envio es gratuito</span>
 
                             <!-- Your Stay -->
                             <div class="booking-price-detail side-list">
-                                <h5>Your Stay</h5>
                                 <ul>
-                                    <li>Rent(1 Week)<strong class="pull-right">$200.00</strong></li>
-                                    <li>Deposit<strong class="pull-right">$300.00</strong></li>
-                                    <li>V.A.T<strong class="pull-right">$28.00</strong></li>
+                                    <li>Subtotal: <strong class="pull-right">${{number_format($shopping_cart->amount(),2,'.',',')}}</strong></li>
+                                    <li>
+                                        <span>
+                                            Envio:
+                                        </span>
+                                        <strong class="pull-right">
+                                            ${{number_format($shippingPrice,2,'.',',')}}
+                                        </strong>
+                                    </li>
                                 </ul>
                             </div>
 
                             <!-- Total Cost -->
                             <div class="booking-price-detail side-list">
                                 <ul>
-                                    <li>Total Cost<strong class="theme-cl pull-right">$528</strong></li>
+                                    <li>Total: <strong class="theme-cl pull-right">${{number_format($total,2,'.',',')}}</strong></li>
                                 </ul>
                             </div>
-                            <button class="btn btn-primary btn-lg woo-btn">Proceed to checkout</button>
+                            <button class="btn btn-primary btn-lg woo-btn">Proceder a pagar</button>
                         </form>
                     </div>
                 </div>

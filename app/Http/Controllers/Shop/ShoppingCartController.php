@@ -16,7 +16,14 @@ class ShoppingCartController extends Controller
 
     public function show(Request $request) {
         $shopping_cart = $request->shopping_cart;
-        return view('shop.shopping_cart.show',compact('shopping_cart'));
+        $products = $shopping_cart->products()->get();
+        $total = $shopping_cart->amount();
+        $shippingPrice = 0.0;
+        if ($total < 2000) {
+            $shippingPrice = 100;
+            $total = $total + $shippingPrice;
+        }
+        return view('shop.shopping_cart.show',compact('shopping_cart','products','total','shippingPrice'));
     }
 
 }

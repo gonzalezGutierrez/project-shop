@@ -27,7 +27,7 @@ class ProductInShoppingCartController extends Controller
 
             $isProductInBasket = $basket->isProductInBasket($shopping_cart->id,$product->id);
 
-            $subtotal = $request->amount * $product->precio_venta;
+            $subtotal = $request->cantidad * $product->precio_venta;
             $data = array('carrito_id'=>$shopping_cart->id,'producto_id'=>$product->id,'cantidad'=>$request->cantidad,'subtotal'=>$subtotal);
 
             if ($isProductInBasket) {
@@ -35,7 +35,7 @@ class ProductInShoppingCartController extends Controller
             }else{
                 $basket->add($data);
             }
-            return redirect('/shopping-cart');
+            return redirect('/basket');
         }catch (\Exception $e) {
             dd($e);
         }
@@ -46,8 +46,22 @@ class ProductInShoppingCartController extends Controller
         //
     }
 
-    public function destroy($id)
+    public function destroy(Request  $request, $productId)
     {
-        //
+        $shopping_cart = $request->shopping_cart;
+
+        $product = Product::findOrFail($productId);
+        $basket = new ProductInShoppingCart();
+
+        $isProductInBasket = $basket->isProductInBasket($shopping_cart->id,$product->id);
+
+        if ($isProductInBasket) {
+            $isProductInBasket->delete();
+            return back();
+        }else {
+            return back()->with('error','El producto no esta en el carrito');
+        }
+
+
     }
 }
