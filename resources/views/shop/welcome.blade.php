@@ -5,6 +5,10 @@
     <section>
         <div class="container">
             <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 mb-4">
+                    <h3 class="small-sec-title">Nuestras categorias</h3>
+                    <a href="{{asset('categories')}}" class="text-uppercase">Ver todo</a>
+                </div>
                 @foreach($categories as $category)
                     <div class="col-lg-3 col-md-3 mb-4">
                         <div class="features-thumb-box">
