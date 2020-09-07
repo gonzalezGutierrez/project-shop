@@ -46,8 +46,6 @@
                                     @endforeach
                                     </tbody>
                                 </table>
-                                <hr>
-                                <button class="btn btn-success pull-right woo-btn">Actualizar carrito</button>
                             </div>
                         </div>
                     </div>
