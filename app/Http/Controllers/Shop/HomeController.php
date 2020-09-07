@@ -17,10 +17,10 @@ class HomeController extends Controller
     }
 
     public function home() {
-        //\Session::put('basket',1);
        $categories = Category::getWithStatus('activo')->take(9)->get();
        $products   = Product::getLastProducts(8)->get();
-       return view('shop.welcome',compact('categories','products'));
+       $productsCount = Product::where('estatus','activo')->count();
+       return view('shop.welcome',compact('categories','products','productsCount'));
     }
 
     public function pymes() {

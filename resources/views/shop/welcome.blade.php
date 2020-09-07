@@ -121,7 +121,7 @@
 
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="count-box text-center">
-                        <h2 class="count">24</h2>
+                        <h2 class="count">{{$productsCount}}</h2>
                         <h5>Productos disponibles</h5>
                     </div>
                 </div>
