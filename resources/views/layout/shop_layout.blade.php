@@ -56,10 +56,6 @@
 
                         <li class="@if(Request::is('categories')) active @endif"><a href="{{asset('/categories')}}">Categorias</a></li>
 
-                        <li>
-                            <a href="#">Modelos</a>
-                        </li>
-
                         <li class="@if(Request::is('member-pymes')) active @endif">
                             <a  href="#">Miembro PYME</a>
                             <ul class="nav-dropdown nav-submenu" style="right: auto; display: none;">
