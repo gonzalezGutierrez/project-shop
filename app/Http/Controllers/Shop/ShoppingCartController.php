@@ -19,7 +19,7 @@ class ShoppingCartController extends Controller
         $products = $shopping_cart->products()->get();
         $total = $shopping_cart->amount();
         $shippingPrice = 0.0;
-        if ($total < 2000) {
+        if ($total < 2000  && $total > 0) {
             $shippingPrice = 100;
             $total = $total + $shippingPrice;
         }

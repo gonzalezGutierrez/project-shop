@@ -55,7 +55,7 @@
             <div class="booking-price">
                 <form>
                     <h4 class="mb-3">Detalle de la orden</h4>
-                    <span class="text-danger">En compras menores a $2000.00 MXN el envio es gratuito</span>
+                    <span class="text-danger">En compras mayores a $2000.00 MXN el envio es gratuito</span>
 
                     <!-- Your Stay -->
                     <div class="booking-price-detail side-list">
