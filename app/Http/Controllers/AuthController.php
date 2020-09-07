@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Shop\LoginRequest;
 use App\Http\Requests\Shop\UserAddRequest;
 use App\Mail\MailRegister;
 use App\Role;
@@ -41,7 +42,8 @@ class AuthController extends Controller
 
         }
 
-        return back();
+
+        return redirect('/login')->withErrors(['email'=>trans('auth.failed')])->withInputs(request('email'));
     }
 
     public function logout() {

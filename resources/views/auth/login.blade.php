@@ -19,10 +19,16 @@
                         <form action="{{{asset('login')}}}" method="POST" class="row login_form" id="contactForm">
                             @csrf
                             <div class="col-md-12 form-group">
-                                <input type="email" class="form-control" id="name" name="email" placeholder="Dirección de correo electronico">
+                                <input type="email" class="form-control" id="name" name="email" value="{{old('email')}}" placeholder="Dirección de correo electronico">
+                                @error('email')
+                                    <span class="text-danger">{{$message}}</span>
+                                @enderror
                             </div>
                             <div class="col-md-12 form-group">
                                 <input type="password" class="form-control" id="name" name="password" placeholder="Contraseña">
+                                @error('password')
+                                    <span class="text-danger">{{$message}}</span>
+                                @enderror
                             </div>
                             <div class="col-md-12 form-group">
                                 <div class="creat_account">
