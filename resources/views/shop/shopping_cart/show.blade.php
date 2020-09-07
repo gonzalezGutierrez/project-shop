@@ -41,6 +41,7 @@
                                                     @method('delete')
                                                     <button type="submit" class="btn btn-sm btn-danger text-white"><i class="ti-trash text-white"></i></button>
                                                 </form>
+                                            </td>
                                         </tr>
                                     @endforeach
                                     </tbody>
