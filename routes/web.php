@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('login','AuthController@loginForm')->name('login');
+Route::get('login','AuthController@loginForm')->name('login')->middleware('guest');
 Route::post('login','AuthController@login');
 Route::post('logout','AuthController@logout');
 

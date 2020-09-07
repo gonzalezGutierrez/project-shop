@@ -19,9 +19,9 @@ class UserController extends Controller
         $this->rol = new Role();
         $this->user = new User();
         $this->token = new Token();
+
+        $this->middleware('guest')->only('create');
     }
-
-
 
     public function create(){
         return view('auth.register');
