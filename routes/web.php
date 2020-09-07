@@ -58,4 +58,8 @@ Route::group(['namespace'=>'Shop','middleware'=>'set_shopping_cart'],function(){
         ->only('store','destroy');
 
     Route::get('basket','ShoppingCartController@show');
+
+    Route::post('payments/pay','PayController@store');
+    Route::get ('payments/pay/approval','PayController@approval');
+    Route::get ('payments/pay/cancelled','PayController@cancelled');
 });

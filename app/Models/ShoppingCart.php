@@ -28,6 +28,7 @@ class ShoppingCart extends Model
                 'products.id as product_id',
                 'products.url_imagen_principal as product_image',
                 'products.nombre as product_name',
+                'products.existencia as product_stock',
                 'products.precio_venta as product_price',
                 'products.slug as product_slug',
                 'product_in_shopping_carts.cantidad as amount',

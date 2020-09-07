@@ -21,8 +21,12 @@
   <component name="ChangeListManager">
     <list default="true" id="5bf3e63e-931a-4235-838a-c7045d367fdb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/PayController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Shop/PayController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Shop/ShoppingCartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Shop/ShoppingCartController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/ShoppingCart.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/ShoppingCart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/PaypalService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/PaypalService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/shop/shopping_cart/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/shop/shopping_cart/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,15 +180,16 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\work\kirftron\app\app\Http\Controllers\Shop" />
+      <recent name="D:\work\kirftron\app\app\Http\Controllers\Admin" />
+      <recent name="D:\work\kirftron\app\resources\lang" />
+      <recent name="D:\work\kirftron\app\app\Http\Controllers" />
+      <recent name="D:\work\kirftron\app\resources\views\shop" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\work\kirftron\app\public\images\logo" />
       <recent name="D:\work\kirftron\app\database\migrations" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\work\kirftron\app\resources\lang" />
-      <recent name="D:\work\kirftron\app\app\Http\Controllers\Shop" />
-      <recent name="D:\work\kirftron\app\app\Http\Controllers" />
-      <recent name="D:\work\kirftron\app\resources\views\shop" />
     </key>
   </component>
   <component name="RunManager">
@@ -231,7 +236,7 @@
       <workItem from="1599014754365" duration="15280000" />
       <workItem from="1599186423228" duration="9305000" />
       <workItem from="1599343626099" duration="1815000" />
-      <workItem from="1599424833638" duration="16020000" />
+      <workItem from="1599424833638" duration="17599000" />
     </task>
     <servers />
   </component>

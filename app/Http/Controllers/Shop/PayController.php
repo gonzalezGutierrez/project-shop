@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\V1;
+namespace App\Http\Controllers\Shop;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
@@ -12,16 +12,16 @@ use Illuminate\Http\Request;
 class PayController extends Controller
 {
 
-    public function getOrCreateShoppingCart($shopping_cart_id) {
-        return ShoppingCart::findOrCreateById($shopping_cart_id);
+    public function __construct()
+    {
+        $this->middleware('set_shopping_cart');
     }
 
     public function store(Request $request)
     {
         $payment = resolve(PaypalService::class);
 
-        $shoppingCartId = $request->shopping_cart_id;
-        $shoppingCart = $this->getOrCreateShoppingCart($shoppingCartId);
+        $shoppingCart = $request->shopping_cart;
 
         $total = $shoppingCart->amount();
 
@@ -32,16 +32,14 @@ class PayController extends Controller
         $request['value'] = $total;
         $request['currency'] = 'MXN';
 
-        $url_redirect = $payment->handlePayment($request);
-        return response()->json(['url_redirect'=>$url_redirect],201);
+        return $payment->handlePayment($request);
     }
     public function approval(Request $request)
     {
 
         $payment = resolve(PaypalService::class);
 
-        $shoppingCartId = $request->shopping_cart_id;
-        $shoppingCart = $this->getOrCreateShoppingCart($shoppingCartId);
+        $shoppingCart = $request->shopping_cart;
 
         $transaction = $payment->handleApproval($request);
 
@@ -65,14 +63,12 @@ class PayController extends Controller
             //terminar carrito
             $shoppingCart->estatus = 'inactivo';
             $shoppingCart->save();
+
+            $newShoppingCart = ShoppingCart::create();
+            \Session::put('shopping_cart_id',$newShoppingCart->id);
+
             //regresar id orden
-            return response()->json(
-                [
-                    'msg'=>'La orden fue generada correctamete',
-                    'order_id'=>$order->id,
-                    'transaction_id'=>$newTransaction->transaccion_codigo
-                ]
-            );
+            return redirect('/')->with('success','Tu orden ha sido exitosa');
 
         }
     }

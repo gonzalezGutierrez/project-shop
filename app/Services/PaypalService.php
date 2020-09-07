@@ -47,7 +47,7 @@ class PaypalService
 
         $approve = $orderLinks->where('rel','approve')->first();
 
-        return $approve->href;
+        return redirect($approve->href);
 
     }
 
@@ -87,7 +87,7 @@ class PaypalService
                     'brand_name' => 'MyDibu Medical',
                     'shipping_preferences'=>'NO_SHIPPING',
                     'user_action' => 'PAY_NOW',
-                    'return_url' => 'http://localhost:4200/paypal-approval',
+                    'return_url' => 'http://localhost:8000/payments/pay/approval',
                     'cancel_url' =>'http://localhost:8000/payments/pay/cancelled'
                 ]
             ],

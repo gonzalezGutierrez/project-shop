@@ -32,7 +32,12 @@
                                             </td>
                                             <td>${{number_format($product->product_price,2,'.',',')}}</td>
                                             <td>
-                                                <input type="number" class="form-control b-all" value="{{$product->amount}}">
+                                                <form action="{{asset('product_in_shopping_cart')}}" method="POST">
+                                                    @csrf
+                                                    <input type="hidden" value="{{$product->product_id}}" name="producto_id">
+                                                    <input type="number" class="form-control b-all" min="1" max="{{$product->product_stock}}" name="cantidad" value="{{$product->amount}}">
+                                                </form>
+
                                             </td>
                                             <td>${{number_format($product->subtotal,2,'.',',')}}</td>
                                             <td>
@@ -53,7 +58,8 @@
             </div>
 
             <div class="booking-price">
-                <form>
+                <form action="{{asset('payments/pay')}}" method="POST">
+                    @csrf
                     <h4 class="mb-3">Detalle de la orden</h4>
                     <span class="text-danger">En compras mayores a $2000.00 MXN el envio es gratuito</span>
 
@@ -78,7 +84,7 @@
                             <li>Total: <strong class="theme-cl pull-right">${{number_format($total,2,'.',',')}}</strong></li>
                         </ul>
                     </div>
-                    <button class="btn btn-primary btn-lg woo-btn">Proceder a pagar</button>
+                    <button type="submit" class="btn btn-primary btn-lg woo-btn">Proceder a pagar</button>
                 </form>
             </div>
         </div>
