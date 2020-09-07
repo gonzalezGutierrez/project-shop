@@ -54,7 +54,7 @@
                         <div class="product_meta">
                             <span class="sku_wrapper">SKU: <span class="sku">{{$product->SKU}}</span></span>
                             <span class="posted_in">Categoria:
-                                <a href="#" rel="tag">{{$product->category->nombre}}</a>
+                                <a href="{{asset('products-category/'.$product->category->slug)}}" rel="tag">{{$product->category->nombre}}</a>
 							</span>
                             <span class="tagged_as">Modelo:
                                 <a href="#" rel="tag">{{$product->brand->nombre}}</a>
