@@ -9,7 +9,6 @@
             <tr class="text-center">
                 <th class="text-center">ID</th>
                 <th class="text-center">Nombre</th>
-                <th class="text-center">SKU</th>
                 <th class="text-center">Existencia</th>
                 <th class="text-center">Precio</th>
                 <th class="text-center">Marca</th>
@@ -23,7 +22,6 @@
                 <tr>
                     <td style="line-height: 40px;" class="text-center" style="line-height: 30px;">{{$product->id}}</td>
                     <td style="line-height: 40px;" class="text-center" style="line-height: 30px;">{{$product->nombre}}</td>
-                    <td style="line-height: 40px;" class="text-center" style="line-height: 30px;">{{$product->SKU}}</td>
                     <td style="line-height: 40px;" class="text-center" style="line-height: 30px;">{{$product->existencia}}</td>
                     <td style="line-height: 40px;" class="text-center" style="line-height: 30px;">${{number_format($product->precio_venta,2,',','.')}}</td>
                     <td style="line-height: 40px;" class="text-center" style="line-height: 30px;">{{$product->brand->nombre}}</td>
