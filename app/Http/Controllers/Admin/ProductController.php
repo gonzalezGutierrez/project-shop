@@ -29,7 +29,6 @@ class ProductController extends Controller
             'caracteristicas',
             'descripcion',
             'especificaciones',
-            'uso',
             'categoria_id',
             'marca_id'
         ];

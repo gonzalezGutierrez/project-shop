@@ -29,6 +29,7 @@ class ProductRequestStore extends FormRequest
             'precio_venta'=>['required'],
             'precio'=>['required'],
             'file'=>['required'],
+            'pdf'=>['required'],
             'existencia'=>['required'],
             'caracteristicas'=>[''],
             'descripcion'=>['required'],
