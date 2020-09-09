@@ -55,8 +55,7 @@ class ProductController extends Controller
             $file = $request->file('pdf');
             $nameFile = 'ficha_tecnica_'.rand(1000,10000).'.'.$file->getClientOriginalExtension();
             $file->move(public_path($route_file_save),$nameFile);
-            $request['caracteristicas'] = $route_file_save.$nameFile;
-            return true;
+            return $route_file_save.$nameFile;
         }catch (\Exception $exception) {
             return false;
         }
@@ -161,8 +160,6 @@ class ProductController extends Controller
                 $this->savePdf($request);
                 $this->deletePdf($product->caracteristicas);
             }
-
-            dd($request->all());
 
             $updated = $product->edit($request->all());
 
