@@ -29,6 +29,7 @@ class ProductRequestUpdate extends FormRequest
             'precio_venta'=>['required'],
             'file'=>[''],
             'pdf'=>['required'],
+            'caracteristicas'=>[''],
             'descripcion'=>['required'],
             'especificaciones'=>['required'],
             'marca_id'=>['required'],
