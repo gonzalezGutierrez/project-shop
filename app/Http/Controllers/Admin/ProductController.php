@@ -113,8 +113,6 @@ class ProductController extends Controller
             $this->saveImage($request);
             $this->savePdf($request);
 
-            dd($request->only($this->properties));
-
             $product = $this->product->add($request->only($this->properties));
 
             $request['producto_id'] = $product->id;
@@ -159,6 +157,7 @@ class ProductController extends Controller
             }
 
             if ($request->hasFile('pdf')) {
+                dd("si");
                 $this->savePdf($request);
                 $this->deletePdf($product->caracteristicas);
             }
