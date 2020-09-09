@@ -45,7 +45,7 @@
 
                     <a href="{{asset('administracion/compras?producto_id='.$product->id)}}"><i class="fa fa-dollar"></i> Historial de compras</a> <br>
 
-                    <a href="" class=""><i class="fa fa-file-pdf-o"></i> Descargar ficha tecnica</a>
+                    <a href="{{asset($product->caracteristicas)}}" target="_blank" class=""><i class="fa fa-file-pdf-o"></i> Descargar ficha tecnica</a>
 
                     <hr class="dotted short">
 

@@ -21,10 +21,10 @@ class CreateProductsTable extends Migration
             $table->double('precio_venta')->default(0.0);
             $table->integer('existencia')->default(0);
             $table->string('url_imagen_principal')->nullable();
-            $table->text('caracteristicas')->nullable();
+            $table->text('caracteristicas')->nullable(); // se convierte en ficha tecnica
             $table->text('descripcion')->nullable();
-            $table->text('especificaciones')->nullable();
-            $table->text('uso')->nullable();
+            $table->text('especificaciones')->nullable(); // información tecnica
+            $table->text('uso')->nullable(); // se elimina
             $table->integer('categoria_id')->unsigned();
             $table->foreign('categoria_id')->references('id')->on('categories');
             $table->integer('marca_id')->unsigned();

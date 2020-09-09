@@ -189,16 +189,6 @@
             <div class="panel-body">
                 <div class="form-horizontal form-bordered">
                     <div class="form-group">
-                        <label class="col-md-3 control-label">Caracteristicas</label>
-                        <div class="col-md-6">
-                            {{Form::textarea('caracteristicas',$product->caracteristicas,['class'=>'form-control populate'])}}
-                            <br>
-                            @error('caracteristicas')
-                                <span class="text-danger">{{$message}}</span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="form-group">
                         <label class="col-md-3 control-label">Descripción</label>
                         <div class="col-md-6">
                             {{Form::textarea('descripcion',$product->descripcion,['class'=>'form-control populate'])}}
@@ -209,21 +199,21 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-3 control-label">Especificaciones</label>
+                        <label class="col-md-3 control-label">Información tecnica</label>
                         <div class="col-md-6">
                             {{Form::textarea('especificaciones',$product->especificaciones,['class'=>'form-control populate'])}}
                             <br>
                             @error('especificaciones')
-                            <span class="text-danger">{{$message}}</span>
+                                <span class="text-danger">El campo información tecnica es requerido</span>
                             @enderror
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-3 control-label">Uso</label>
+                        <label class="col-md-3 control-label">PDF Ficha tecnica</label>
                         <div class="col-md-6">
-                            {{Form::textarea('uso',$product->uso,['class'=>'form-control populate'])}}
+                            {{Form::file('pdf',['class'=>'form-control populate'])}}
                             <br>
-                            @error('uso')
+                            @error('caracteristicas')
                                 <span class="text-danger">{{$message}}</span>
                             @enderror
                         </div>

@@ -30,10 +30,9 @@ class ProductRequestStore extends FormRequest
             'precio'=>['required'],
             'file'=>['required'],
             'existencia'=>['required'],
-            'caracteristicas'=>['required'],
+            'caracteristicas'=>[''],
             'descripcion'=>['required'],
             'especificaciones'=>['required'],
-            'uso'=>['required'],
             'marca_id'=>['required'],
             'categoria_id'=>['required'],
             'proveedor_id'=>['required']

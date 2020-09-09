@@ -27,11 +27,10 @@ class ProductRequestUpdate extends FormRequest
             'nombre'=>['required'],
             'SKU'=>['required'],
             'precio_venta'=>['required'],
-            'file'=>['required'],
-            'caracteristicas'=>['required'],
+            'file'=>[''],
+            'pdf'=>['required'],
             'descripcion'=>['required'],
             'especificaciones'=>['required'],
-            'uso'=>['required'],
             'marca_id'=>['required'],
             'categoria_id'=>['required'],
         ];

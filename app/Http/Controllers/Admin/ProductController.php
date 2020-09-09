@@ -43,17 +43,40 @@ class ProductController extends Controller
             $nameFile = 'image_product_'.rand(1000,10000).'.'.$file->getClientOriginalExtension();
             $file->move(public_path($route_file_save),$nameFile);
             $request['url_imagen_principal'] = $route_file_save.$nameFile;
+            return true;
         }catch (\Exception $e) {
-            dd($e);
+            return false;
         }
+    }
 
+    public function savePdf(Request $request) {
+        try {
+            $route_file_save = 'files/products/';
+            $file = $request->file('pdf');
+            $nameFile = 'ficha_tecnica_'.rand(1000,10000).'.'.$file->getClientOriginalExtension();
+            $file->move(public_path($route_file_save),$nameFile);
+            $request['caracteristicas'] = $route_file_save.$nameFile;
+            return true;
+        }catch (\Exception $exception) {
+            return false;
+        }
     }
 
     public function deleteImage($urlImagen) {
         try {
             \File::delete(public_path($urlImagen));
+            return  true;
         }catch (\Exception $e) {
-            dd($e);
+            return  false;
+        }
+    }
+
+    public function deletePdf($urlPdf) {
+        try {
+            \File::delete(public_path($urlPdf));
+            return  true;
+        }catch (\Exception $e) {
+            return  false;
         }
     }
 
@@ -89,6 +112,7 @@ class ProductController extends Controller
             $request['slug'] = Product::setSlug($request->nombre);
 
             $this->saveImage($request);
+            $this->savePdf($request);
 
             $product = $this->product->add($request->only($this->properties));
 
@@ -126,12 +150,16 @@ class ProductController extends Controller
     public function update(ProductRequestUpdate $request, $id)
     {
         try {
-
             $product = Product::findOrFail($id);
 
             if ($request->hasFile('file')) {
                 $this->saveImage($request);
                 $this->deleteImage($product->url_imagen_principal);
+            }
+
+            if ($request->hasFile('pdf')) {
+                $this->savePdf($request);
+                $this->deletePdf($product->caracteristicas);
             }
 
             $updated = $product->edit($request->all());

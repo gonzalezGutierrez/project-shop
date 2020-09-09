@@ -63,7 +63,7 @@
 
                         <div class="row">
                             <div class="col-md-6 col-xs-12 px-sm-2 col-sm-12">
-                                <a href="{{asset('')}}" class="btn btn-info-gradiant"><i class="fa fa-download"></i> Descargar ficha tecnica</a>
+                                <a href="{{asset($product->caracteristicas)}}" target="_blank" class="btn btn-info-gradiant"><i class="fa fa-download"></i> Descargar ficha tecnica</a>
                             </div>
                         </div>
 
