@@ -157,7 +157,6 @@ class ProductController extends Controller
             }
 
             if ($request->hasFile('pdf')) {
-                dd("si");
                 $this->savePdf($request);
                 $this->deletePdf($product->caracteristicas);
             }
