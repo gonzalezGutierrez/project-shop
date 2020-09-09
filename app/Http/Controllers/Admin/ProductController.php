@@ -113,6 +113,8 @@ class ProductController extends Controller
             $this->saveImage($request);
             $this->savePdf($request);
 
+            dd($request->only($this->properties));
+
             $product = $this->product->add($request->only($this->properties));
 
             $request['producto_id'] = $product->id;
