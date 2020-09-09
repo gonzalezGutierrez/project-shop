@@ -55,6 +55,7 @@ class ProductController extends Controller
             $nameFile = 'ficha_tecnica_'.rand(1000,10000).'.'.$file->getClientOriginalExtension();
             $file->move(public_path($route_file_save),$nameFile);
             $request['caracteristicas'] = $route_file_save.$nameFile;
+            dd($request['caracteristicas']);
         }catch (\Exception $exception) {
             dd($exception);
         }
