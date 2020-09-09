@@ -162,6 +162,8 @@ class ProductController extends Controller
                 $this->deletePdf($product->caracteristicas);
             }
 
+            dd($request->all());
+
             $updated = $product->edit($request->all());
 
             if ($updated) {
