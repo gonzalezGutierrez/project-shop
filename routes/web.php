@@ -69,4 +69,5 @@ Route::group(['namespace'=>'Shop','middleware'=>'set_shopping_cart'],function(){
     //acount
     Route::get('account','UserController@show')->middleware('auth');
     Route::get('orders','OrderController@index')->middleware('auth');
+    Route::get('address','AddressController@index');
 });

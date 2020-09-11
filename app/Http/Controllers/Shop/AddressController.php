@@ -10,9 +10,9 @@ class AddressController extends Controller
 
     public function index()
     {
-
+        return view('shop.address.index');
     }
-    
+
     public function create()
     {
         //

@@ -5,7 +5,7 @@
             <hr>
             <a href="{{asset('/orders')}}" @if(Request::is('orders')) class="text-primary" @endif><i class="fa fa-check"></i> Ordenes</a>
             <hr>
-            <a href=""><i class="fa fa-map-marker"></i> Direcciones</a>
+            <a href="{{asset('/address')}}" @if(Request::is('address')) class="text-primary" @endif><i class="fa fa-map-marker"></i> Direcciones</a>
             <hr>
             <a href="{{asset('/account')}}" @if(Request::is('account')) class="text-primary" @endif><i class="fa fa-user"></i> Mi cuenta</a>
             <hr>
