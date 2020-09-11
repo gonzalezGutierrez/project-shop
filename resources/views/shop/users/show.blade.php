@@ -1,7 +1,65 @@
 @extends('layout.shop_layout')
 @section('title','Mis datos')
 @section('content')
+
     <section class="image-bg default-bg" style="background:#003b77 url({{asset('shop/assets/img/pattern.png')}}) repeat;">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <h3>Gracias por ser parte de MyDibu Medical</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="row mt-4 mb-4">
+            @include('layout.profile-sidebar')
+            <div class="col-md-9 col-lg-9 col-xs-12 col-sm-12">
+                <div class="card" style="background-color: #f8f8ff;">
+                   <h5 class="card-header">Mis datos</h5>
+                    <div class="card-body">
+                        <form action="">
+                            <div class="row">
+                                <div class="col-md-6 form-group col-lg-6 col-xs-12 col-sm-12">
+                                    <label for="">Nombre: </label>
+                                    <input type="text" class="form-control" id="name" name="nombre" value="{{$user->id ? $user->nombre :old('nombre')}}" placeholder="Nombre">
+                                    @error('nombre')
+                                    <span class="text-danger">{{$message}}</span>
+                                    @enderror
+                                </div>
+                                <div class="col-md-6 form-group col-lg-6 col-xs-12 col-sm-12">
+                                    <label for="">Apellido: </label>
+                                    <input type="text" class="form-control" id="name" name="apellido" value="{{$user->id ? $user->apellido :old('apellido')}}" placeholder="Apellido">
+                                    @error('apellido')
+                                        <span class="text-danger">{{$message}}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <input type="text" class="form-control" id="apellido" value="{{$user->id ? $user->telefono : old('telefono')}}" name="telefono" placeholder="Telefono">
+                                    @error('telefono')
+                                    <span class="text-danger">{{$message}}</span>
+                                    @enderror
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <input type="email" class="form-control" id="email" name="email" value="{{$user->id ? $user->email :old('email')}}" placeholder="Dirección de correo">
+                                    @error('email')
+                                    <span class="text-danger">{{$message}}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <button type="submit" value="submit"
+                                    class="btn btn-info ">Guardar Cambios</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{--<section class="image-bg default-bg" style="background:#003b77 url({{asset('shop/assets/img/pattern.png')}}) repeat;">
         <div class="container">
             <div class="row">
                 <div class="col text-center">
@@ -103,5 +161,5 @@
 
         </div>
     </section>
-    <div class="clearfix m-b-30"></div>
+    <div class="clearfix m-b-30"></div>--}}
 @stop
