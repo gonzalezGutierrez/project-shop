@@ -3,7 +3,7 @@
         <div class="card-body">
             <a href=""><i class="fa fa-dashboard"></i> Dashboard</a>
             <hr>
-            <a href=""><i class="fa fa-check"></i> Ordenes</a>
+            <a href="{{asset('/orders')}}" @if(Request::is('orders')) class="text-primary" @endif><i class="fa fa-check"></i> Ordenes</a>
             <hr>
             <a href=""><i class="fa fa-map-marker"></i> Direcciones</a>
             <hr>
