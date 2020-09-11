@@ -101,7 +101,9 @@
                             <a href="{{asset('/login?checkout=true')}}" class="btn btn-sm btn-info">Inicia Sesión </a> Ó <a href="{{asset('/users/create')}}" class="btn btn-sm btn-outline-info">Registrate</a>
                             <br> para finalizar tu compra
                         @else
-                            <a href="{{asset('/checkout')}}" class="btn btn-info">Continuar compra</a>
+                            @if($productsCount != 0)
+                                <a href="{{asset('/checkout')}}" class="btn btn-info">Continuar compra</a>
+                            @endif
                         @endguest
                     </div>
                 </div>
