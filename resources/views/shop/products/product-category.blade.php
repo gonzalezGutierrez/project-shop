@@ -24,7 +24,7 @@
                     <div class="btn-group mr-lg-2 d-flex justify-content-between align-items-center flex-wrap">
                         <h4>Productos disponibles</h4>
                         <div class="dropdown show">
-                            <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="btn btn-primary btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 {{$category->nombre}}
                             </a>
 

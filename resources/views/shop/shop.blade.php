@@ -21,7 +21,7 @@
 
                     <div class="btn-group mr-lg-2">
                         <div class="dropdown show">
-                            <a class="btn btn-primary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="btn btn-primary btn-sm" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 {{$products->count()}} producto(s) encontrados
                             </a>
                         </div>
@@ -84,7 +84,7 @@
                         </div>
                     </div>
 
-                    <button class="btn btn-primary"><i class="fa fa-search"></i> Filtrar</button>
+                    <button class="btn btn-primary btn-sm"><i class="fa fa-search"></i> Filtrar</button>
 
                 </div>
 

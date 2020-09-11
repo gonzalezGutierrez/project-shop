@@ -15,15 +15,14 @@ class CreateUbicacionsTable extends Migration
     {
         Schema::create('ubicaciones', function (Blueprint $table) {
             $table->increments('id');
-            $table->double('latitud')->nullable();
-            $table->double('longitud')->nullable();
-            $table->boolean('gps')->default(false);
             $table->string('estado');
             $table->string('municipio');
-            $table->string('calle_numero');
+            $table->string('calle');
+            $table->string('n_interior')->nullable();
+            $table->string('n_exterior');
+            $table->text('referencias');
             $table->string('colonia');
             $table->string('codigo_postal',5);
-            $table->string('telefono',10);
             $table->timestamps();
         });
     }

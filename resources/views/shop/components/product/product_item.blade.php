@@ -8,7 +8,7 @@
                             <img src="{{asset('/'.$product->url_imagen_principal)}}" style="width: 100%; height: 200px;" class="img-fluid mx-auto" alt="">
                         </div>
                     </div>
-                    <div class="uc_product_details">
+                    <div class="uc_product_details mt-2">
                         <a href="{{asset('/products/'.$product->slug)}}">
                             <span>{{$product->nombre}}</span>
                         </a>
@@ -18,7 +18,7 @@
                                 @csrf
                                 <input type="hidden" value="{{$product->id}}" name="producto_id">
                                 <input type="hidden" value="1" name="cantidad">
-                                <button type="submit" class="btn btn-outline-info"><i class="fa fa-shopping"></i> Agregar al carrito</button>
+                                <button type="submit" class="btn btn-outline-info btn-sm"><i class="fa fa-shopping"></i> Agregar al carrito</button>
                             </form>
                         </div>
                     </div>

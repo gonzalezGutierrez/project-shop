@@ -20,7 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5bf3e63e-931a-4235-838a-c7045d367fdb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Shop/PayController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Shop/PayController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/SetShoppingCart.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/SetShoppingCart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_03_194942_create_ubicacions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_03_194942_create_ubicacions_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/shop/components/product/product_item.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/shop/components/product/product_item.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/shop/products/product-category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/shop/products/product-category.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/shop/products/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/shop/products/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/shop/shop.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/shop/shop.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/shop/shopping_cart/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/shop/shopping_cart/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,7 +240,8 @@
       <workItem from="1599186423228" duration="9305000" />
       <workItem from="1599343626099" duration="1815000" />
       <workItem from="1599424833638" duration="18362000" />
-      <workItem from="1599615319149" duration="7142000" />
+      <workItem from="1599615319149" duration="7311000" />
+      <workItem from="1599691572566" duration="10415000" />
     </task>
     <servers />
   </component>
@@ -273,12 +283,12 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="582" y="135" key="NewPhpClassDialog/0.0.1536.824@0.0.1536.824" timestamp="1598803414403" />
-    <state x="604" y="335" key="NewPhpFileDialog" timestamp="1599449570558">
+    <state x="604" y="335" key="NewPhpFileDialog" timestamp="1599693219845">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="535" y="296" key="NewPhpFileDialog/0.0.1360.728@0.0.1360.728" timestamp="1598078237030" />
     <state x="630" y="190" key="NewPhpFileDialog/0.0.1536.824/1920.0.1360.728@0.0.1536.824" timestamp="1599194017280" />
-    <state x="604" y="335" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1599449570558" />
+    <state x="604" y="335" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1599693219845" />
     <state x="66" y="0" width="1100" height="811" key="dock-window-1" timestamp="1598326097037">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

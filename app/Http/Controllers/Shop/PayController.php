@@ -12,9 +12,25 @@ use Illuminate\Http\Request;
 class PayController extends Controller
 {
 
-    public function __construct()
-    {
-        $this->middleware('set_shopping_cart');
+    public function checkout(Request $request) {
+
+        $shoppingCart = $request->shopping_cart;
+        $products = $shoppingCart->products()->get();
+
+        if ($products->count() == 0) {
+            return redirect('/basket');
+        }
+
+        $total = $shoppingCart->amount();
+
+        $shippingPrice = 0.0;
+        if (!$shoppingCart->isShippingFree()  && $total > 0) {
+            $shippingPrice = 100;
+            $total = $total + $shippingPrice;
+        }
+
+        return view('shop.payments.checkout',compact('shoppingCart','total','products','shippingPrice'));
+
     }
 
     public function store(Request $request)

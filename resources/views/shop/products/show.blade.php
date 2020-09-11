@@ -47,8 +47,13 @@
                         <span class="price title-small">${{number_format($product->precio_venta,2,'.',',')}}</span>
 
                         <div class="vr-add-form mt-3 mb-3">
-                            <input type="number" class="form-control b-all" value="1"/>
-                            <button type="button" class="btn btn-primary">Agregar al carrito</button>
+                            <form action="{{asset('product_in_shopping_cart')}}" method="POST">
+                                @csrf
+                                <input type="hidden" name="producto_id" value="{{$product->id}}">
+                                <input type="number" name="cantidad" class="form-control b-all" value="1"/>
+                                <button type="submit" class="btn btn-primary btn-sm">Agregar al carrito</button>
+                            </form>
+
                         </div>
 
                         <div class="product_meta">
@@ -63,7 +68,7 @@
 
                         <div class="row">
                             <div class="col-md-6 col-xs-12 px-sm-2 col-sm-12">
-                                <a href="{{asset($product->caracteristicas)}}" target="_blank" class="btn btn-info-gradiant"><i class="fa fa-download"></i> Descargar ficha tecnica</a>
+                                <a href="{{asset($product->caracteristicas)}}" target="_blank" class="btn btn-sm btn-info-gradiant"><i class="fa fa-download"></i> Descargar ficha tecnica</a>
                             </div>
                         </div>
 
