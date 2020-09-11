@@ -19,7 +19,15 @@ class SetShoppingCart
 
         $shopping_cart_id = \Session::get('shopping_cart_id');
         $request->shopping_cart = ShoppingCart::findOrCreateById($shopping_cart_id);
-        \Session::put('shopping_cart_id',$request->shopping_cart->id);
+        if ($request->shopping_cart == null) {
+            \Session::remove('shopping_cart_id');
+            $shopping_cart_id = \Session::get('shopping_cart_id');
+            $request->shopping_cart = ShoppingCart::findOrCreateById($shopping_cart_id);
+            \Session::put('shopping_cart_id',$request->shopping_cart->id);
+        }else{
+            \Session::put('shopping_cart_id',$request->shopping_cart->id);
+        }
+
         return $next($request);
     }
 }
