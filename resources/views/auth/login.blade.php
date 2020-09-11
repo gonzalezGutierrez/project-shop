@@ -9,8 +9,8 @@
                         <img src="{{asset('logo.jpg')}}" class="mb-2" style="width: 220px; border-radius: 50%; height: 220px;" alt="">
                         <h3 class="text-white"> MyDibu Medical</h3>
                         <h6>Aportando Valor a la Salud</h6>
-                        <a class="btn btn-info" href="{{asset('users/create')}}">Crear una cuenta</a>
-                        <a class="btn btn-outline-info" href="{{asset('users/create-pymes')}}">Se un miembro PYME</a>
+                        <a class="btn btn-info btn-sm" href="{{asset('users/create')}}">Crear una cuenta</a>
+                        <a class="btn btn-outline-info btn-sm" href="{{asset('users/create-pymes')}}">Se un miembro PYME</a>
                     </div>
                 </div>
                 <div class="col-lg-6">
