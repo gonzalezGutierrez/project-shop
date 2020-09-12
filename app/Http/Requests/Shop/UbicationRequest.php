@@ -29,7 +29,7 @@ class UbicationRequest extends FormRequest
             'calle'=>['required'],
             'n_interior'=>[''],
             'n_exterior'=>['required'],
-            'referencias'=>[''],
+            'referencias'=>['max:200'],
             'colonia'=>['required'],
             'codigo_postal'=>['required']
         ];

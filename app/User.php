@@ -2,14 +2,13 @@
 
 namespace App;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Passport\HasApiTokens;
 use App\Role;
+
 class User extends Authenticatable
 {
-    use HasApiTokens, Notifiable;
+    use  Notifiable;
 
     protected $table = 'users';
     protected $primaryKey = 'id';
@@ -28,7 +27,6 @@ class User extends Authenticatable
     }
 
     //hocks when there is a record these methods will be executed
-
     public function setPasswordAttribute($password) {
         $this->attributes['password'] = bcrypt($password);
     }

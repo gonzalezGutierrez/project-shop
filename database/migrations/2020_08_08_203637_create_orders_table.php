@@ -15,6 +15,7 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('code_order')->unique();
             $table->integer('carrito_id')->unsigned();
             $table->foreign('carrito_id')->references('id')->on('shopping_carts');
             $table->double('total');

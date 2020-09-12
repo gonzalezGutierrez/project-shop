@@ -20,7 +20,7 @@ class CreateUbicacionsTable extends Migration
             $table->string('calle');
             $table->string('n_interior')->nullable();
             $table->string('n_exterior');
-            $table->text('referencias');
+            $table->text('referencias')->nullable();
             $table->string('colonia');
             $table->string('codigo_postal',5);
             $table->timestamps();

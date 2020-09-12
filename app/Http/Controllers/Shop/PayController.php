@@ -3,14 +3,25 @@
 namespace App\Http\Controllers\Shop;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Shop\UbicationRequest;
 use App\Models\Order;
 use App\Models\ShoppingCart;
+use App\Models\ShoppingCartUbication;
 use App\Models\Transaction;
+use App\Models\UbicationUser;
 use App\Services\PaypalService;
+use App\Ubicacion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class PayController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('set_shopping_cart');
+    }
 
     public function checkout(Request $request) {
 
@@ -35,20 +46,55 @@ class PayController extends Controller
 
     public function store(Request $request)
     {
-        $payment = resolve(PaypalService::class);
 
-        $shoppingCart = $request->shopping_cart;
+        DB::beginTransaction();
 
-        $total = $shoppingCart->amount();
+        $validatedData = $request->validate([
+            'estado'=>['required'],
+            'municipio'=>['required'],
+            'calle'=>['required'],
+            'n_interior'=>[''],
+            'n_exterior'=>['required'],
+            'referencias'=>['max:200'],
+            'colonia'=>['required'],
+            'codigo_postal'=>['required']
+        ]);
 
-        if (!$shoppingCart->isShippingFree()) {
-            $total = $total + 100;
+        try {
+
+            $user = Auth::user();
+
+            //registrar ubicacion
+            $ubication = new Ubicacion();
+            $newUbication = $ubication->add($request->all());
+
+            $ubicationUser = new UbicationUser();
+            $ubicationUser->add(['usuario_id'=>$user->id,'ubicacion_id'=>$newUbication->id]);
+
+            $payment = resolve(PaypalService::class);
+
+            $shoppingCart = $request->shopping_cart;
+
+            $total = $shoppingCart->amount();
+
+            if (!$shoppingCart->isShippingFree()) {
+                $total = $total + 100;
+            }
+
+            $request['value'] = $total;
+            $request['currency'] = 'MXN';
+
+            $setShippingUbication = new ShoppingCartUbication();
+            $setShippingUbication->add(['carrito_id'=>$shoppingCart->id,'ubicacion_id'=>$newUbication->id]);
+
+            DB::commit();
+
+            return $payment->handlePayment($request);
+
+        }catch (\Exception $exception){
+            DB::rollBack();
+            dd($exception);
         }
-
-        $request['value'] = $total;
-        $request['currency'] = 'MXN';
-
-        return $payment->handlePayment($request);
     }
     public function approval(Request $request)
     {

@@ -13,12 +13,12 @@ class CreateOrderAddressesTable extends Migration
      */
     public function up()
     {
-        Schema::create('order_ubications', function (Blueprint $table) {
+        Schema::create('shopping_cart_ubication', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('order_id')->unsigned();
-            $table->integer('ubication_id')->unsigned();
-            $table->foreign('order_id')->references('id')->on('orders');
-            $table->foreign('ubication_id')->references('id')->on('ubicaciones');
+            $table->integer('carrito_id')->unsigned();
+            $table->integer('ubicacion_id')->unsigned();
+            $table->foreign('carrito_id')->references('id')->on('shopping_carts');
+            $table->foreign('ubicacion_id')->references('id')->on('ubicaciones');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateOrderAddressesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('order_addresses');
+        Schema::dropIfExists('shopping_cart_ubication');
     }
 }

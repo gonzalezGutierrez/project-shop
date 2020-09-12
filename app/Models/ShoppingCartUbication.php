@@ -4,14 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class UbicationUser extends Model
+class ShoppingCartUbication extends Model
 {
 
-    protected $table = 'ubication_users';
-    protected $fillable = ['usuario_id','ubicacion_id'];
+    protected $table = 'shopping_cart_ubication';
+    protected $fillable = ['carrito_id','ubicacion_id'];
 
     public function add($data) {
         return $this->create($data);
     }
-
 }
