@@ -10,6 +10,23 @@ use Illuminate\Support\Facades\Auth;
 class OrderController extends Controller
 {
 
+    public function orderSuccess($transaction) {
+
+        $user = Auth::user();
+
+        $order = Order::join('transactions','orders.transaccion_id','transactions.id')
+            ->where('transactions.transaccion_codigo',$transaction)
+            ->select('orders.id', 'orders.total', 'orders.created_at', 'orders.estatus','orders.facturar','transactions.transaccion_codigo')
+            ->first();
+
+
+        if (!$order) {
+            return redirect('/orders');
+        }
+
+        return view('shop.orders.order-success',compact('order'));
+    }
+
     public function index(Request $request) {
 
         $user = Auth::user();
@@ -18,7 +35,7 @@ class OrderController extends Controller
             $orders = Order::join('shopping_carts','orders.carrito_id','shopping_carts.id')
                 ->join('transactions','orders.transaccion_id','transactions.id')
                 ->where('shopping_carts.usuario_id',$user->id)
-                ->where('transactions.transaccion_codigo','LIKE',$request->code_order)
+                ->where('transactions.transaccion_codigo',$request->code_order)
                 ->select('orders.id', 'orders.total', 'orders.created_at', 'orders.estatus','orders.facturar','transactions.transaccion_codigo')
                 ->orderBy('orders.id','desc')
                 ->get();

@@ -23,6 +23,7 @@ class CreateUbicacionsTable extends Migration
             $table->text('referencias')->nullable();
             $table->string('colonia');
             $table->string('codigo_postal',5);
+            $table->boolean('estatus')->default(true);
             $table->timestamps();
         });
     }

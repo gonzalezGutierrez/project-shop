@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Shop;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Shop\UbicationRequest;
+use App\Mail\MailOrder;
 use App\Models\Order;
 use App\Models\ShoppingCart;
 use App\Models\ShoppingCartUbication;
@@ -11,6 +12,7 @@ use App\Models\Transaction;
 use App\Models\UbicationUser;
 use App\Services\PaypalService;
 use App\Ubicacion;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -88,8 +90,6 @@ class PayController extends Controller
                 return back()->with('ubication','La dirección es incorrecta');
             }
 
-            $ubicationUser = new UbicationUser();
-            $ubicationUser->add(['usuario_id'=>$user->id,'ubicacion_id'=>$ubication->id]);
             $shippingUbication = $ubication->id;
         }
 
@@ -127,45 +127,72 @@ class PayController extends Controller
     public function approval(Request $request)
     {
 
-        $payment = resolve(PaypalService::class);
+        DB::beginTransaction();
 
-        $shoppingCart = $request->shopping_cart;
+        try {
+            $payment = resolve(PaypalService::class);
 
-        $total = $shoppingCart->amount();
+            $shoppingCart = $request->shopping_cart;
+            $user = User::findOrFail($shoppingCart->usuario_id);
 
-        if (!$shoppingCart->isShippingFree()) {
-            $total = $total + 100;
-        }
+            $total = $shoppingCart->amount();
 
-        $transaction = $payment->handleApproval($request);
+            if (!$shoppingCart->isShippingFree()) {
+                $total = $total + 100;
+            }
 
-        $transactionCollect = collect($transaction);
+            $transaction = $payment->handleApproval($request);
 
-        if ($transactionCollect['ok']) {
+            $transactionCollect = collect($transaction);
 
-            //generar transaccion
-            $newTransaction = Transaction::create([
-                'transaccion_codigo'=>$transactionCollect['order_id'],
-                'estatus'=>'activo',
-                'metodo_pago_id'=>1
-            ]);
+            if ($transactionCollect['ok']) {
 
-            //generar orden
-            $order = Order::create([
-                'carrito_id'=>$shoppingCart->id,
-                'total'=>$total,
-                'transaccion_id'=>$newTransaction->id
-            ]);
-            //terminar carrito
-            $shoppingCart->estatus = 'inactivo';
-            $shoppingCart->save();
+                //generar transaccion
+                $newTransaction = Transaction::create([
+                    'transaccion_codigo' => $transactionCollect['order_id'],
+                    'estatus' => 'activo',
+                    'metodo_pago_id' => 1
+                ]);
 
-            $newShoppingCart = ShoppingCart::create();
-            \Session::put('shopping_cart_id',$newShoppingCart->id);
+                //generar orden
+                $order = Order::create([
+                    'carrito_id' => $shoppingCart->id,
+                    'total' => $total,
+                    'transaccion_id' => $newTransaction->id
+                ]);
 
-            //regresar id orden
-            return redirect('/')->with('success','Tu orden ha sido exitosa');
+                $shippingUbaction = ShoppingCartUbication::where('carrito_id',$shoppingCart->id)->first();
+                $ubication = Ubicacion::findOrFail($shippingUbaction->ubicacion_id);
 
+                $products = $shoppingCart->products()->get();
+
+                $data = array(
+                    'order'=>$order,
+                    'transaction'=>$newTransaction,
+                    'user'=>$user,
+                    'ubication'=>$ubication,
+                    'products'=>$products
+                );
+
+                //enviar la orden al correo electronico
+                $mailOrder = new MailOrder($data);
+                \Mail::to(Auth::user()->email)->send($mailOrder);
+
+
+                //terminar carrito
+                $shoppingCart->estatus = 'inactivo';
+                $shoppingCart->save();
+
+                $newShoppingCart = ShoppingCart::create();
+                \Session::put('shopping_cart_id', $newShoppingCart->id);
+
+                DB::commit();
+
+                return redirect('/order-success/' . $newTransaction->transaccion_codigo)->with('success', 'Tu orden ha sido exitosa');
+            }
+        }catch (\Exception $e) {
+            DB::rollBack();
+            dd($e);
         }
     }
     public function show($id)

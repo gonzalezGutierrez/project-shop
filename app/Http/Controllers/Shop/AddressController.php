@@ -16,6 +16,7 @@ class AddressController extends Controller
 
         $ubications = Ubicacion::join('ubication_users','ubicaciones.id','ubication_users.ubicacion_id')
             ->where('ubication_users.usuario_id',$user->id)
+            ->where('ubicaciones.estatus',true)
             ->select('ubicaciones.*')
             ->orderBy('ubicaciones.id','desc')
             ->get();
@@ -50,6 +51,9 @@ class AddressController extends Controller
 
     public function destroy($id)
     {
-        //
+        $ubication = Ubicacion::findOrFail($id);
+        $ubication->estatus = !$ubication->estatus;
+        $ubication->save();
+        return back();
     }
 }

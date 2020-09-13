@@ -35,7 +35,11 @@
                                     <strong>Rerefencias: </strong>  {{$ubication->referencias}}
                                     <hr>
                                     <a href="" class="btn btn-info btn-sm">Actualizar</a>
-                                    <a href="" class="btn btn-danger btn-sm">Eliminar</a>
+                                    <form action="{{asset('address/'.$ubication->id)}}" style="display: inline-block;" method="POST">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                                    </form>
                                 </li>
                             @endforeach
                         </ul>
