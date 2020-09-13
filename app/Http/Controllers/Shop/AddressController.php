@@ -3,14 +3,24 @@
 namespace App\Http\Controllers\Shop;
 
 use App\Http\Controllers\Controller;
+use App\Ubicacion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AddressController extends Controller
 {
 
     public function index()
     {
-        return view('shop.address.index');
+        $user = Auth::user();
+
+        $ubications = Ubicacion::join('ubication_users','ubicaciones.id','ubication_users.ubicacion_id')
+            ->where('ubication_users.usuario_id',$user->id)
+            ->select('ubicaciones.*')
+            ->orderBy('ubicaciones.id','desc')
+            ->get();
+
+        return view('shop.address.index',compact('ubications'));
     }
 
     public function create()

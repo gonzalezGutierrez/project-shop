@@ -2,11 +2,19 @@
 
 namespace App\Models;
 
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class ShoppingCart extends Model
 {
     protected $fillable = ['usuario_id'];
+
+    public function customer() {
+        return $this->belongsTo(User::class,'usuario_id');
+    }
+    public function ubication() {
+        return $this->hasOne(ShoppingCartUbication::class,'carrito_id');
+    }
 
     public static function findOrCreateById($shopping_cart_id){
 
@@ -23,8 +31,7 @@ class ShoppingCart extends Model
         return $this->findOrFail($shoppingCartId)->fill(['usuario_id'=>$userId])->save();
     }
     public function products(){
-        return $this->belongsToMany(Product::class,'product_in_shopping_carts','carrito_id','producto_id')
-            ->select(
+        return $this->belongsToMany(Product::class,'product_in_shopping_carts','carrito_id','producto_id')->select(
                 'products.id as product_id',
                 'products.url_imagen_principal as product_image',
                 'products.nombre as product_name',

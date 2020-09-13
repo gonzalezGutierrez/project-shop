@@ -20,9 +20,25 @@
                     <div class="card-header d-flex justify-content-between align-items-center flex-wrap">
                         <h5 class="card-title">Mis direcciones</h5>
                     </div>
-
                     <div class="card-body">
-
+                        <ul class="list-group">
+                            @foreach($ubications as $ubication)
+                                <li class="list-group-item">
+                                    Calle {{$ubication->calle}}
+                                    N° {{$ubication->n_exterior}}
+                                    y N° Interior {{$ubication->n_interior}}
+                                    Colonia {{$ubication->colonia}}
+                                    {{$ubication->municipio}} ,
+                                    {{$ubication->estado}} ,
+                                    {{$ubication->codigo_postal}}
+                                    <br>
+                                    <strong>Rerefencias: </strong>  {{$ubication->referencias}}
+                                    <hr>
+                                    <a href="" class="btn btn-info btn-sm">Actualizar</a>
+                                    <a href="" class="btn btn-danger btn-sm">Eliminar</a>
+                                </li>
+                            @endforeach
+                        </ul>
                     </div>
                 </div>
             </div>

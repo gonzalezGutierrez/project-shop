@@ -25,6 +25,14 @@ class PayController extends Controller
 
     public function checkout(Request $request) {
 
+        $user = Auth::user();
+
+        $ubications = Ubicacion::join('ubication_users','ubicaciones.id','ubication_users.ubicacion_id')
+            ->where('ubication_users.usuario_id',$user->id)
+            ->select('ubicaciones.*')
+            ->orderBy('ubicaciones.id','desc')
+            ->get();
+
         $shoppingCart = $request->shopping_cart;
         $products = $shoppingCart->products()->get();
 
@@ -40,7 +48,7 @@ class PayController extends Controller
             $total = $total + $shippingPrice;
         }
 
-        return view('shop.payments.checkout',compact('shoppingCart','total','products','shippingPrice'));
+        return view('shop.payments.checkout',compact('shoppingCart','total','products','shippingPrice','ubications'));
 
     }
 
@@ -48,32 +56,52 @@ class PayController extends Controller
     {
 
         DB::beginTransaction();
+        $user = Auth::user();
 
-        $validatedData = $request->validate([
-            'estado'=>['required'],
-            'municipio'=>['required'],
-            'calle'=>['required'],
-            'n_interior'=>[''],
-            'n_exterior'=>['required'],
-            'referencias'=>['max:200'],
-            'colonia'=>['required'],
-            'codigo_postal'=>['required']
-        ]);
+        $ubicationId = $request->ubication_id;
+        $shippingUbication = null;
 
-        try {
+        if ($ubicationId == null) {
 
-            $user = Auth::user();
+            $validatedData = $request->validate([
+                'estado'=>['required'],
+                'municipio'=>['required'],
+                'calle'=>['required'],
+                'n_interior'=>[''],
+                'n_exterior'=>['required'],
+                'referencias'=>['max:200'],
+                'colonia'=>['required'],
+                'codigo_postal'=>['required']
+            ]);
 
-            //registrar ubicacion
             $ubication = new Ubicacion();
             $newUbication = $ubication->add($request->all());
 
             $ubicationUser = new UbicationUser();
             $ubicationUser->add(['usuario_id'=>$user->id,'ubicacion_id'=>$newUbication->id]);
+            $shippingUbication = $newUbication->id;
+        }else {
+
+            $ubication = Ubicacion::findOrFail($ubicationId);
+
+            if (!$ubication) {
+                return back()->with('ubication','La dirección es incorrecta');
+            }
+
+            $ubicationUser = new UbicationUser();
+            $ubicationUser->add(['usuario_id'=>$user->id,'ubicacion_id'=>$ubication->id]);
+            $shippingUbication = $ubication->id;
+        }
+
+
+        try {
 
             $payment = resolve(PaypalService::class);
 
             $shoppingCart = $request->shopping_cart;
+
+            $shoppingCart->usuario_id = $user->id;
+            $shoppingCart->save();
 
             $total = $shoppingCart->amount();
 
@@ -85,7 +113,7 @@ class PayController extends Controller
             $request['currency'] = 'MXN';
 
             $setShippingUbication = new ShoppingCartUbication();
-            $setShippingUbication->add(['carrito_id'=>$shoppingCart->id,'ubicacion_id'=>$newUbication->id]);
+            $setShippingUbication->add(['carrito_id'=>$shoppingCart->id,'ubicacion_id'=>$shippingUbication]);
 
             DB::commit();
 
@@ -93,7 +121,7 @@ class PayController extends Controller
 
         }catch (\Exception $exception){
             DB::rollBack();
-            dd($exception);
+            return back();
         }
     }
     public function approval(Request $request)
@@ -102,6 +130,12 @@ class PayController extends Controller
         $payment = resolve(PaypalService::class);
 
         $shoppingCart = $request->shopping_cart;
+
+        $total = $shoppingCart->amount();
+
+        if (!$shoppingCart->isShippingFree()) {
+            $total = $total + 100;
+        }
 
         $transaction = $payment->handleApproval($request);
 
@@ -119,7 +153,7 @@ class PayController extends Controller
             //generar orden
             $order = Order::create([
                 'carrito_id'=>$shoppingCart->id,
-                'total'=>$shoppingCart->amount(),
+                'total'=>$total,
                 'transaccion_id'=>$newTransaction->id
             ]);
             //terminar carrito

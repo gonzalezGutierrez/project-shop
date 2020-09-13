@@ -53,7 +53,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/">
+                        <a href="{{asset('administracion/orders')}}">
                             <i class="fa fa-clock-o" aria-hidden="true"></i>
                             <span>ORDENES</span>
                         </a>

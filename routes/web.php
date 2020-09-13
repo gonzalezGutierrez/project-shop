@@ -35,6 +35,8 @@ Route::group(['namespace'=>'Admin','prefix'=>'administracion','middleware'=>['au
 
     Route::resource('compras','BuyController');
 
+    Route::resource('orders','OrderController');
+
 });
 
 
