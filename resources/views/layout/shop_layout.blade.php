@@ -40,10 +40,10 @@
         <div class="container">
             <nav id="navigation" class="navigation navigation-landscape">
                 <div class="nav-header">
-                    <a class="nav-brand" href="{{asset('/')}}">
-                        <span style="margin-top:25px !important;">
-                            MyDibu Medical
-                        </span>
+                    <a class="nav-brand d-flex justify-content-between align-items-center pt-3" href="{{asset('/')}}">
+                        <span class="">MyDibu</span>
+                        <img class="ml-2 mr-2" style="width: 35px; height: 35px; border-radius: 50%;" src="{{asset('fav.jpg')}}" alt="Logo MyDibu">
+                        <span>Medical</span>
                     </a>
                     <div class="nav-toggle"></div>
                 </div>

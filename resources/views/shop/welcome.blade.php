@@ -1,7 +1,82 @@
 @extends('layout.shop_layout')
 @section('title','Bienvenido')
 @section('content')
+    <div class="ct-header ct-header--slider ct-slick-custom-dots text-center" id="home">
+        <div class="ct-slick-homepage" data-arrows="true" data-autoplay="true">
 
+            <div class="ct-header slick-slide-animate tablex item" style="background:url({{asset('shop/sliders/s-1.png')}}); height: 85vh; background-position: center; background-size: cover;">
+                <div class="ct-u-display-tablex">
+                    <div class="inner">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12 col-lg-12 slider-inner">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ct-header slick-slide-animate tablex item" style="background:url({{asset('shop/sliders/s-2.png')}}); height: 85vh; background-position: center; background-size: cover;">
+                <div class="ct-u-display-tablex">
+                    <div class="inner">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12 col-lg-12 slider-inner">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ct-header slick-slide-animate tablex item" style="background:url({{asset('shop/sliders/s-3.png')}}); height: 85vh; background-position: center; background-size: cover;">
+                <div class="ct-u-display-tablex">
+                    <div class="inner">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12 col-lg-12 slider-inner">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ct-header slick-slide-animate tablex item" style="background:url({{asset('shop/sliders/s-4.png')}}); height: 85vh; background-position: center; background-size: cover;">
+                <div class="ct-u-display-tablex">
+                    <div class="inner">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12 col-lg-12 slider-inner">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ct-header slick-slide-animate tablex item" style="background:url({{asset('shop/sliders/s-5.png')}}); height: 85vh; background-position: center; background-size: cover;">
+                <div class="ct-u-display-tablex">
+                    <div class="inner">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12 col-lg-12 slider-inner">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div><!-- .ct-slick-homepage -->
+    </div>
     <section>
         <div class="container">
             <div class="row">
@@ -24,7 +99,6 @@
                         </div>
                     </div>
                 @endforeach
-
             </div>
 
         </div>
@@ -58,8 +132,8 @@
 
                 <div class="col-lg-6 col-md-6 col-sm-12 p-0 image-block">
                     <div class="image-block-holder">
-                        <div class="image-block-holder-img" style="background: url({{asset('shop/about/about-1.jfif')}});opacity: 1;">
-                            <img src="{{asset('shop/about/about.jpg')}}" class="img-responsive img-holder" alt=""/>
+                        <div class="image-block-holder-img" style="background: url({{asset('h-1.jpg')}});opacity: 1;">
+                            <img src="{{asset('h-1.jpg')}}" class="img-responsive img-holder" alt=""/>
                         </div>
                     </div>
                 </div>
@@ -69,8 +143,8 @@
 
                 <div class="col-lg-6 col-md-6 col-sm-12 p-0 image-block">
                     <div class="image-block-holder">
-                        <div class="image-block-holder-img" style="background: url({{asset('shop/about/about-2.jfif')}});opacity: 1;">
-                            <img src="{{asset('shop/about/about-2.jfif')}}" class="img-responsive img-holder" alt=""/>
+                        <div class="image-block-holder-img" style="background: url({{asset('h-2.jpg')}});opacity: 1;">
+                            <img src="{{asset('h-2.jpg')}}" class="img-responsive img-holder" alt=""/>
                         </div>
                     </div>
                 </div>

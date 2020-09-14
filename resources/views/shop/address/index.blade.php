@@ -34,7 +34,6 @@
                                     <br>
                                     <strong>Rerefencias: </strong>  {{$ubication->referencias}}
                                     <hr>
-                                    <a href="" class="btn btn-info btn-sm">Actualizar</a>
                                     <form action="{{asset('address/'.$ubication->id)}}" style="display: inline-block;" method="POST">
                                         @csrf
                                         @method('delete')
