@@ -126,7 +126,6 @@
                             <ul class="footer-menu">
                                 <li><a href="#">Vision</a></li>
                                 <li><a href="#">Misión</a></li>
-                                <li><a href="#">Miembro PYMES</a></li>
                                 <li><a href="#">Contacto</a></li>
                                 <li><a href="#">Acceder</a></li>
                             </ul>

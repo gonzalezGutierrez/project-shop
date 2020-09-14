@@ -19,8 +19,8 @@ class HomeController extends Controller
     public function home() {
        $categories = Category::getWithStatus('activo')->take(9)->get();
        $products   = Product::getLastProducts(8)->get();
-       $productsCount = Product::where('estatus','activo')->count();
-       return view('shop.welcome',compact('categories','products','productsCount'));
+       $productsCountRegister = Product::where('estatus','activo')->count();
+       return view('shop.welcome',compact('categories','products','productsCountRegister'));
     }
 
     public function pymes() {

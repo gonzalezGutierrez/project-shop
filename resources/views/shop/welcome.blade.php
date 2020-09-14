@@ -39,13 +39,19 @@
                     <div class="image-block-content bg-theme inverse-color">
                         <h2>MyDibu Medical Supplies Distribution Business</h2>
                         <p>
-                            Empresa orgullosamente mexicana preocupada en tu salud y la de tus seres queridos.
-                            Estamos comprometidos con el desarrollo y la salud en nuestro país.
+                            Desde 2017, MyDibu Medical ha brindado seguridad y tranquilidad a los
+                            profesionales de la salud y pacientes con productos de alta calidad de un solo uso. <br>
+
+                            Como distribuidor líder, MyDibu Medical sabe del vinculo extraordinario entre
+                            medico y paciente. El cual tiene un impacto invaluable, por lo que nos
+                            comprometemos a:
+
                         </p>
                         <ul class="simple-list">
-                            <li>Asesoría</li>
-                            <li>Almacén</li>
-                            <li>Distribución</li>
+                            <li>Salvaguardar la salud de tus pacientes y personal medico hospitalario.</li>
+                            <li>Asegurar el suministro de nuestros productos que son fundamentales para la salud
+                                de nuestros clientes y pacientes.</li>
+                            <li>Contribuir con el control y propagación de infecciones.</li>
                         </ul>
                     </div>
                 </div>
@@ -73,15 +79,18 @@
                     <div class="image-block-content bg-dark-blue inverse-color">
                         <h2>MyDibu Medical</h2>
                         <p>
-                            Ofrecemos profesionalidad y adaptabilidad en la distribución de productos de seguridad médica hospitalaria y personal.
-                            Contamos con experiencia en el sector y personal especializado.
-                            Capacitación y adiestramiento del personal que realiza las labores de limpieza y sanitización.
+                            Innovación continua para aportar valor a
+                            nuestros clientes
                         </p>
-                        <ul class="simple-list">
-                            <li>Venta y asesoría de artículos de seguridad medico hospitalaria y personal.</li>
-                            <li>Ventas y asesoría:  55 6011 1766</li>
-                            <li>Correo:  mydibumedical@gmail.com</li>
-                        </ul>
+                        <p>
+                            En MyDibu Medical, nos sentimos orgullosos de la calidad y
+                            confiabilidad de nuestros productos, buscamos la innovación continua
+                            como principal pilar de nuestra empresa, por lo que siempre encontraras
+                            artículos de ultima generación.
+
+                            Es por eso que ofrecemos solo marcas selectas de artículos de protección
+                            personal, cuidado del paciente y productos preventivos.
+                        </p>
                     </div>
                 </div>
 
@@ -118,7 +127,7 @@
 
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="count-box text-center">
-                        <h2 class="count">{{$productsCount}}</h2>
+                        <h2 class="count">{{$productsCountRegister}}</h2>
                         <h5>Productos disponibles</h5>
                     </div>
                 </div>
