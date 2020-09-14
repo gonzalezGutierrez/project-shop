@@ -30,11 +30,17 @@
                         <h3 class="panel-title">Información del cliente</h3>
                     </div>
                     <div class="panel-body">
-                        <form action="">
+                        <form action="{{asset('administracion/clientes/'.$customer->id)}}" method="POST">
+                            @csrf
+                            @method('put')
                             <div class="form-group">
                                 <div class="alert @if($customer->estatus == 'activo') alert-info @else alert-danger @endif">
-                                    <strong class="">Este cliente esta actual {{$customer->estatus}}</strong>
+                                    <strong class="">Este cliente esta actualmente {{$customer->estatus}}</strong>
                                 </div>
+                            </div>
+                            <div class="form-group">
+                                {!! Form::label('Estatus','Estatus') !!}
+                                {!! Form::select('estatus',['activo'=>'Activo','inactivo'=>'Inactivo'],$customer->estatus,['class'=>'form-control']) !!}
                             </div>
                             <div class="form-group">
                                 {!! Form::label('Nombre','Nombre del cliente') !!}
@@ -53,7 +59,7 @@
                                 {!! Form::text('telefono',$customer->telefono,['class'=>'form-control']) !!}
                             </div>
                             <div class="form-group">
-                                <button class="btn btn-info">Guardar</button>
+                                <button type="submit" class="btn btn-info">Guardar</button>
                             </div>
                         </form>
                     </div>
@@ -92,15 +98,12 @@
             </div>
             <div class="col-md-12 col-xs-12 col-sm-12">
                 <div class="panel">
-                    <form action="">
-                        <div class="panel-heading " style="display: flex; align-items: center; justify-content: space-between;">
-                            <h3 class="panel-title">Ordenes</h3>
-                            <input type="search" value="{{$transaccion}}" placeholder="Buscar por codigo de orden" class="form-control" style="width: 30% !important;" name="code_order" value="">
-                        </div>
-                    </form>
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Ordenes</h3>
+                    </div>
 
                     <div class="panel-body">
-                        <table class="table table-bordered">
+                        <table class="table table-bordered table-striped mb-none" id="datatable-default">
                             <thead>
                             <tr>
                                 <th class="text-center">Codigo de orden</th>

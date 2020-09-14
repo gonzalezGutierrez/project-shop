@@ -1,4 +1,5 @@
 @extends('layout.shop_layout')
+@section('title','Detalle de la orden')
 @section('content')
     <section class="image-bg default-bg" style="background:#003b77 url({{asset('shop/assets/img/pattern.png')}}) repeat;">
         <div class="container">
@@ -21,7 +22,7 @@
                             @if($order->facturar)
                                 <i class="fa fa-file-pdf-o" style="font-size: 68px; color:darkred;"></i> <br>
                                 @if($order->invoice)
-                                    <a href="#">Descargar factura</a>
+                                    <a href="{{asset($order->invoice->url_archivo_factura)}}" target="_blank">Descargar factura</a>
                                 @else
                                     <span class="text-danger">La factura no ha sido subida</span>
                                 @endif

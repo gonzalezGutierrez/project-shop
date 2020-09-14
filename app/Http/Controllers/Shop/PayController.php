@@ -128,6 +128,7 @@ class PayController extends Controller
 
         }catch (\Exception $exception){
             DB::rollBack();
+            dd($exception);
             return back();
         }
     }

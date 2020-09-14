@@ -12,7 +12,7 @@ class User extends Authenticatable
 
     protected $table = 'users';
     protected $primaryKey = 'id';
-    protected $fillable = ['nombre','apellido','email','telefono','password','rol_id'];
+    protected $fillable = ['nombre','apellido','email','telefono','password','rol_id','estatus'];
     protected $hidden = ['password', 'remember_token'];
 
     public function rol() {

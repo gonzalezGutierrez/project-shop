@@ -1,7 +1,7 @@
 <section class="panel">
     <header class="panel-heading" style="display: flex;  justify-content: space-between; align-items: center;">
-        <h2 class="panel-title">Productos</h2>
-        <a href="{{asset('administracion/customers/create')}}" class="btn btn-sm btn-success">Agregar nuevo</a>
+        <h2 class="panel-title">Clientes</h2>
+        <a href="{{asset('administracion/clientes/create')}}" class="btn btn-sm btn-success">Agregar nuevo</a>
     </header>
     <div class="panel-body">
         <table class="table table-bordered table-striped mb-none" id="datatable-default">

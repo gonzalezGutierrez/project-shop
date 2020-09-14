@@ -12,14 +12,23 @@
                     <div class="col-md-12">
                         @if($order->facturar)
                             <div class="alert alert-success">El cliente necesita factura</div>
-                            <form action="">
+                            <form action="{{asset('administracion/add-invoice')}}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <input type="hidden" name="order_id" value="{{$order->id}}">
                                 <div class="form-group">
                                     <label for="">Selecciona la factura</label>
-                                    <input type="file" class="form-control" name="facturaFile">
+                                    <input type="file" class="form-control" name="file">
                                 </div>
                                 <div class="form-group">
                                     <button class="btn btn-info btn-sm"><i class="fa fa-upload"></i> Subir</button>
                                 </div>
+
+                                @if($order->invoice)
+                                    <span>Suba nuevamente la factura para remplazar</span> <br>
+                                    <i class="fa fa-file-pdf-o" style="font-size: 68px;"></i> <br>
+                                    <a href="{{asset($order->invoice->url_archivo_factura)}}" target="_blank">Descargar Factura</a>
+                                @endif
+
                             </form>
                             <hr>
                         @else

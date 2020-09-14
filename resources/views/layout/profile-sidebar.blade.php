@@ -7,8 +7,6 @@
             <hr>
             <a href="{{asset('/account')}}" @if(Request::is('account')) class="text-primary" @endif><i class="fa fa-user"></i> Mi cuenta</a>
             <hr>
-            <a href=""> <i class="fa fa-file-pdf-o"></i> Facturas </a>
-            <hr>
             <a href=""><i class="fa fa-lock"></i> Actualizar contraseña</a>
             <hr>
             <a href="">Salir</a>
