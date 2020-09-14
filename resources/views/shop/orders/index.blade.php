@@ -34,6 +34,9 @@
                                         <th class="text-center">Total</th>
                                         <th class="text-center">Factura</th>
                                         <th class="text-center">Estatus</th>
+                                        <th class="text-center">
+                                            <a href="" class="btn btn-sm btn-info"><i class="fa fa-cog"></i></a>
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -50,6 +53,9 @@
                                                 @endif
                                             </td>
                                             <td class="text-center">{{$order->estatus}}</td>
+                                            <td class="text-center">
+                                                <a href="{{asset('/orders/'.$order->transaccion_codigo)}}" class="btn btn-sm btn-info"><i class="fa fa-chevron-circle-right"></i></a>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>

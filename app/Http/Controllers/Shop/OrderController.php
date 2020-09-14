@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Shop;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -11,8 +12,6 @@ class OrderController extends Controller
 {
 
     public function orderSuccess($transaction) {
-
-        $user = Auth::user();
 
         $order = Order::join('transactions','orders.transaccion_id','transactions.id')
             ->where('transactions.transaccion_codigo',$transaction)
@@ -49,6 +48,15 @@ class OrderController extends Controller
                 ->paginate();
         }
         return view('shop.orders.index',compact('orders','transaction'));
+    }
+
+    public function show($transactionId) {
+
+        $transaction = Transaction::where('transaccion_codigo',$transactionId)->first();
+
+        $order = Order::where('transaccion_id',$transaction->id)->first();
+
+        return view('shop.orders.show',compact('order'));
     }
 
 }

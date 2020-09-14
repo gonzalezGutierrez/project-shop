@@ -56,17 +56,6 @@
 
                         <li class="@if(Request::is('categories')) active @endif"><a href="{{asset('/categories')}}">Categorias</a></li>
 
-                        <li class="@if(Request::is('member-pymes')) active @endif">
-                            <a  href="#">Miembro PYME</a>
-                            <ul class="nav-dropdown nav-submenu" style="right: auto; display: none;">
-                                <li>
-                                    <a href="{{asset('/member-pymes')}}">Acerca de</a>
-                                </li>
-                                <li>
-                                    <a href="#">Registrate</a>
-                                </li>
-                            </ul>
-                        </li>
                         @guest()
                             <li class="@if(Request::is('users/create')) active @endif">
                                 <a href="{{asset('/users/create')}}">Crear cuenta</a>
@@ -74,6 +63,9 @@
                         @endguest
                         <li class="@if(Request::is('basket')) active @endif">
                             <a href="{{asset('/basket')}}">Mi carrito ({{$productsCount}})</a>
+                        </li>
+                        <li>
+                            <a href=""><i class="fa fa-search"></i></a>
                         </li>
 
                     </ul>

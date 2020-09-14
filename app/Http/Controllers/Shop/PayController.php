@@ -82,6 +82,7 @@ class PayController extends Controller
             $ubicationUser = new UbicationUser();
             $ubicationUser->add(['usuario_id'=>$user->id,'ubicacion_id'=>$newUbication->id]);
             $shippingUbication = $newUbication->id;
+
         }else {
 
             $ubication = Ubicacion::findOrFail($ubicationId);
@@ -116,6 +117,12 @@ class PayController extends Controller
             $setShippingUbication->add(['carrito_id'=>$shoppingCart->id,'ubicacion_id'=>$shippingUbication]);
 
             DB::commit();
+
+            if (boolval($request->facturar)) {
+                \Session::put('facturar',true);
+            }else{
+                \Session::put('facturar',false);
+            }
 
             return $payment->handlePayment($request);
 
@@ -154,11 +161,15 @@ class PayController extends Controller
                     'metodo_pago_id' => 1
                 ]);
 
+                $facturar = \Session::get('facturar');
+
+
                 //generar orden
                 $order = Order::create([
                     'carrito_id' => $shoppingCart->id,
                     'total' => $total,
-                    'transaccion_id' => $newTransaction->id
+                    'transaccion_id' => $newTransaction->id,
+                    'facturar'=> $facturar
                 ]);
 
                 $shippingUbaction = ShoppingCartUbication::where('carrito_id',$shoppingCart->id)->first();
@@ -187,6 +198,8 @@ class PayController extends Controller
                 \Session::put('shopping_cart_id', $newShoppingCart->id);
 
                 DB::commit();
+
+                \Session::remove('facturar');
 
                 return redirect('/order-success/' . $newTransaction->transaccion_codigo)->with('success', 'Tu orden ha sido exitosa');
             }

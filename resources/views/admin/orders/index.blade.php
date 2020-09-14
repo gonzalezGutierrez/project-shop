@@ -46,7 +46,7 @@
                                 <td class="text-center">{{$order->shoppingCart->customer->nombre}} {{$order->shoppingCart->customer->apellido}} </td>
                                 <td class="text-center">${{number_format($order->total,2,'.',',')}}</td>
                                 <td class="text-center">
-                                    @if($order->factura)
+                                    @if($order->facturar)
                                         <span class="label label-success"><i class="fa fa-check"></i></span>
                                     @else
                                         <span class="label label-danger"><i class="fa fa-times"></i></span>

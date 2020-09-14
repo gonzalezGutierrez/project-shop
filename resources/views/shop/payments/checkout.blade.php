@@ -11,6 +11,14 @@
                         <h5 class="">Mis direcciones</h5>
                     </div>
                     <div class="modal-body">
+                        <div class="row mb-3 justify-content-md-between">
+                            <div class="col text-left">
+                                <input type="checkbox" checked value="true" name="facturar">
+                            </div>
+                            <div class="col text-right">
+                                <label for="">Necesito factura</label>
+                            </div>
+                        </div>
                         <ul class="list-group">
                             @foreach($ubications as $ubication)
                                 <li class="list-group-item check d-flex align-items-center justify-content-between">
@@ -95,6 +103,14 @@
                         </div>
                         <div class="col text-right">
                             <span class="font-bold">${{number_format($total,2,'.',',')}}</span>
+                        </div>
+                    </div>
+                    <div class="row mb-3 justify-content-md-between">
+                        <div class="col text-left">
+                            <input type="checkbox" checked value="true" name="facturar">
+                        </div>
+                        <div class="col text-right">
+                            <label for="">Necesito factura</label>
                         </div>
                     </div>
                     <button class="btn btn-info btn-sm form-control">Proceder a pagar</button>

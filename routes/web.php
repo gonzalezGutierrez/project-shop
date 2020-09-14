@@ -72,5 +72,6 @@ Route::group(['namespace'=>'Shop','middleware'=>'set_shopping_cart'],function(){
     Route::get('account','UserController@show')->middleware('auth');
     Route::get('orders','OrderController@index')->middleware('auth');
     Route::get('order-success/{order_code_transaction}','OrderController@orderSuccess');
+    Route::get('orders/{code_order}','OrderController@show');
     Route::resource('address','AddressController');
 });
