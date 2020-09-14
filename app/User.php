@@ -34,9 +34,14 @@ class User extends Authenticatable
     public function add($request) {
         return User::create($request);
     }
-
+    public function getCustomers() {
+        return $this->where('rol_id',3);
+    }
     public function getUserWithEmail($email) {
         return User::where('email',$email)->first();
+    }
+    public function getUserWithId($id) {
+        return $this->findOrFail($id);
     }
     public function getAccessToken()
     {

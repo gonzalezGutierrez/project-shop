@@ -35,7 +35,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="{{asset('administracion/clientes')}}">
                             <i class="fa fa-users" aria-hidden="true"></i>
                             <span>CLIENTES</span>
                         </a>

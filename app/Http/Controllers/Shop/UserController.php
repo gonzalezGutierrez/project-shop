@@ -90,6 +90,8 @@ class UserController extends Controller
         if ($user && $tokenUser) {
             $tokenUser->delete();
             Auth::loginUsingId($user->id);
+            $user->estatus = 'activo';
+            $user->save();
             return view('auth.user-activate-successfuly',compact('user'));
         }
 

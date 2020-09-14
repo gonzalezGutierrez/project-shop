@@ -38,6 +38,8 @@ class AuthController extends Controller
                 return redirect('/');
             }
 
+            Auth::logout();
+
             return redirect('/login')->with('status_login','Tu cuenta esta inactiva');
 
         }
