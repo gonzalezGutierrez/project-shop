@@ -5,7 +5,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Simple Transactional Email</title>
+    <title>Activación de cuenta</title>
     <style>
         /* -------------------------------------
             GLOBAL RESETS
@@ -335,7 +335,7 @@
     </style>
 </head>
 <body class="">
-<span class="preheader">This is preheader text. Some clients will show this text as a preview.</span>
+<span class="preheader">Gracias por registrarte en MyDibu Medical </span>
 <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="body">
     <tr>
         <td>&nbsp;</td>

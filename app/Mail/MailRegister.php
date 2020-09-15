@@ -33,6 +33,6 @@ class MailRegister extends Mailable
     {
         return $this->view('mails.register')
             ->from('jesus.gutierrez971225@gmail.com')
-            ->subject('Activación de cuenta Myibu');
+            ->subject('Activación de cuenta MyDibu Medical');
     }
 }
