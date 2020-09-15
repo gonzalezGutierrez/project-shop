@@ -32,19 +32,6 @@
                 </div>
             </div>
 
-            <div class="ct-header slick-slide-animate tablex item" style="background:url({{asset('shop/sliders/s-3.png')}}); height: 85vh; background-position: center; background-size: cover;">
-                <div class="ct-u-display-tablex">
-                    <div class="inner">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12 col-lg-12 slider-inner">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <div class="ct-header slick-slide-animate tablex item" style="background:url({{asset('shop/sliders/s-4.png')}}); height: 85vh; background-position: center; background-size: cover;">
                 <div class="ct-u-display-tablex">
