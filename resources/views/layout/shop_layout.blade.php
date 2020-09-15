@@ -64,10 +64,6 @@
                         <li class="@if(Request::is('basket')) active @endif">
                             <a href="{{asset('/basket')}}">Mi carrito ({{$productsCount}})</a>
                         </li>
-                        <li>
-                            <a href=""><i class="fa fa-search"></i></a>
-                        </li>
-
                     </ul>
 
                     <ul class="nav-menu nav-menu-social align-to-right">
@@ -213,7 +209,7 @@
 
                             <div class="col-md-12 col-sm-12">
                                 <button type="submit" class="btn btn-info">Acceder</button> ó
-                                <a href="" class="btn btn-outline-info">Registrate</a>
+                                <a href="{{asset('/users/create')}}" class="btn btn-outline-info">Registrate</a>
                             </div>
                         </div>
                     </form>
