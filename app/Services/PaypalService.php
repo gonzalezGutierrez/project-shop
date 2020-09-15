@@ -87,8 +87,8 @@ class PaypalService
                     'brand_name' => 'MyDibu Medical',
                     'shipping_preferences'=>'NO_SHIPPING',
                     'user_action' => 'PAY_NOW',
-                    'return_url' => 'http://localhost:8000/payments/pay/approval',
-                    'cancel_url' =>'http://localhost:8000/payments/pay/cancelled'
+                    'return_url' => 'http://mydibu.com/payments/pay/approval',
+                    'cancel_url' =>'http://mydibu.com/payments/pay/cancelled'
                 ]
             ],
             [],
