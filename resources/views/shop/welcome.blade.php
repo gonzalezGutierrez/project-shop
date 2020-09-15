@@ -1,6 +1,10 @@
 @extends('layout.shop_layout')
 @section('title','Bienvenido')
 @section('content')
+
+    <!--categorias-->
+
+
     <div class="ct-header ct-header--slider ct-slick-custom-dots text-center" id="home">
         <div class="ct-slick-homepage" data-arrows="true" data-autoplay="true">
 
@@ -17,7 +21,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="ct-header slick-slide-animate tablex item" style="background:url({{asset('shop/sliders/s-2.png')}}); height: 85vh; background-position: center; background-size: cover;">
                 <div class="ct-u-display-tablex">
                     <div class="inner">
@@ -100,7 +103,6 @@
                     </div>
                 @endforeach
             </div>
-
         </div>
     </section>
     <div class="clearfix"></div>
