@@ -13,7 +13,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 mt-xl-2">
+                <br>
+                <div class="col-lg-6">
                     <div class="card">
                         <div class="card-header text-center">
                             <h3 class="mb-3">Crear una cuenta MyDibu Medical</h3>
