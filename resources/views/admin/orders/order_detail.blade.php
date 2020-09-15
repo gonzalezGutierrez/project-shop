@@ -10,6 +10,20 @@
 
                 <div class="row">
                     <div class="col-md-12">
+
+                        <form action="{{asset('administracion/orders/'.$order->id)}}" method="POST">
+                            @csrf
+                            @method('put')
+                            <label for="">Tracking de la orden</label>
+                            {!! Form::select('estatus',['pagada'=>'Pagada','enviada'=>'Enviada','entregada'=>'Entregada','cancelada'=>'Cancelada'],'',['class'=>'form-control']) !!}
+                            <span class="">Cuando el estatus sea cambiado , se le indicara al cliente por medio de correo electronico</span>
+                            <br>
+                            <button class="btn btn-info">Actualizar</button>
+                        </form>
+
+                        <br>
+                        <hr>
+
                         @if($order->facturar)
                             <div class="alert alert-success">El cliente necesita factura</div>
                             <form action="{{asset('administracion/add-invoice')}}" method="POST" enctype="multipart/form-data">

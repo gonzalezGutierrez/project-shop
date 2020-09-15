@@ -17,7 +17,18 @@
             <p style="font-size:14px;margin:0 0 6px 0;"><span style="font-weight:bold;display:inline-block;min-width:150px">
                     Estatus de orden
                 </span>
-                <b style="color:green;font-weight:normal;margin:0">Pagada</b></p>
+                <b style="color:green;font-weight:normal;margin:0">
+                    @if($order['order']->estatus == 'pagada')
+                        Pagada
+                    @endif
+                    @if($order['order']->estatus == 'enviada')
+                        En hora buena tu orden ha sido enviada a tu dirección <br>
+                            <a href="{{asset('orders/')}}">Ver detalle</a>
+                    @endif
+                    @if($order['order']->estatus == 'entregada')
+                        En hora buena tu orden ha sido eentregada a tu dirección
+                    @endif
+                </b></p>
             <p style="font-size:14px;margin:0 0 6px 0;"><span style="font-weight:bold;display:inline-block;min-width:146px">Transaccion ID</span> {{$order['transaction']->transaccion_codigo}}</p>
             <p style="font-size:14px;margin:0 0 0 0;"><span style="font-weight:bold;display:inline-block;min-width:146px">Total: </span>$ {{number_format($order['order']->total,2,',','.')}}</p>
         </td>

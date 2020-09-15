@@ -53,7 +53,7 @@
                                     @endif
                                 </td>
                                 <td class="text-center">
-                                    <span class="text-uppercase label @if($order->estatus == 'pagada') label-success @endif">{{$order->estatus}}</span>
+                                    <span class="text-uppercase label @if($order->estatus == 'cancelada') label-danger @endif @if($order->estatus == 'pagada') label-info @endif @if($order->estatus == 'enviada') label-warning @endif @if($order->estatus == 'entregada') label-success @endif">{{$order->estatus}}</span>
                                 </td>
                                 <td class="text-center">
                                     <a href="" data-toggle="modal" data-target=".bd-example-modal-lg-{{$order->id}}" class="btn btn-sm btn-info"><i class="fa fa-shopping-cart"></i></a>

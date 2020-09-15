@@ -3,9 +3,16 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Mail\MailOrder;
 use App\Models\Invoice;
 use App\Models\Order;
+use App\Models\ShoppingCart;
+use App\Models\ShoppingCartUbication;
+use App\Models\Transaction;
+use App\Ubicacion;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use phpDocumentor\Reflection\Types\This;
 
 class OrderController extends Controller
@@ -14,6 +21,38 @@ class OrderController extends Controller
     public function index(Request $request) {
         $orders = Order::get();
         return view('admin.orders.index',compact('orders'));
+    }
+    public function update(Request $request , $orderId) {
+        try{
+            $order = Order::findOrFail($orderId);
+            $order->estatus = $request->estatus;
+            $order->save();
+
+            $shoppingCart = ShoppingCart::findOrFail($order->carrito_id);
+            $user = User::findOrFail($shoppingCart->usuario_id);
+            $transaction = Transaction::findOrFail($order->transaccion_id);
+
+            $shippingUbaction = ShoppingCartUbication::where('carrito_id',$shoppingCart->id)->first();
+            $ubication = Ubicacion::findOrFail($shippingUbaction->ubicacion_id);
+
+            $products = $shoppingCart->products()->get();
+
+            $data = array(
+                'order'=>$order,
+                'transaction'=>$transaction,
+                'user'=>$user,
+                'ubication'=>$ubication,
+                'products'=>$products
+            );
+
+            //enviar la orden al correo electronico
+            $mailOrder = new MailOrder($data);
+            \Mail::to($user->email)->send($mailOrder);
+
+            return back();
+        }catch (\Exception $e) {
+            return back();
+        }
     }
 
     public function addInvoice(Request  $request ){
