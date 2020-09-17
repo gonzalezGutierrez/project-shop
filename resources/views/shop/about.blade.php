@@ -103,27 +103,7 @@
                             profesionales altamente éticos y
                             comprometidos con la seguridad de la salud
                         </p>
-                        
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 p-0 image-block">
-                    <div class="image-block-holder">
-                        <div class="image-block-holder-img" style="background: url({{asset('h-1.jpg')}});opacity: 1; height: 300px;">
-                            <img src="{{asset('h-1.jpg')}}" class="img-responsive img-holder" alt=""/>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-12 p-0 image-block">
-                    <div class="image-block-holder">
-                        <div class="image-block-holder-img" style="background: url({{asset('h-1.jpg')}});opacity: 1; height: 300px;">
-                            <img src="{{asset('h-1.jpg')}}" class="img-responsive img-holder" alt=""/>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 p-0">
-                    <div class="image-block-content  bg-dark-blue inverse-color" style="height: 300px;">
+
                         <h2>Misión</h2>
                         <p>
                             Distribuir artículos innovadores de seguridad
@@ -132,6 +112,13 @@
                             profesionales.
                         </p>
                         
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 p-0 image-block">
+                    <div class="image-block-holder">
+                        <div class="image-block-holder-img" style="background: url({{asset('h-1.jpg')}});opacity: 1; height: 300px;">
+                            <img src="{{asset('h-1.jpg')}}" class="img-responsive img-holder" alt=""/>
+                        </div>
                     </div>
                 </div>
             </div>
