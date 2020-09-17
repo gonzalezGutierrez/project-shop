@@ -14,18 +14,34 @@
 
     <div class="container">
         <div class="row mt-4 mb-4">
+            @if(Session::has('success'))
+                <div class="col-md-12">
+                    <div class="alert alert-primary" style="border-radius: 0px;">
+                        <span class="">{{ Session::get('success') }}</span>
+                    </div>
+                </div>
+            @endif
+            @if(Session::has('danger'))
+                <div class="col-md-12">
+                    <div class="alert alert-danger" style="border-radius: 0px;">
+                        <span class="">{{ Session::get('danger') }}</span>
+                    </div>
+                </div>
+            @endif
             @include('layout.profile-sidebar')
             <div class="col-md-9 col-lg-9 col-xs-12 col-sm-12">
                 <div class="card" style="background-color: #f8f8ff;">
                    <h5 class="card-header">Mis datos</h5>
                     <div class="card-body">
-                        <form action="">
+                        <form action="{{asset('users/'.$user->id)}}" method="POST">
+                            @csrf
+                            @method('PUT')
                             <div class="row">
                                 <div class="col-md-6 form-group col-lg-6 col-xs-12 col-sm-12">
                                     <label for="">Nombre: </label>
                                     <input type="text" class="form-control" id="name" name="nombre" value="{{$user->id ? $user->nombre :old('nombre')}}" placeholder="Nombre">
                                     @error('nombre')
-                                    <span class="text-danger">{{$message}}</span>
+                                        <span class="text-danger">{{$message}}</span>
                                     @enderror
                                 </div>
                                 <div class="col-md-6 form-group col-lg-6 col-xs-12 col-sm-12">
