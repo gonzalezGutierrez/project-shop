@@ -31,43 +31,29 @@
             @include('layout.profile-sidebar')
             <div class="col-md-9 col-lg-9 col-xs-12 col-sm-12">
                 <div class="card" style="background-color: #f8f8ff;">
-                   <h5 class="card-header">Mis datos</h5>
+                   <h5 class="card-header">Actualizar contraseña</h5>
                     <div class="card-body">
-                        <form action="{{asset('users/'.$user->id)}}" method="POST">
+                        <form action="{{asset('user-update-password/'.Auth::user()->id)}}" method="POST">
                             @csrf
                             @method('PUT')
                             <div class="row">
                                 <div class="col-md-6 form-group col-lg-6 col-xs-12 col-sm-12">
-                                    <label for="">Nombre: </label>
-                                    <input type="text" class="form-control" id="name" name="nombre" value="{{$user->id ? $user->nombre :old('nombre')}}" placeholder="Nombre">
-                                    @error('nombre')
+                                    <label for="">Contraseña: </label>
+                                    <input type="password" class="form-control" id="name" name="password"  placeholder="">
+                                    @error('password')
                                         <span class="text-danger">{{$message}}</span>
                                     @enderror
                                 </div>
                                 <div class="col-md-6 form-group col-lg-6 col-xs-12 col-sm-12">
-                                    <label for="">Apellido: </label>
-                                    <input type="text" class="form-control" id="name" name="apellido" value="{{$user->id ? $user->apellido :old('apellido')}}" placeholder="Apellido">
-                                    @error('apellido')
+                                    <label for="">Confirma tu contraseña: </label>
+                                    <input type="password" class="form-control" id="name" name="password_confirmation"  placeholder="">
+                                    @error('password_confirmation')
                                         <span class="text-danger">{{$message}}</span>
                                     @enderror
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-6 form-group">
-                                    <input type="text" class="form-control" id="apellido" value="{{$user->id ? $user->telefono : old('telefono')}}" name="telefono" placeholder="Telefono">
-                                    @error('telefono')
-                                    <span class="text-danger">{{$message}}</span>
-                                    @enderror
-                                </div>
-                                <div class="col-md-6 form-group">
-                                    <input type="email" class="form-control" id="email" name="email" value="{{$user->id ? $user->email :old('email')}}" placeholder="Dirección de correo">
-                                    @error('email')
-                                    <span class="text-danger">{{$message}}</span>
-                                    @enderror
-                                </div>
-                            </div>
                             <button type="submit" value="submit"
-                                    class="btn btn-info ">Guardar Cambios</button>
+                                    class="btn btn-info ">Actualizar</button>
                         </form>
                     </div>
                 </div>

@@ -1,6 +1,24 @@
 @extends('layout.shop_layout')
 @section('title','Categorias')
 @section('content')
+    <div class="container-fluid breadcrumbs">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <a href="{{asset('/')}}">
+                        Inicio
+                    </a>
+                    <a href="javascript:void(0)">
+                        <span>
+                            <i class="ti-arrow-right"></i>
+                        </span>
+                        Categorias
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
     <section id="portfolio">
         <div class="container">
 

@@ -58,6 +58,8 @@
 
                         <li class="@if(Request::is('news')) active @endif"><a href="{{asset('/news')}}">Noticias</a></li>
 
+                        <li class="@if(Request::is('about')) active @endif"><a href="{{asset('/about')}}">Nosotros</a></li>
+
                         @guest()
                             <li class="@if(Request::is('users/create')) active @endif">
                                 <a href="{{asset('/users/create')}}">Crear cuenta</a>
@@ -122,10 +124,11 @@
                         <div class="footer-widget">
                             <h4 class="widget-title">MyDibu Medical</h4>
                             <ul class="footer-menu">
-                                <li><a href="#">Vision</a></li>
-                                <li><a href="#">Misión</a></li>
-                                <li><a href="#">Contacto</a></li>
-                                <li><a href="#">Acceder</a></li>
+                                <li><a href="{{asset('about')}}">Nosotros</a></li>
+                                <li><a href="">Contacto</a></li>
+                                @guest
+                                    <li><a href="{{asset('/login')}}">Acceder</a></li>
+                                @endguest
                             </ul>
                         </div>
                     </div>

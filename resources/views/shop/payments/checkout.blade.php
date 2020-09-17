@@ -48,6 +48,13 @@
 
     <form action="{{asset('payments/pay')}}" method="POST">
     <div class="row mb-5 mt-2">
+        @if(Session::has('success'))
+            <div class="col-md-12">
+                <div class="alert alert-primary" style="border-radius: 0px;">
+                    <span class="">{{ Session::get('success') }}</span>
+                </div>
+            </div>
+        @endif
         @csrf
         <div class="col-md-8 col-lg-8 col-xs-12 col-sm-12">
             <h3 class="small-sec-title mt-3">DIRECCIÓN DE ENVIO</h3>

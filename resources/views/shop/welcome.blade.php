@@ -55,9 +55,6 @@
     </section>
     <div class="clearfix"></div>
 
-
-
-
     <section class="p-0">
         <div class="container-fluid p-0">
             <div class="row">
@@ -127,9 +124,44 @@
     </section>
     <div class="clearfix"></div>
 
-    <!-- ============================ What We Do End ================================== -->
-
-    <!-- ============================ Counter Start ================================== -->
+    <section class="container">
+        <div class="row">
+            <div class="col-lg-12 d-flex justify-content-between align-items-center col-md-12 col-sm-12 mb-4">
+                <h3 class="small-sec-title">Ultimas noticias</h3>
+                <a href="{{asset('news')}}" class="text-uppercase">Ver todo</a>
+            </div>
+            <div class="col-md-8 col-lg-8 col-xs-12 col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="thumbnail-image">
+                            <img class="w-100" src="{{asset('/'.$latestEntry->url_image_news)}}" alt="">
+                        </div>
+                        <h6 class="mt-4">{{$latestEntry->encabezado}} - {{$latestEntry->created_at->format('M-Y')}}</h6> <br>
+                        <a href="{{asset('news/'.$latestEntry->slug)}}">{{$latestEntry->titulo}}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4 col-xs-12 col-sm-12">
+                <div class="row">
+                    <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Noticias en MyDibu Medical</h4>
+                            </div>
+                            <div class="card-body">
+                                @foreach($entries as $entry)
+                                    {{$entry->encabezado}} - {{$entry->created_at->format('M-Y')}} <br> <br>
+                                    <a href="{{asset('news/'.$entry->slug)}}" class="mt-2">{{$entry->titulo}}</a> <br> <hr>
+                                @endforeach
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <section class="image-bg" style="background:#003b77 url({{asset('shop/assets/img/banner-55.png')}}) no-repeat; width: 100%; ">
         <div class="container">
             <div class="ht-40"></div>
@@ -168,7 +200,6 @@
         <div class="ht-40"></div>
     </section>
     <div class="clearfix"></div>
-    <!-- ============================ Counter End ================================== -->
 
     <section>
         <div class="container">
@@ -183,7 +214,6 @@
                 @endforeach
             </div>
             <!-- All Product List End -->
-
         </div>
     </section>
     <div class="clearfix"></div>

@@ -35,7 +35,7 @@ class ProductInShoppingCartController extends Controller
             }else{
                 $basket->add($data);
             }
-            return redirect('/basket');
+            return redirect('/basket')->with('success','Producto agregado al carrito correctamente');
         }catch (\Exception $e) {
             dd($e);
         }
@@ -57,9 +57,9 @@ class ProductInShoppingCartController extends Controller
 
         if ($isProductInBasket) {
             $isProductInBasket->delete();
-            return back();
+            return back()->with('danger','El producto fue quitado del carrito');
         }else {
-            return back()->with('error','El producto no esta en el carrito');
+            return back()->with('danger','El producto no esta en el carrito');
         }
 
 

@@ -31,6 +31,10 @@ Route::group(['namespace'=>'Admin','prefix'=>'administracion','middleware'=>['au
     Route::get('productos-proximos-terminar','ProductController@productOutStock');
     Route::put('productos-estatus/{product_id}','ProductController@changeStatus');
 
+    Route::get('galerias/{product_slug}','ProductImageController@index');
+    Route::post('galerias/{product_slug}','ProductImageController@store');
+    Route::delete('galerias/{product_id}','ProductImageController@destroy');
+
     Route::resource('historial-precios','PriceHistoryController');
 
     Route::resource('compras','BuyController');
@@ -48,12 +52,17 @@ Route::group(['namespace'=>'Admin','prefix'=>'administracion','middleware'=>['au
 Route::group(['namespace'=>'Shop','middleware'=>'set_shopping_cart'],function(){
 
     Route::resource('users','UserController');
+    Route::get('password-update','UserController@updatePasswordForm');
+    Route::put('user-update-password/{user_id}','UserController@updatePassword');
     Route::get('user-registered-successfuly/{token}/{email}','UserController@registeredOk');
     Route::get('activate-account/{token}/{email}','UserController@activateUser');
 
     Route::get('/','HomeController@home');
     Route::get('member-pymes','HomeController@pymes');
     Route::get('/shop-general','HomeController@shop');
+    Route::get('about','HomeController@about');
+
+    Route::resource('news','NewsController');
 
     Route::resource('products','ProductsController');
     Route::get('products-category/{category_slug}','ProductsController@productsByCategory');

@@ -7,9 +7,12 @@
             <hr>
             <a href="{{asset('/account')}}" @if(Request::is('account')) class="text-primary" @endif><i class="fa fa-user"></i> Mi cuenta</a>
             <hr>
-            <a href=""><i class="fa fa-lock"></i> Actualizar contraseña</a>
+            <a href="{{asset('password-update')}}"><i class="fa fa-lock"></i> Actualizar contraseña</a>
             <hr>
-            <a href="">Salir</a>
+            <form action="{{asset('logout')}}" method="POST">
+                @csrf
+                <button type="submit" class="btn btn-danger ">Salir</button>
+            </form>
         </div>
     </div>
 </div>

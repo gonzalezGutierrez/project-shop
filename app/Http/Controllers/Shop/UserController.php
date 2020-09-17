@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Shop;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Shop\UserAddRequest;
+use App\Http\Requests\Shop\UserUpdateRequest;
+use App\Http\Requests\Shop\UserUpdatePasswordRequest;
+
 use App\Mail\MailRegister;
 use App\Role;
 use App\Token;
@@ -30,14 +33,6 @@ class UserController extends Controller
         $user = Auth::user();
         return view('shop.users.show',compact('user'));
     }
-    public function edit($id)
-    {
-        //
-    }
-
-
-
-
     public function store(UserAddRequest $request) {
 
         DB::beginTransaction();
@@ -66,7 +61,6 @@ class UserController extends Controller
 
             return redirect('/user-registered-successfuly/'.$token->token.'/'.$user->email);
 
-
         }catch (\Exception $e) {
             DB::rollBack();
             dd($e);
@@ -84,6 +78,7 @@ class UserController extends Controller
         return back()->with('session-toke-caducate','El token no es correcto o ha caducado');
     }
     public function activateUser ($token,$email) {
+
         $user = $this->user->getUserWithEmail($email);
         $tokenUser = $this->token->getTokenWithTokenAndUser($user,$token);
 
@@ -96,13 +91,39 @@ class UserController extends Controller
         }
 
         return back()->with('session-toke-caducate','El token no es correcto o ha caducado');
+
     }
-    public function update(Request $request, $id)
+    public function update(UserUpdateRequest $request, $id)
     {
-        //
+        try{
+            
+            $user = $this->user-> findOrfail($id);
+
+            $user->fill($request->validated())->save();
+
+            return back()->with('success','Cuenta actualizada correctamente');
+
+        }catch(\Exception $e) {
+            dd($e);
+            return back()->with('danger','Ocurrio un problema al actualizar tus datos');
+        }
     }
-    public function destroy($id)
-    {
-        //
+
+    public function updatePasswordForm() {
+        return view('shop.users.reset-password');
+    }
+
+    public function updatePassword(UserUpdatePasswordRequest $request) {
+        try{
+            
+            $user = Auth::user();
+            
+            $user->fill(['password'=>$request->password])->save();
+
+            return redirect('/account')->with('success','Tu contraseña fue actualizada correctamente');
+
+        }catch(\Exception $e) {
+            return back()->with('danger','Ocurrio un problema al actualizar tu contraseña');
+        }
     }
 }

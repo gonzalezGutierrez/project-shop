@@ -1,6 +1,24 @@
 @extends('layout.shop_layout')
 @section('title','Tienda')
 @section('content')
+    <div class="container-fluid breadcrumbs">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <a href="{{asset('/')}}">
+                        Inicio
+                    </a>
+                    <a href="javascript:void(0)">
+                        <span>
+                            <i class="ti-arrow-right"></i>
+                        </span>
+                       Tienda MyDibu Medical
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
     <div class="page-title-wrap pt-img-wrap" style="background:url({{asset('shop/about/about-2.jfif')}}) no-repeat; background-size: cover; background-position: center;">
         <div class="container">
             <div class="col-lg-12 col-md-12">
