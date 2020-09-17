@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Shop;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Shop\UserAddRequest;
 use App\Http\Requests\Shop\UserUpdateRequest;
+use App\Http\Requests\Shop\UserUpdatePasswordRequest;
+
 use App\Mail\MailRegister;
 use App\Role;
 use App\Token;
@@ -104,6 +106,24 @@ class UserController extends Controller
         }catch(\Exception $e) {
             dd($e);
             return back()->with('danger','Ocurrio un problema al actualizar tus datos');
+        }
+    }
+
+    public function updatePasswordForm() {
+        return view('shop.users.reset-password');
+    }
+
+    public function updatePassword(UserUpdatePasswordRequest $request) {
+        try{
+            
+            $user = Auth::user();
+            
+            $user->fill(['password'=>$request->password])->save();
+
+            return redirect('/account')->with('success','Tu contraseña fue actualizada correctamente');
+
+        }catch(\Exception $e) {
+            return back()->with('danger','Ocurrio un problema al actualizar tu contraseña');
         }
     }
 }

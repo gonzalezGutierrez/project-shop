@@ -48,6 +48,8 @@ Route::group(['namespace'=>'Admin','prefix'=>'administracion','middleware'=>['au
 Route::group(['namespace'=>'Shop','middleware'=>'set_shopping_cart'],function(){
 
     Route::resource('users','UserController');
+    Route::get('password-update','UserController@updatePasswordForm');
+    Route::put('user-update-password/{user_id}','UserController@updatePassword');
     Route::get('user-registered-successfuly/{token}/{email}','UserController@registeredOk');
     Route::get('activate-account/{token}/{email}','UserController@activateUser');
 
