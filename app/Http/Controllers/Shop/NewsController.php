@@ -5,16 +5,18 @@ namespace App\Http\Controllers\shop;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\Models\Entry;
+
 class NewsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
+    public function __construct() {
+        $this->entry = new Entry();
+    }
+
     public function index()
     {
-        //
+        
     }
 
     /**

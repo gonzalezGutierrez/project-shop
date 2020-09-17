@@ -13,6 +13,9 @@ class Entry extends Model
     public function add($data) {
         return $this->create($data);
     }
+    public function getActives() {
+        return $this->orderBy('created_at','desc')->where('estatus',true);
+    }
 
     //statis methods
     public static function setSlug($slug) {

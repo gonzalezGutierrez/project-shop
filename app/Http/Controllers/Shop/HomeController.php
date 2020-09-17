@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Entry;
 
 class HomeController extends Controller
 {
@@ -14,13 +15,16 @@ class HomeController extends Controller
         $this->products = new Product();
         $this->brand    = new Brand();
         $this->lastProducts = 8;
+        $this->entry = new Entry();
     }
 
     public function home() {
-       $categories = Category::getWithStatus('activo')->take(9)->get();
-       $products   = Product::getLastProducts(8)->get();
-       $productsCountRegister = Product::where('estatus','activo')->count();
-       return view('shop.welcome',compact('categories','products','productsCountRegister'));
+        $categories = Category::getWithStatus('activo')->take(9)->get();
+        $products   = Product::getLastProducts(8)->get();
+        $productsCountRegister = Product::where('estatus','activo')->count();
+        $entries = $this->entry->getActives()->take(4)->get();
+        $latestEntry = $this->entry->getActives()->first();
+       return view('shop.welcome',compact('categories','products','productsCountRegister','entries','latestEntry'));
     }
 
     public function pymes() {
