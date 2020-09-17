@@ -16,7 +16,8 @@ class NewsController extends Controller
 
     public function index()
     {
-        
+        $entries = $this->entry->getActives()->paginate(10);
+        return view('shop.entries.index',compact('entries'));
     }
 
     /**
