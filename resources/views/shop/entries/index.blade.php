@@ -41,8 +41,8 @@
                             <div class="blog-grid-thumb">
                                 <a href="blog-detail.html"><img src="{{asset('/'.$entry->url_image_news)}}" class="img-responsive" alt="" /></a>
                                 <div class="bg-cat-info">
-                                    <h6>Business</h6>
-                                    <span>3 days ago</span>
+                                    <h6>MyDibu Medical News</h6>
+                                    <span>{{$entry->created_at->format('M-Y')}}</span>
                                 </div>
                             </div>
                             <div class="blog-grid-content">
