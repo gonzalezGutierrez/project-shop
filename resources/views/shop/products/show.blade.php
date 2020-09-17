@@ -94,7 +94,7 @@
                                 <p>{{$product->descripcion}}</p>
                             </div>
                             <div class="tab-pane fade" id="information" role="tabpanel" aria-labelledby="information-tab">
-                                <p>{{$product->caracteristicas}}</p>
+                                <p>{{$product->especificaciones}}</p>
                             </div>
                         </div>
                     </div>
