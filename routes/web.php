@@ -31,6 +31,10 @@ Route::group(['namespace'=>'Admin','prefix'=>'administracion','middleware'=>['au
     Route::get('productos-proximos-terminar','ProductController@productOutStock');
     Route::put('productos-estatus/{product_id}','ProductController@changeStatus');
 
+    Route::get('galerias/{product_slug}','ProductImageController@index');
+    Route::post('galerias/{product_slug}','ProductImageController@store');
+    Route::delete('galerias/{product_id}','ProductImageController@destroy');
+
     Route::resource('historial-precios','PriceHistoryController');
 
     Route::resource('compras','BuyController');
