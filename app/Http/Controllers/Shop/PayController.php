@@ -215,6 +215,6 @@ class PayController extends Controller
     }
     public function cancelled(Request $request)
     {
-        //
+        return redirect('/checkout')->with('payment-cancelled','Has cancelado tu pago');
     }
 }
