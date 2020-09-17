@@ -130,7 +130,7 @@
     <!-- ============================ What We Do End ================================== -->
 
     <!-- ============================ Counter Start ================================== -->
-    <section class="image-bg" style="background:#003b77 url(assets/img/banner-55.png) no-repeat;">
+    <section class="image-bg" style="background:#003b77 url({{asset('shop/assets/img/banner-55.png')}}) no-repeat; width: 100%; ">
         <div class="container">
             <div class="ht-40"></div>
             <div class="row">
