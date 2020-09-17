@@ -27,69 +27,6 @@
         </div>
     </div>
 
-    {{--<div class="ct-header ct-header--slider ct-slick-custom-dots text-center" id="home">
-        <div class="ct-slick-homepage" data-arrows="true" data-autoplay="true">
-
-            <div class="ct-header slick-slide-animate tablex item" style="background:url({{asset('shop/sliders/s-1.png')}}); height: 85vh; background-position: center; background-size: cover;">
-                <div class="ct-u-display-tablex">
-                    <div class="inner">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12 col-lg-12 slider-inner">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="ct-header slick-slide-animate tablex item" style="background:url({{asset('shop/sliders/s-2.png')}}); height: 85vh; background-position: center; background-size: cover;">
-                <div class="ct-u-display-tablex">
-                    <div class="inner">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12 col-lg-12 slider-inner">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="ct-header slick-slide-animate tablex item" style="background:url({{asset('shop/sliders/s-4.png')}}); height: 85vh; background-position: center; background-size: cover;">
-                <div class="ct-u-display-tablex">
-                    <div class="inner">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12 col-lg-12 slider-inner">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ct-header slick-slide-animate tablex item" style="background:url({{asset('shop/sliders/s-5.png')}}); height: 85vh; background-position: center; background-size: cover;">
-                <div class="ct-u-display-tablex">
-                    <div class="inner">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12 col-lg-12 slider-inner">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-    </div>--}}
-
     <!--categorias-->
     <section>
         <div class="container">
@@ -159,14 +96,14 @@
 
                 <div class="col-lg-6 col-md-6 col-sm-12 p-0 image-block">
                     <div class="image-block-holder">
-                        <div class="image-block-holder-img" style="background: url({{asset('h-2.jpg')}});opacity: 1;">
+                        <div class="image-block-holder-img" style="background: url({{asset('h-2.jpg')}});opacity: 1; height: 450px;">
                             <img src="{{asset('h-2.jpg')}}" class="img-responsive img-holder" alt=""/>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-lg-6 col-md-6 col-sm-12 p-0">
-                    <div class="image-block-content bg-dark-blue inverse-color">
+                    <div class="image-block-content bg-dark-blue inverse-color" style="height: 450px;">
                         <h2>MyDibu Medical</h2>
                         <p>
                             Innovación continua para aportar valor a
