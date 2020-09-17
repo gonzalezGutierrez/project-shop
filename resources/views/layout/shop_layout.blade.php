@@ -56,6 +56,8 @@
 
                         <li class="@if(Request::is('categories')) active @endif"><a href="{{asset('/categories')}}">Categorias</a></li>
 
+                        <li class="@if(Request::is('news')) active @endif"><a href="{{asset('/news')}}">Noticias</a></li>
+
                         @guest()
                             <li class="@if(Request::is('users/create')) active @endif">
                                 <a href="{{asset('/users/create')}}">Crear cuenta</a>
@@ -131,11 +133,13 @@
                         <div class="footer-widget">
                             <h4 class="widget-title">Links rapidos</h4>
                             <ul class="footer-menu">
-                                <li><a href="#">Inicio</a></li>
-                                <li><a href="#">Tienda</a></li>
+                                <li><a href="{{asset('/')}}">Inicio</a></li>
+                                <li><a href="{{asset('/shop-general')}}">Tienda</a></li>
                                 <li><a href="{{asset('/categories')}}">Categorias</a></li>
-                                <li><a href="#">Marcas</a></li>
-                                <li><a href="{{asset('/account')}}">Mi cuenta</a></li>
+                                <li><a href="{{asset('/news')}}">Noticias</a></li>
+                                @auth
+                                    <li><a href="{{asset('/account')}}">Mi cuenta</a></li>
+                                @endif
                             </ul>
                         </div>
                     </div>
@@ -156,11 +160,6 @@
                                 <li><a href="https://www.facebook.com/MyDibu-Medical-116978430130886" target="_blank"><i class="fa fa-facebook"></i></a></li>
                                 <li><a href="https://www.instagram.com/mydibu.medical/" target="_blank"><i class="fa fa-instagram"></i></a></li>
                             </ul>
-
-                            <form class="signup-frm mt-4">
-                                <input type="email" class="form-control sigmup-me" placeholder="Tu correo electronico" required="required">
-                                <button type="submit" class="btn btn-primary"><i class="ti-arrow-right"></i></button>
-                            </form>
                         </div>
                     </div>
 
