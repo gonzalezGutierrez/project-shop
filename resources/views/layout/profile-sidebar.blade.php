@@ -9,7 +9,10 @@
             <hr>
             <a href=""><i class="fa fa-lock"></i> Actualizar contraseña</a>
             <hr>
-            <a href="">Salir</a>
+            <form action="{{asset('logout')}}" method="POST">
+                @csrf
+                <button type="submit" class="btn btn-danger ">Salir</button>
+            </form>
         </div>
     </div>
 </div>

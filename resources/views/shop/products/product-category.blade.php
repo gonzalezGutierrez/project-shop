@@ -1,6 +1,25 @@
 @extends('layout.shop_layout')
 @section('title',$category->nombre)
 @section('content')
+
+    <div class="container-fluid breadcrumbs">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <a href="{{asset('/')}}">
+                        Inicio
+                    </a>
+                    <a href="javascript:void(0)">
+                        <span>
+                            <i class="ti-arrow-right"></i>
+                        </span>
+                        {{$category->nombre}}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
     <div class="page-title-wrap pt-img-wrap" style="background:url({{asset('/'.$category->url_imagen)}}) no-repeat; background-position: center center; background-size: cover;">
         <div class="container">
             <div class="col-lg-12 col-md-12">
