@@ -56,7 +56,7 @@ Route::group(['namespace'=>'Shop','middleware'=>'set_shopping_cart'],function(){
     Route::get('/shop-general','HomeController@shop');
     Route::get('about','HomeController@about');
 
-    Route::resource('news','Newscontroller');
+    Route::resource('news','NewsController');
 
     Route::resource('products','ProductsController');
     Route::get('products-category/{category_slug}','ProductsController@productsByCategory');
