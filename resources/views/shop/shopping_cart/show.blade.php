@@ -26,6 +26,23 @@
                     <span class="">En compras mayores a $2000.00 MXN el envio es gratuito</span>
                 </div>
             </div>
+
+            @if(Session::has('success'))
+                <div class="col-md-12">
+                    <div class="alert alert-primary" style="border-radius: 0px;">
+                        <span class="">{{ Session::get('success') }}</span>
+                    </div>
+                </div>
+            @endif
+
+            @if(Session::has('danger'))
+                <div class="col-md-12">
+                    <div class="alert alert-danger" style="border-radius: 0px;">
+                        <span class="">{{ Session::get('danger') }}</span>
+                    </div>
+                </div>
+            @endif
+
             <div class="col-md-8 col-lg-8 col-xs-12 col-sm-12">
                 @if($productsCount == 0)
                     <div class="card">
