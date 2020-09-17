@@ -2,7 +2,32 @@
 @section('title','Bienvenido')
 @section('content')
 
-    <div class="ct-header ct-header--slider ct-slick-custom-dots text-center" id="home">
+    <div id="carouselExampleControls" data-interval="4000" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block w-100" src="{{asset('shop/sliders/s-1.png')}}" alt="First slide">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="{{asset('shop/sliders/s-2.png')}}" alt="Second slide">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="{{asset('shop/sliders/s-4.png')}}" alt="Third slide">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="{{asset('shop/sliders/s-5.png')}}" alt="Third slide">
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+
+    {{--<div class="ct-header ct-header--slider ct-slick-custom-dots text-center" id="home">
         <div class="ct-slick-homepage" data-arrows="true" data-autoplay="true">
 
             <div class="ct-header slick-slide-animate tablex item" style="background:url({{asset('shop/sliders/s-1.png')}}); height: 85vh; background-position: center; background-size: cover;">
@@ -62,8 +87,8 @@
             </div>
 
 
-        </div><!-- .ct-slick-homepage -->
-    </div>
+        </div>
+    </div>--}}
 
     <!--categorias-->
     <section>
