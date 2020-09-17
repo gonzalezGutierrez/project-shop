@@ -38,4 +38,8 @@ class HomeController extends Controller
         return view('shop.shop',compact('categories','brands','products'));
     }
 
+    public function about() {
+        return view('shop.about');
+    }
+
 }
