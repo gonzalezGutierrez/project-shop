@@ -137,7 +137,7 @@
                             <img class="w-100" src="{{asset('/'.$latestEntry->url_image_news)}}" alt="">
                         </div>
                         <h6 class="mt-4">{{$latestEntry->encabezado}} - {{$latestEntry->created_at->format('M-Y')}}</h6> <br>
-                        <a href="">{{$latestEntry->titulo}}</a>
+                        <a href="{{asset('news/'.$latestEntry->slug)}}">{{$latestEntry->titulo}}</a>
                     </div>
                 </div>
             </div>
@@ -150,8 +150,8 @@
                             </div>
                             <div class="card-body">
                                 @foreach($entries as $entry)
-                                    {{$latestEntry->encabezado}} - {{$entry->created_at->format('M-Y')}} <br> <br>
-                                    <a href="" class="mt-2">{{$latestEntry->titulo}}</a> <br> <hr>
+                                    {{$entry->encabezado}} - {{$entry->created_at->format('M-Y')}} <br> <br>
+                                    <a href="{{asset('news/'.$entry->slug)}}" class="mt-2">{{$entry->titulo}}</a> <br> <hr>
                                 @endforeach
                             </div>
                         </div>
