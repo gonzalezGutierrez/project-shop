@@ -39,14 +39,14 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="blog-grid-wrap mb-4">
                             <div class="blog-grid-thumb">
-                                <a href="blog-detail.html"><img src="{{asset('/'.$entry->url_image_news)}}" class="img-responsive" alt="" /></a>
+                                <a href="{{asset('/news/'.$entry->slug)}}"><img src="{{asset('/'.$entry->url_image_news)}}" class="img-responsive" alt="" /></a>
                                 <div class="bg-cat-info">
                                     <h6>MyDibu Medical News</h6>
                                     <span>{{$entry->created_at->format('M-Y')}}</span>
                                 </div>
                             </div>
                             <div class="blog-grid-content">
-                                <h4 class="cnt-gb-title"><a href="blog-detail.html">{{$entry->titulo}}</a></h4>
+                                <h4 class="cnt-gb-title"><a href="{{asset('/news/'.$entry->slug)}}">{{$entry->titulo}}</a></h4>
                                 <p>{{$entry->encabezado}}</p>
                             </div>
                         </div>
