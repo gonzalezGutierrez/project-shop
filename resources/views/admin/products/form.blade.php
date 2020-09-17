@@ -79,7 +79,7 @@
                 </div>
             </div>
             <div class="panel-footer">
-                <a href="" data-toggle="modal" data-target=".bd-example-modal-lg">Agregar imagenes</a>
+                <a href="{{asset('administracion/galerias/'.$product->slug)}}">Agregar imagenes</a>
             </div>
         </div>
     </div>
