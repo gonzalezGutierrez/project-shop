@@ -40,6 +40,8 @@ Route::group(['namespace'=>'Admin','prefix'=>'administracion','middleware'=>['au
 
     Route::resource('clientes','CustomerController');
 
+    Route::resource('news','NewsController');
+
 });
 
 

@@ -59,9 +59,9 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/">
-                            <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
-                            <span>REPORTES</span>
+                        <a href="/administracion/news">
+                            <i class="fa fa-book" aria-hidden="true"></i>
+                            <span>NOTICIAS</span>
                         </a>
                     </li>
                 </ul>
