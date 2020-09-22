@@ -370,9 +370,7 @@
                                             </tr>
                                             </tbody>
                                         </table>
-                                        <p>En la “Guia de acción para los centros de trabajo ante el Covid-19”
-                                            Indicada por el gobierno de México para inicio de labores.
-                                        </p>
+
                                     </td>
                                 </tr>
                             </table>
@@ -390,4 +388,3 @@
 </table>
 </body>
 </html>
-
