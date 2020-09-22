@@ -14,7 +14,7 @@
                             Mi resumen
                         </a>
                     </li>
-                    <li><span>Productos</span></li>
+                    <li><span>Marcas</span></li>
                 </ol>
 
                 <a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
@@ -24,7 +24,7 @@
         <!-- start: page -->
         <section class="panel">
             <header class="panel-heading" style="display: flex;  justify-content: space-between; align-items: center;">
-                <h2 class="panel-title">Categorias</h2>
+                <h2 class="panel-title">Marcas</h2>
                 <a href="{{asset('administracion/marcas/create')}}" class="btn btn-sm btn-success">Agregar nuevo</a>
             </header>
             <div class="panel-body">
