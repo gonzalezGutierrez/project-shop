@@ -74,18 +74,18 @@ Route::group(['namespace'=>'Shop','middleware'=>'set_shopping_cart'],function(){
 
     Route::get('basket','ShoppingCartController@show');
 
-    Route::get('checkout','PayController@checkout');
+    Route::get('checkout','PayController@checkout')->middleware('auth');
 
-    Route::post('payments/pay','PayController@store');
-    Route::get ('payments/pay/approval','PayController@approval');
-    Route::get ('payments/pay/cancelled','PayController@cancelled');
+    Route::post('payments/pay','PayController@store')->middleware('auth');
+    Route::get ('payments/pay/approval','PayController@approval')->middleware('auth');
+    Route::get ('payments/pay/cancelled','PayController@cancelled')->middleware('auth');
 
 
 
     //acount
     Route::get('account','UserController@show')->middleware('auth');
     Route::get('orders','OrderController@index')->middleware('auth');
-    Route::get('order-success/{order_code_transaction}','OrderController@orderSuccess');
-    Route::get('orders/{code_order}','OrderController@show');
-    Route::resource('address','AddressController');
+    Route::get('order-success/{order_code_transaction}','OrderController@orderSuccess')->middleware('auth');
+    Route::get('orders/{code_order}','OrderController@show')->middleware('auth');
+    Route::resource('address','AddressController')->middleware('auth');
 });

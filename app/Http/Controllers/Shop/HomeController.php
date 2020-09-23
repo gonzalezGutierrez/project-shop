@@ -34,7 +34,7 @@ class HomeController extends Controller
     public function shop() {
         $categories = Category::getWithStatus('activo')->get();
         $brands     = $this->brand->getBrands('activo');
-        $products   = $this->products->getProductsPaginate(10);
+        $products   = $this->products->getProductsPaginate(16);
         return view('shop.shop',compact('categories','brands','products'));
     }
 

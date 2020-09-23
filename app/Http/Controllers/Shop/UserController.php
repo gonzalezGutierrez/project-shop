@@ -23,7 +23,9 @@ class UserController extends Controller
         $this->user = new User();
         $this->token = new Token();
 
-        $this->middleware('guest')->only('create');
+        //$this->middleware('auth')->only(['show','update','updatePasswordForm']);
+
+        //$this->middleware('guest')->only(['create','registeredOk','activateUser']);
     }
 
     public function create(){
@@ -96,7 +98,7 @@ class UserController extends Controller
     public function update(UserUpdateRequest $request, $id)
     {
         try{
-            
+
             $user = $this->user-> findOrfail($id);
 
             $user->fill($request->validated())->save();
@@ -115,9 +117,9 @@ class UserController extends Controller
 
     public function updatePassword(UserUpdatePasswordRequest $request) {
         try{
-            
+
             $user = Auth::user();
-            
+
             $user->fill(['password'=>$request->password])->save();
 
             return redirect('/account')->with('success','Tu contraseña fue actualizada correctamente');
