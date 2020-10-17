@@ -43,7 +43,7 @@
                             </a>
                             <div class="large-features-box-content">
                                 <div class="features-content">
-                                    <span style="font-size:13px; font-weight:800; color:#4da2fd !important;">{{$category->nombre}} ({{$category->productsCount()}})</span>
+                                    <span style="font-size:13px; font-weight:800; color:#4da2fd !important;">{{$category->nombre}}</span>
                                 </div>
                             </div>
                         </div>
