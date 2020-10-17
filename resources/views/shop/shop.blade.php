@@ -91,7 +91,7 @@
                             <h4><i class="ti-hand-point-right"></i>Filtrar por marca</h4>
                         </div>
                         <div class="company-brands">
-                            <ul class="no-ul-list">
+                            <ul class="no-ul-list" style="height: 400px; overflow-y:scroll;">
                                 @foreach($brands as $brand)
                                     <li>
                                         <input id="brand-{{$brand->id}}" class="checkbox-custom" name="checkbox-{{$brand->id}}" type="checkbox" checked="">
