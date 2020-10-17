@@ -88,7 +88,7 @@
 
                     <div class="side-widget">
                         <div class="side-widget-header border-0">
-                            <h4><i class="ti-hand-point-right"></i>Filtrar por modelo</h4>
+                            <h4><i class="ti-hand-point-right"></i>Filtrar por marca</h4>
                         </div>
                         <div class="company-brands">
                             <ul class="no-ul-list">

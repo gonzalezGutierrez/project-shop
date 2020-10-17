@@ -18,7 +18,7 @@ class CategoriesController extends Controller
     public function show($slug)
     {
         $category = Category::findWithSlug($slug);
-        $products = Product::getProductsWithCategoryId($category->id)->get();
+        $products = Product::getProductsWithCategoryId($category->id)->paginate(16);
         return view('shop.categories.show',compact('category','products'));
     }
 }

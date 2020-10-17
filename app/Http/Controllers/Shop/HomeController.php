@@ -42,4 +42,8 @@ class HomeController extends Controller
         return view('shop.about');
     }
 
+    public function contact() {
+        return view('shop.contact');
+    }
+
 }

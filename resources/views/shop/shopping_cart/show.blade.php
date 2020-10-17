@@ -20,7 +20,7 @@
     </div>
     <div class="clearfix"></div>
     <div class="container">
-        <div class="row mt-5">
+        <div class="row mt-5 mb-5">
             <div class="col-md-12">
                 <div class="alert alert-primary" style="border-radius: 0px;">
                     <span class="">En compras mayores a $2000.00 MXN el envio es gratuito</span>

@@ -61,7 +61,7 @@
                             <span class="posted_in">Categoria:
                                 <a href="{{asset('products-category/'.$product->category->slug)}}" rel="tag">{{$product->category->nombre}}</a>
 							</span>
-                            <span class="tagged_as">Modelo:
+                            <span class="tagged_as">Marca:
                                 <a href="#" rel="tag">{{$product->brand->nombre}}</a>
                             </span>
                         </div>

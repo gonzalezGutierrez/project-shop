@@ -2,7 +2,7 @@
 @section('title','Bienvenido')
 @section('content')
 
-    <div id="carouselExampleControls" data-interval="4000" class="carousel slide" data-ride="carousel">
+    <div id="carouselExampleControls" data-interval="6000" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img class="d-block w-100" src="{{asset('shop/sliders/s-1.png')}}" alt="First slide">
@@ -155,13 +155,13 @@
                                 @endforeach
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
+
     <section class="image-bg" style="background:#003b77 url({{asset('shop/assets/img/banner-55.png')}}) no-repeat; width: 100%; ">
         <div class="container">
             <div class="ht-40"></div>
@@ -217,6 +217,5 @@
         </div>
     </section>
     <div class="clearfix"></div>
-
 
 @stop

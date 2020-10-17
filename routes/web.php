@@ -61,6 +61,7 @@ Route::group(['namespace'=>'Shop','middleware'=>'set_shopping_cart'],function(){
     Route::get('member-pymes','HomeController@pymes');
     Route::get('/shop-general','HomeController@shop');
     Route::get('about','HomeController@about');
+    Route::get('contact','HomeController@contact');
 
     Route::resource('news','NewsController');
 
