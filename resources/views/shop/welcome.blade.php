@@ -43,8 +43,8 @@
                             </a>
                             <div class="large-features-box-content">
                                 <div class="features-content">
-                                    <h6>{{$category->nombre}}</a></h6>
-                                    <p>{{$category->productsCount()}} Producto(s)</p>
+                                    <span style="font-size:13px; font-weight:800; color:#4da2fd !important;">{{$category->nombre}}</span>
+                                    <span style="font-size:10px; font-weight:700; color:#003b77 !important;">{{$category->productsCount()}} Producto(s)</span>
                                 </div>
                             </div>
                         </div>
