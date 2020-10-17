@@ -75,7 +75,7 @@
                             <h4><i class="ti-hand-point-right"></i>Filtra por categorias</h4>
                         </div>
                         <div class="category">
-                            <ul class="no-ul-list">
+                            <ul class="no-ul-list" style="height: 400px; overflow-y:scroll;">
                                 @foreach($categories as $category)
                                     <li>
                                         <input id="checkbox-{{$category->id}}" class="checkbox-custom" name="checkbox-{{$category->id}}" type="checkbox" checked="">
