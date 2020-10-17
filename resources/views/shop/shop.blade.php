@@ -95,7 +95,7 @@
                                 @foreach($brands as $brand)
                                     <li>
                                         <input id="brand-{{$brand->id}}" class="checkbox-custom" name="checkbox-{{$brand->id}}" type="checkbox" checked="">
-                                        <label for="brand-{{$brand->id}}" class="checkbox-custom-label">{{$brand->nombre}}</label>
+                                        <label  style="font-size:14px; " for="brand-{{$brand->id}}" class="checkbox-custom-label">{{$brand->nombre}}</label>
                                     </li>
                                 @endforeach
                             </ul>
