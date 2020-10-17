@@ -47,7 +47,7 @@
                                     <div class="label-bg"></div>
                                 </div>
                                 <div class="zoom">
-                                    <a href="{{asset($category->url_imagen)}}" class="popup-box"  data-lightbox="image" data-title="{{$category->nombre}}">
+                                    <a href="{{asset($category->url_imagen)}}" style="width: 100%; height:400px !important;" class="popup-box"  data-lightbox="image" data-title="{{$category->nombre}}">
                                         <i class="ti-zoom-in"></i>
                                     </a>
                                 </div>
