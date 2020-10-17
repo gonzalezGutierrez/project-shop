@@ -79,7 +79,7 @@
                                 @foreach($categories as $category)
                                     <li>
                                         <input id="checkbox-{{$category->id}}" class="checkbox-custom" name="checkbox-{{$category->id}}" type="checkbox" checked="">
-                                        <label for="checkbox-{{$category->id}}" class="checkbox-custom-label">{{$category->nombre}}</label>
+                                        <label style="font-size:14px; " for="checkbox-{{$category->id}}" class="checkbox-custom-label">{{$category->nombre}}</label>
                                     </li>
                                 @endforeach
                             </ul>
