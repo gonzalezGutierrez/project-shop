@@ -42,7 +42,7 @@
                                 <img src="{{asset($category->url_imagen)}}" style="width: 100%; height: 200px;" alt="project">
                                 <div class="label">
                                     <div class="label-text">
-                                        <a href="{{asset('products-category/'.$category->slug)}}" style="font-size:13px; font-weight:800; color:#4da2fd !important;" class="text-title">{{$category->nombre}}</a>
+                                        <a href="{{asset('products-category/'.$category->slug)}}" style="font-size:13px; font-weight:800; color:#000 !important;" class="text-title">{{$category->nombre}}</a>
                                     </div>
                                     <div class="label-bg"></div>
                                 </div>
