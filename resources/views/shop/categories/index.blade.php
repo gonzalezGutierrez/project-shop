@@ -37,7 +37,7 @@
 
                     <div class="row">
                         @foreach($categories as $category)
-                            <div class="col-md-3 col-xs-12 col-sm-12 col-lg-3">
+                            <div class="col-md-3 mb-2 col-xs-12 col-sm-12 col-lg-3">
                                 <a href="{{asset('products-category/'.$category->slug)}}">
                                     <div class="card" style="border-top:3px solid #003b77;">
                                         <div class="card-header" style="padding:0px !important;">
