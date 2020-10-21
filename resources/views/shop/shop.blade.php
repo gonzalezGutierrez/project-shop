@@ -47,14 +47,8 @@
 
                 </div>
             </div>
-            <!-- Title & Breadcrumbs End -->
-
-            <!-- All Product List -->
             <div class="row">
-
-                <!-- Sidebar -->
-                <div class="col-lg-4 col-md-12 col-sm-12 mb-4">
-
+                <form action="{{asset('shop-general')}}" class="col-lg-4 col-md-12 col-sm-12 mb-4 method="get">
                     <div class="side-widget">
                         <div class="side-widget-header border-0">
                             <h4><i class="ti-search"></i>Buscar aquí</h4>
@@ -62,10 +56,7 @@
 
                         <div class="side-widget-body p-t-10">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Buscar producto">
-                                <span class="input-group-btn">
-											<button type="button" class="btn btn-primary btn-lg">Go</button>
-										</span>
+                                <input type="search" name="q_like" class="form-control" placeholder="Buscar producto">
                             </div>
                         </div>
                     </div>
@@ -104,7 +95,7 @@
 
                     <button class="btn btn-primary btn-sm"><i class="fa fa-search"></i> Filtrar</button>
 
-                </div>
+                </form>
 
                 <!-- All Product -->
                 <div class="col-lg-8 col-md-12 col-sm-12 mb-4">

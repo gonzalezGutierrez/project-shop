@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Shop;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
@@ -31,10 +33,13 @@ class HomeController extends Controller
         return view('shop.pymes');
     }
 
-    public function shop() {
+    public function shop(Request $request) {
+
         $categories = Category::getWithStatus('activo')->get();
         $brands     = $this->brand->getBrands('activo');
+
         $products   = $this->products->getProductsPaginate(16);
+
         return view('shop.shop',compact('categories','brands','products'));
     }
 
