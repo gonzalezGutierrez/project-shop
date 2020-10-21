@@ -36,14 +36,14 @@
                     <a href="{{asset('categories')}}" class="text-uppercase">Ver todo</a>
                 </div>
                 @foreach($categories as $category)
-                    <div class="col-lg-4 col-md-4 mb-4">
+                    <div class="col-lg-3 col-md-3 mb-4">
                         <div class="features-thumb-box">
                             <a href="{{asset('products-category/'.$category->slug)}}">
                                 <img src="{{asset($category->url_imagen)}}" style="width: 100%; height: 200px" class="img-responsive" alt="">
                             </a>
                             <div class="large-features-box-content">
                                 <div class="features-content">
-                                    <span style="font-size:13px; font-weight:800; color:#4da2fd !important;">{{$category->nombre}}</span>
+                                    <span style="font-size:14px; font-weight:800; color:#000 !important;">{{$category->nombre}}</span>
                                 </div>
                             </div>
                         </div>
