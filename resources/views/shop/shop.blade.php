@@ -93,7 +93,7 @@
                         </div>
                     </div>
 
-                    <button class="btn btn-primary btn-sm"><i class="fa fa-search"></i> Filtrar</button>
+                    <button class="btn btn-primary"><i class="fa fa-search"></i> Filtrar</button>
 
                 </form>
 
