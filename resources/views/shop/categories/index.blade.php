@@ -19,7 +19,7 @@
         </div>
     </div>
     <div class="clearfix"></div>
-    <section id="portfolio">
+    <section>
         <div class="container">
 
             <div class="row">
@@ -35,24 +35,33 @@
                 <div class="col-lg-12 col-md-12 col-xs-12">
 
 
-                    <div class="row portfolio-gallary">
+                    <div class="row">
                         @foreach($categories as $category)
-                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 port-item design development">
-                            <div class="portfolio-wrap portfolio-inner">
-                                <img src="{{asset($category->url_imagen)}}" style="width: 100%; height: 200px;" alt="project">
-                                <div class="label">
-                                    <div class="label-text">
-                                        <a href="{{asset('products-category/'.$category->slug)}}" style="font-size:13px; font-weight:800; color:#000 !important;" class="text-title">{{$category->nombre}}</a>
+                            <div class="col-md-3 col-xs-12 col-sm-12 col-lg-3">
+                                <a href="{{asset('products-category/'.$category->slug)}}">
+                                    <div class="card" style="border-top:3px solid #003b77;">
+                                        <div class="card-header" style="padding:0px !important;">
+                                            <img src="{{asset($category->url_imagen)}}" style="width: 100%; height: 200px;" alt="project">
+                                        </div>
+                                        <div class="card-body">
+                                            <span class="text-dark" style="font-size:16px; font-weight:bold;">{{$category->nombre}}</span>
+                                        </div>
                                     </div>
-                                    <div class="label-bg"></div>
-                                </div>
-                                <div class="zoom">
-                                    <a href="{{asset($category->url_imagen)}}" style="width: 100%; height:400px !important;" class="popup-box"  data-lightbox="image" data-title="{{$category->nombre}}">
-                                        <i class="ti-zoom-in"></i>
-                                    </a>
-                                </div>
+                                </a>
                             </div>
-                        </div>
+                            <!--<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 port-item design development">
+                                <a href="{{asset('products-category/'.$category->slug)}}" class="text-title">
+                                    <div class="portfolio-wrap portfolio-inner">
+                                        <img src="{{asset($category->url_imagen)}}" style="width: 100%; height: 200px;" alt="project">
+                                        <div class="label">
+                                            <div class="">
+                                                <span style="color:#000 !important;"></span>
+                                            </div>
+                                            <div class="label-bg"></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>-->
                         @endforeach
                     </div>
                 </div>
