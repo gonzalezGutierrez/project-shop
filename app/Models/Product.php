@@ -91,40 +91,32 @@ class Product extends Model
     public function scopeGetWithStatus( $query , $status ) {
         return $query->where('estatus',$status);
     }
+
     public function scopeFilter($query,$request) {
         return $query->filterWithCategory($request)
             ->filterWithBrands($request)
             ->filterWithLike($request->q_like);
     }
+
     public function scopeFilterWithCategory($query,$request) {
-
-        if (isset($request->all()['q_category']) == false) {
-            return ;
-        }
-
-        $arrayCategories = count($request->all()['q_category']);
-
-        return $query->when( count($arrayCategories)!= 0 , function($query) use($arrayCategories) {
-            return $query->whereIn('categoria_id',$arrayCategories);
+        $categoryId = $request->q_category;
+        return $query->when(!empty($categoryId), function($query) use($categoryId){
+            return $query->where('categoria_id',$categoryId);
         });
-
     }
+
     public function scopeFilterWithBrands($query,$request) {
 
-        if (isset($request->all()['q_brand']) == false) {
-            return ;
-        }
-
-        $arrayBrands = $request->all()['q_brand'];
-
-        return $query->when( size($arrayBrands)!= 0 , function($query) use($arrayBrands) {
-            return $query->whereIn('marca_id',$arrayBrands);
+        $brandId = $request->q_brand;
+        return $query->when(!empty($brandId), function($query) use($brandId){
+            return $query->where('marca_id',$brandId);
         });
 
     }
+
     public function scopeFilterWithLike($query,$like) {
         return $query->when(!empty($like) , function($query) use($like) {
-            return $query->when('nombre',"LIKE","%{$like}%");
+            return $query->where('nombre',"LIKE","%{$like}%");
         });
     }
 

@@ -39,7 +39,11 @@ class HomeController extends Controller
         $brands     = Brand::where('estatus','activo')->pluck('nombre','id');
         $products = $this->products->getProductsShopLike($request)->paginate(16);
 
-        return view('shop.shop',compact('categories','brands','products'));
+        $filter['like'] = $request->q_like;
+        $filter['category'] = $request->q_category;
+        $filter['brand'] = $request->q_brand;
+
+        return view('shop.shop',compact('categories','brands','products','filter'));
     }
 
     public function about() {

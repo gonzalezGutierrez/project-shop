@@ -60,7 +60,7 @@
 
                         <div class="side-widget-body p-t-10">
                             <div class="input-group">
-                                <input type="search" id="inputFiltrar" name="q"  class="form-control" placeholder="Buscar producto">
+                                <input type="search" name="q_like" value="{{$filter['like'] != null ?  $filter['like'] : ''}}"  class="form-control" placeholder="Buscar producto">
                             </div>
                         </div>
                     </div>
@@ -72,7 +72,7 @@
                         <div class="category">
 
                             <div class="form-group">
-                                {!! Form::select('q_category',$categories,'',['class'=>'form-control']) !!}
+                                {!! Form::select('q_category',$categories,$filter['category'] != null ? $filter['category'] : '' ,['class'=>'form-control']) !!}
                             </div>
 
                         </div>
@@ -84,12 +84,12 @@
                         </div>
                         <div class="company-brands">
                             <div class="form-group">
-                                {!! Form::select('q_brand',$brands,'',['class'=>'form-control']) !!}
+                                {!! Form::select('q_brand',$brands,$filter['brand'] != null ? $filter['brand'] : '',['class'=>'form-control']) !!}
                             </div>
                         </div>
                     </div>
 
-                    <button type="button" id="btnFiltrar" class="btn btn-primary"><i class="fa fa-search"></i> Filtrar</button>
+                    <button type="submit" id="btnFiltrar" class="btn btn-primary"><i class="fa fa-search"></i> Filtrar</button>
                 </form>
 
 
@@ -112,5 +112,4 @@
 @stop
 
 @section('js')
-    <script src="{{asset('shop/assets/js/buscador_tienda.js')}}"></script>
 @stop

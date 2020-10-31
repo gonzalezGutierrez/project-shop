@@ -22,7 +22,7 @@
     <list default="true" id="5bf3e63e-931a-4235-838a-c7045d367fdb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Shop/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Shop/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/shop/assets/js/buscador_tienda.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/shop/assets/js/buscador_tienda.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Product.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/shop/shop.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/shop/shop.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -228,7 +228,7 @@
       <workItem from="1600114542744" duration="34592000" />
       <workItem from="1600793982737" duration="31000" />
       <workItem from="1601516446743" duration="880000" />
-      <workItem from="1604153204970" duration="7171000" />
+      <workItem from="1604153204970" duration="8066000" />
     </task>
     <servers />
   </component>
