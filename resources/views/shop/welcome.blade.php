@@ -31,22 +31,20 @@
     <section>
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 mb-4">
+                <div class="col-lg-12 col-md-12 col-sm-12 mb- d-flex justify-content-between">
                     <h3 class="small-sec-title">Nuestras categorias</h3>
                     <a href="{{asset('categories')}}" class="text-uppercase">Ver todo</a>
                 </div>
                 @foreach($categories as $category)
-                    <div class="col-lg-3 col-md-3 mb-4">
-                        <div class="features-thumb-box">
-                            <a href="{{asset('products-category/'.$category->slug)}}">
-                                <img src="{{asset($category->url_imagen)}}" style="width: 100%; height: 200px" class="img-responsive" alt="">
-                            </a>
-                            <div class="large-features-box-content">
-                                <div class="features-content">
-                                    <span style="font-size:14px; font-weight:800; color:#000 !important;">{{$category->nombre}}</span>
+                    <div class="col-lg-4 col-xs-12 col-sm-12 col-md-4">
+                        <a href="{{asset('products-category/'.$category->slug)}}">
+                            <div class="large-features-box text-center mb-4 " style="padding: 0px !important;" data-aos="fade-up" data-aos-duration="1200">
+                                <div class=" d-table">
+                                    <img src="{{asset($category->url_imagen)}}" style="width: 100% !important; height:360px;" class="img-responsive" alt="">
                                 </div>
+                                <h3 class="mt-2"  style="margin-bottom: 5px !important;">{{$category->nombre}}</h3>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 @endforeach
             </div>

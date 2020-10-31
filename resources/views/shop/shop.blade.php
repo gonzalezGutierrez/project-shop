@@ -69,7 +69,7 @@
                             <ul class="no-ul-list" style="height: 400px; overflow-y:scroll;">
                                 @foreach($categories as $category)
                                     <li>
-                                        <input id="checkbox-{{$category->id}}" class="checkbox-custom" name="checkbox-{{$category->id}}" type="checkbox" checked="">
+                                        <input id="checkbox-{{$category->id}}" value="{{$category->id}}"  class="checkbox-custom" name="q_category[]" type="checkbox" checked="">
                                         <label style="font-size:14px; " for="checkbox-{{$category->id}}" class="checkbox-custom-label">{{$category->nombre}}</label>
                                     </li>
                                 @endforeach
@@ -85,7 +85,7 @@
                             <ul class="no-ul-list" style="height: 400px; overflow-y:scroll;">
                                 @foreach($brands as $brand)
                                     <li>
-                                        <input id="brand-{{$brand->id}}" class="checkbox-custom" name="checkbox-{{$brand->id}}" type="checkbox" checked="">
+                                        <input id="brand-{{$brand->id}}" class="checkbox-custom" value="{{$brand->id}}" name="q_brand[]" type="checkbox" checked="">
                                         <label  style="font-size:14px; " for="brand-{{$brand->id}}" class="checkbox-custom-label">{{$brand->nombre}}</label>
                                     </li>
                                 @endforeach
