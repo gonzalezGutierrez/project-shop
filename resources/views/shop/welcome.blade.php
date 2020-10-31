@@ -42,7 +42,7 @@
                                 <div class=" d-table">
                                     <img src="{{asset($category->url_imagen)}}" style="width: 100% !important; height:230px;" class="img-responsive" alt="">
                                 </div>
-                                <h3 class="mt-2"  style="margin-bottom: 5px !important;">{{$category->nombre}}</h3>
+                                <h3 class="mt-2"  style="margin-bottom: 5px !important;">{{$category->nombre}}</h3> <br>
                             </div>
                         </a>
                     </div>
