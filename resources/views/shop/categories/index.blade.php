@@ -37,31 +37,16 @@
 
                     <div class="row">
                         @foreach($categories as $category)
-                            <div class="col-md-3 mb-2 col-xs-12 col-sm-12 col-lg-3">
+                            <div class="col-lg-4 col-xs-12 col-sm-12 col-md-4">
                                 <a href="{{asset('products-category/'.$category->slug)}}">
-                                    <div class="card" style="border-top:3px solid #003b77;">
-                                        <div class="card-header" style="padding:0px !important;">
-                                            <img src="{{asset($category->url_imagen)}}" style="width: 100%; height: 200px;" alt="project">
+                                    <div class="large-features-box text-center mb-4 " style="padding: 0px !important;" data-aos="fade-up" data-aos-duration="1200">
+                                        <div class=" d-table">
+                                            <img src="{{asset($category->url_imagen)}}" style="width: 100% !important; height:230px;" class="img-responsive" alt="">
                                         </div>
-                                        <div class="card-body">
-                                            <span class="text-dark" style="font-size:16px; font-weight:bold;">{{$category->nombre}}</span>
-                                        </div>
+                                        <h3 class="mt-2"  style="margin-bottom: 5px !important;">{{$category->nombre}}</h3> <br>
                                     </div>
                                 </a>
                             </div>
-                            <!--<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 port-item design development">
-                                <a href="{{asset('products-category/'.$category->slug)}}" class="text-title">
-                                    <div class="portfolio-wrap portfolio-inner">
-                                        <img src="{{asset($category->url_imagen)}}" style="width: 100%; height: 200px;" alt="project">
-                                        <div class="label">
-                                            <div class="">
-                                                <span style="color:#000 !important;"></span>
-                                            </div>
-                                            <div class="label-bg"></div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>-->
                         @endforeach
                     </div>
                 </div>
