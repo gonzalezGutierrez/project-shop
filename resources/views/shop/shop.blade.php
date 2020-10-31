@@ -72,7 +72,7 @@
                         <div class="category">
 
                             <div class="form-group">
-                                {!! Form::select('q_category',$categories,$filter['category'] != null ? $filter['category'] : '' ,['class'=>'form-control']) !!}
+                                {!! Form::select('q_category',$categories,$filter['category'] != null ? $filter['category'] : '' ,['class'=>'form-control','placeholder'=>'Selecciona un elemento']) !!}
                             </div>
 
                         </div>
@@ -84,7 +84,7 @@
                         </div>
                         <div class="company-brands">
                             <div class="form-group">
-                                {!! Form::select('q_brand',$brands,$filter['brand'] != null ? $filter['brand'] : '',['class'=>'form-control']) !!}
+                                {!! Form::select('q_brand',$brands,$filter['brand'] != null ? $filter['brand'] : '',['class'=>'form-control','placeholder'=>'Selecciona un elemento']) !!}
                             </div>
                         </div>
                     </div>
