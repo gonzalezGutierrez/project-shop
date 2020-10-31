@@ -35,9 +35,8 @@ class HomeController extends Controller
 
     public function shop(Request $request) {
 
-        $categories = Category::getWithStatus('activo')->get();
-        $brands     = $this->brand->getBrands('activo');
-
+        $categories = Category::where('estatus','activo')->pluck('nombre','id');
+        $brands     = Brand::where('estatus','activo')->pluck('nombre','id');
         $products = $this->products->getProductsShopLike($request)->paginate(16);
 
         return view('shop.shop',compact('categories','brands','products'));
