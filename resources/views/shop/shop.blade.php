@@ -48,7 +48,11 @@
                 </div>
             </div>
             <div class="row">
-                <form action="{{asset('shop-general')}}" class="col-lg-4 col-md-12 col-sm-12 mb-4 method="get">
+                <!--<form action="{{asset('shop-general')}}" class="col-lg-4 col-md-12 col-sm-12 mb-4" method="get">
+
+
+                </form>-->
+                <div class="col-lg-4 col-md-12 col-sm-12 mb-4">
                     <div class="side-widget">
                         <div class="side-widget-header border-0">
                             <h4><i class="ti-search"></i>Buscar aquí</h4>
@@ -56,7 +60,7 @@
 
                         <div class="side-widget-body p-t-10">
                             <div class="input-group">
-                                <input type="search" name="q_like" class="form-control" placeholder="Buscar producto">
+                                <input type="search" id="inputFiltrar" name="q_like" class="form-control" placeholder="Buscar producto">
                             </div>
                         </div>
                     </div>
@@ -66,10 +70,10 @@
                             <h4><i class="ti-hand-point-right"></i>Filtra por categorias</h4>
                         </div>
                         <div class="category">
-                            <ul class="no-ul-list" style="height: 400px; overflow-y:scroll;">
+                            <ul class="no-ul-list" style="height:130px; overflow-y:scroll;">
                                 @foreach($categories as $category)
                                     <li>
-                                        <input id="checkbox-{{$category->id}}" value="{{$category->id}}"  class="checkbox-custom" name="q_category[]" type="checkbox" checked="">
+                                        <input id="checkbox-{{$category->id}}" value="{{$category->id}}"  class="checkbox-custom" name="q_category[]" type="checkbox">
                                         <label style="font-size:14px; " for="checkbox-{{$category->id}}" class="checkbox-custom-label">{{$category->nombre}}</label>
                                     </li>
                                 @endforeach
@@ -82,10 +86,10 @@
                             <h4><i class="ti-hand-point-right"></i>Filtrar por marca</h4>
                         </div>
                         <div class="company-brands">
-                            <ul class="no-ul-list" style="height: 400px; overflow-y:scroll;">
+                            <ul class="no-ul-list" style="height: 130px; overflow-y:scroll;">
                                 @foreach($brands as $brand)
                                     <li>
-                                        <input id="brand-{{$brand->id}}" class="checkbox-custom" value="{{$brand->id}}" name="q_brand[]" type="checkbox" checked="">
+                                        <input id="brand-{{$brand->id}}" class="checkbox-custom" value="{{$brand->id}}" name="q_brand[]" type="checkbox" >
                                         <label  style="font-size:14px; " for="brand-{{$brand->id}}" class="checkbox-custom-label">{{$brand->nombre}}</label>
                                     </li>
                                 @endforeach
@@ -93,9 +97,10 @@
                         </div>
                     </div>
 
-                    <button class="btn btn-primary"><i class="fa fa-search"></i> Filtrar</button>
+                    <button type="button" id="btnFiltrar" class="btn btn-primary"><i class="fa fa-search"></i> Filtrar</button>
+                </div>
 
-                </form>
+
 
                 <!-- All Product -->
                 <div class="col-lg-8 col-md-12 col-sm-12 mb-4">
@@ -112,4 +117,8 @@
         </div>
     </section>
     <div class="clearfix"></div>
+@stop
+
+@section('js')
+    <script src="{{asset('shop/assets/js/buscador_tienda.js')}}"></script>
 @stop
